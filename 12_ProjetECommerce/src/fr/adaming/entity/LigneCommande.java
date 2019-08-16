@@ -1,15 +1,23 @@
 package fr.adaming.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+@Entity(name="ligneCommande")
+@Table(name="lignesCommande")
 public class LigneCommande {
 	
 	
 	//déclaration des attributs
-	private int quantité;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int idLigneCommande;
+	private int quantite;
 	private double prix;
+	
 
 	
 	
@@ -22,20 +30,20 @@ public class LigneCommande {
 
 	public LigneCommande(int quantité, double prix) {
 		super();
-		this.quantité = quantité;
+		this.quantite = quantite;
 		this.prix = prix;
 	}
 
 
 	//getters et setters 
 
-	public int getQuantité() {
-		return quantité;
+	public int getQuantite() {
+		return quantite;
 	}
 
 
-	public void setQuantité(int quantité) {
-		this.quantité = quantité;
+	public void setQuantité(int quantite) {
+		this.quantite = quantite;
 	}
 
 
@@ -52,7 +60,7 @@ public class LigneCommande {
 
 	@Override
 	public String toString() {
-		return "LigneCommande [quantité=" + quantité + ", prix=" + prix + "]";
+		return "LigneCommande [quantité=" + quantite + ", prix=" + prix + "]";
 	}
 
 
