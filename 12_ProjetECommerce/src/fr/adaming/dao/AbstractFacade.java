@@ -1,7 +1,15 @@
 package fr.adaming.dao;
 
+import java.util.List;
+
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.Root;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.CriteriaQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AbstractFacade<T> {
@@ -44,4 +52,23 @@ public abstract class AbstractFacade<T> {
 			sf.getCurrentSession().save(t);		
 		}
 
+		public void update(T t) {
+			sf.getCurrentSession().update(t);
+		}
+		
+		public void delete(T t) {
+			sf.getCurrentSession().remove(t);
+		}
+		
+		public T getById(T id) {
+			return sf.getCurrentSession().find(entity, id);
+		}
+		
+		public List<T> getAll(){
+			CriteriaBuilder criteriaBuilder = sf.getCriteriaBuilder();
+			javax.persistence.criteria.CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(entity);
+			return null;
+			
+			
+		}
 }
