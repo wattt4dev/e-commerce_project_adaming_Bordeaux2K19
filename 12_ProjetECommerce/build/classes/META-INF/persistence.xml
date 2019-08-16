@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="12_ProjetECommerce">
+<<<<<<< HEAD
+=======
+		<class>fr.adaming.entity.Categorie</class>
+		<class>fr.adaming.entity.Client</class>
+		<class>fr.adaming.entity.Commande</class>
+		<class>fr.adaming.entity.LigneCommande</class>
+		<class>fr.adaming.entity.Produit</class>
+		<class>fr.adaming.entity.Role</class>
+		<class>fr.adaming.entity.User</class>
+>>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
 	</persistence-unit>
 </persistence>
