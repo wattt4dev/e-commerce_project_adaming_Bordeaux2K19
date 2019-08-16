@@ -1,5 +1,7 @@
 package fr.adaming.entity;
 
+import java.util.List;
+
 public class User {
 	
 	//Attributs

@@ -1,17 +1,26 @@
 package fr.adaming.entity;
 
 import java.util.Arrays;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="categorie")
+@Table(name="categories")
 public class Categorie {
 	
 	
 	//declaration des attributs
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long idCategorie;
 	private String nomCategorie;
 	private byte[] photo;
 	private String description;
-	
-	
 	
 	//constructeurs (vide et chargé)
 	

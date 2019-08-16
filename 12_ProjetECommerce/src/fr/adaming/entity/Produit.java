@@ -1,9 +1,25 @@
 package fr.adaming.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity(name="produit")
+@Table(name="produits")
 public class Produit {
 	
 	
 	//Attributs
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idProduit;
 	private String designation;
 	private String description;
@@ -12,6 +28,13 @@ public class Produit {
 	private boolean selectionne;
 	private String photo;
 
+	//Associations
+	@ManyToMany(mappedBy="listeProduitCommande")
+	private List<Commande> listeCommandeDeProduit;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="catgorie_id",referencedColumnName="idCategorie")
+	private Categorie categorie;
 	
 	//Constructeurs
 	public Produit() {

@@ -1,12 +1,31 @@
 package fr.adaming.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity(name="client")
+@Table(name="clients")
 public class Client {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idClient;
 	private String nomClient;
 	private String adresse;
 	private String mail;
 	private String telephone;
+	
+	//Associations
+	@OneToMany(mappedBy="client", cascade=CascadeType.ALL)
+	private List<Commande> listeCommande;
+	
 	
 	//Constructeurs
 	

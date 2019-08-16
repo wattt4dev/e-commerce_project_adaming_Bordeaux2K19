@@ -1,13 +1,40 @@
 package fr.adaming.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity(name="commande")
+@Table(name="commandes")
 public class Commande {
 	
 	
 	//Attributs
-	private Long idcommande;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long idCommande;
 	private Date dateCommande;
+	
+	//Associations
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="commande_id", referencedColumnName="idClient")
+	private Client client;
+	
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="produit_assos_commande",
+				joinColumns=@JoinColumn(name="idCommande"),
+				inverseJoinColumns=@JoinColumn(name="idProduit"))
+	private List<Produit> listeProduitCommande;
 	
 	//Constructeur
 	public Commande() {
@@ -19,20 +46,20 @@ public class Commande {
 		this.dateCommande = dateCommande;
 	}
 
-	public Commande(Long idcommande, Date dateCommande) {
+	public Commande(Long idCommande, Date dateCommande) {
 		super();
-		this.idcommande = idcommande;
+		this.idCommande = idCommande;
 		this.dateCommande = dateCommande;
 	}
 
 	
 	//Getters et Setters
-	public Long getIdcommande() {
-		return idcommande;
+	public Long getIdCommande() {
+		return idCommande;
 	}
 
-	public void setIdcommande(Long idcommande) {
-		this.idcommande = idcommande;
+	public void setIdCommande(Long idCommande) {
+		this.idCommande = idCommande;
 	}
 
 	public Date getDateCommande() {
