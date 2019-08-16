@@ -33,7 +33,7 @@ public class Produit {
 	private List<Commande> listeCommandeDeProduit;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="catgorie_id",referencedColumnName="idCategorie")
+	@JoinColumn(name="categorie_id",referencedColumnName="idCategorie")
 	private Categorie categorie;
 	
 	//Constructeurs
