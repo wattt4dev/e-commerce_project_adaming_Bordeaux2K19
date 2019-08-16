@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity(name="commande")
@@ -30,11 +31,8 @@ public class Commande {
 	@JoinColumn(name="commande_id", referencedColumnName="idClient")
 	private Client client;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="produit_assos_commande",
-				joinColumns=@JoinColumn(name="idCommande"),
-				inverseJoinColumns=@JoinColumn(name="idProduit"))
-	private List<Produit> listeProduitCommande;
+	@OneToMany(mappedBy="commande", cascade=CascadeType.ALL)
+	private List<LigneCommande> listeLigneCommande;
 	
 	//Constructeur
 	public Commande() {

@@ -1,9 +1,14 @@
 package fr.adaming.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name="ligneCommande")
@@ -18,6 +23,14 @@ public class LigneCommande {
 	private int quantite;
 	private double prix;
 	
+	//Association
+	@ManyToOne
+	@JoinColumn(name="commande_id", referencedColumnName="idCommande")
+	private Commande commande;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="produit_id", referencedColumnName="idProduit")
+	private Produit produit;
 
 	
 	

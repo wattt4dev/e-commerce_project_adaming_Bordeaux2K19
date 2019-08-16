@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name="produit")
@@ -29,12 +31,13 @@ public class Produit {
 	private String photo;
 
 	//Associations
-	@ManyToMany(mappedBy="listeProduitCommande")
-	private List<Commande> listeCommandeDeProduit;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="categorie_id",referencedColumnName="idCategorie")
 	private Categorie categorie;
+	
+	@OneToOne(mappedBy="produit", cascade=CascadeType.ALL)
+	private LigneCommande ligneCommande;
 	
 	//Constructeurs
 	public Produit() {
