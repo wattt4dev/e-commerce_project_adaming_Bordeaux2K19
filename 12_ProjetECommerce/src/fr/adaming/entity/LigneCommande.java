@@ -1,5 +1,10 @@
 package fr.adaming.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity(name="ligneCommande")
+@Table(name="ligneCommandes")
 public class LigneCommande {
 	
 	
