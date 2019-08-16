@@ -43,6 +43,13 @@ public class LigneCommande {
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "LigneCommande [quantité=" + quantité + ", prix=" + prix + "]";
+	}
 	
 	
 	
