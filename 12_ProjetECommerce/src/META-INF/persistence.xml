@@ -4,7 +4,6 @@
 		<class>fr.adaming.entity.Categorie</class>
 		<class>fr.adaming.entity.Client</class>
 		<class>fr.adaming.entity.Commande</class>
-		<class>fr.adaming.entity.LigneCommande</class>
 		<class>fr.adaming.entity.Produit</class>
 		<class>fr.adaming.entity.Role</class>
 		<class>fr.adaming.entity.User</class>
