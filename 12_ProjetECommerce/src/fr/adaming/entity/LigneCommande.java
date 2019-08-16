@@ -46,6 +46,13 @@ public class LigneCommande {
 
 
 
+	@Override
+	public String toString() {
+		return "LigneCommande [quantité=" + quantité + ", prix=" + prix + "]";
+	}
+
+
+
 
 	
 	
