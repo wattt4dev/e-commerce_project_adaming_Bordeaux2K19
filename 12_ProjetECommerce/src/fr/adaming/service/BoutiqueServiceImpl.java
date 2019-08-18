@@ -23,7 +23,7 @@ public class BoutiqueServiceImpl implements ICategorieService {
 	}
 
 	@Override
-	public void supprimerCategorie(int idCategorie) {
+	public void supprimerCategorie(Long idCategorie) {
 		categorieDAO.delete(idCategorie);
 
 	}
@@ -47,7 +47,7 @@ public class BoutiqueServiceImpl implements ICategorieService {
 	}
 	
 	//Méthodes propres à Categorie
-	public Categorie getCategorieById(int idCategorie) {
+	public Categorie getCategorieById(Long idCategorie) {
 		return categorieDAO.findById(idCategorie);
 	}
 }
