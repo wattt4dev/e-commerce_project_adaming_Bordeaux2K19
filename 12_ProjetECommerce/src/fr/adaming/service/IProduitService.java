@@ -7,5 +7,7 @@ import fr.adaming.entity.Produit;
 public interface IProduitService {
 	
 	public List<Produit> getAllService();
+	
+	 public void addService(Produit p);
 
 }

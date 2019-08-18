@@ -11,8 +11,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.CriteriaQuery;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+@Repository
 public abstract class AbstractFacade<T> {
 	
 	//1. Déclaration de l'entité
@@ -29,7 +31,7 @@ public abstract class AbstractFacade<T> {
 		}
 		
 		//attribut de dao
-		
+		@Autowired	
 		private SessionFactory sf;
 		
 		//getters et setters

@@ -3,10 +3,12 @@ package fr.adaming.dao;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.entity.Produit;
 
+@Repository
 public class ProduitFacade extends AbstractFacade<Produit>{
 
 	
@@ -30,7 +32,7 @@ public class ProduitFacade extends AbstractFacade<Produit>{
 	
 	
 	//Méthodes propres à Produit
-	
+
 	
 	//GetAll les produits
 	

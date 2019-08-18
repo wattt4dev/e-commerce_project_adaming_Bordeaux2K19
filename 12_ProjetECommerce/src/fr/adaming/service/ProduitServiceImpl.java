@@ -3,10 +3,12 @@ package fr.adaming.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import fr.adaming.dao.ProduitFacade;
 import fr.adaming.entity.Produit;
 
+@Service //Déclaration de la classe comme Bean spring
 public class ProduitServiceImpl implements IProduitService{
 
 	// déclaration de la DAO 
@@ -18,5 +20,14 @@ public class ProduitServiceImpl implements IProduitService{
 		
 		return pf.getAll();
 	}
+
+	@Override
+	public void addService(Produit p) {
+		pf.add(p);
+	}
+
+
  
+	
+	
 }
