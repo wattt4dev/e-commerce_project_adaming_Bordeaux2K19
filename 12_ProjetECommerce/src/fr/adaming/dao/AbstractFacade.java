@@ -28,7 +28,7 @@ public abstract class AbstractFacade<T> {
 			this.entity = entity;
 		}
 		
-		//attirbut de dao
+		//attribut de dao
 		
 		private SessionFactory sf;
 		
