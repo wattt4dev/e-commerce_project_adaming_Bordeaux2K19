@@ -20,9 +20,12 @@ public class AppTestCategorie {
 		
 			//Ajouter une catégorie
 		byte[] photo = {15,12,14};
-		Categorie categorie = new Categorie("Appareil Photo", photo, "Appareil Photo numérique");
+		Categorie categorie = new Categorie();
 		categorieService.ajouterCategorie(categorie);
 		
+			//Récupérer une catégorie
+		Categorie categorie2 = categorieService.getCategorieById(1);
+		System.out.println(categorie2);
 		
 		
 	}//end main

@@ -45,5 +45,9 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	//Méthodes propres à Categorie
+	public Categorie getCategorieById(int idCategorie) {
+		return categorieDAO.findById(idCategorie);
+	}
 }

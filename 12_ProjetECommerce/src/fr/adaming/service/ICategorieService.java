@@ -11,5 +11,8 @@ public interface IAdminCategorieService {
 	public void modifierCategorie(Categorie categorie);
 	public void ajouterUser(User user);
 	public void attribueRole(Role role, int idUser);
+	
+	//Méthodes propres à catégorie
+	public Categorie getCategorieById (int idCategorie);
 
 }
