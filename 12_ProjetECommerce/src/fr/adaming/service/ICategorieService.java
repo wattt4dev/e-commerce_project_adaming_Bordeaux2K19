@@ -1,5 +1,7 @@
 package fr.adaming.service;
 
+import java.util.List;
+
 import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
@@ -14,5 +16,6 @@ public interface ICategorieService {
 	
 	//Méthodes propres à catégorie
 	public Categorie getCategorieById (Long idCategorie);
+	public List<Categorie> getAllCategorie();
 
 }

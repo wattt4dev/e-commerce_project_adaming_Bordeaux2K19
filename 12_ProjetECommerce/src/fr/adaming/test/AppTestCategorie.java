@@ -1,9 +1,11 @@
 package fr.adaming.test;
 
-import org.omg.CORBA.PRIVATE_MEMBER;
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.adaming.entity.Categorie;
-import fr.adaming.service.BoutiqueServiceImpl;
 import fr.adaming.service.ICategorieService;
 
 public class AppTestCategorie {
@@ -14,21 +16,71 @@ public class AppTestCategorie {
 		//===================== Test des méthodes Catégorie à partir de Service =======================
 		//=============================================================================================
 
-			//Déclaration du Service Categorie
+			//Création du conteneur Spring
+		ApplicationContext conteneurSpring = new ClassPathXmlApplicationContext("applicationContextTest.xml");
 		
-		ICategorieService categorieService = new BoutiqueServiceImpl();
+			//Récupération du bean Service de Catégorie
+		ICategorieService categorieService = (ICategorieService) conteneurSpring.getBean("boutiqueServiceImpl");
 		
-			//Ajouter une catégorie
+			//================================================================================
+			//=========================Ajout d'une nouvelle catégorie=========================
+			//================================================================================
 		
-		Categorie categorie = new Categorie();
-		categorieService.ajouterCategorie(categorie);
+				//Instanciation d'un objet de type Categorie
+		Categorie categorie = new Categorie("Appareil Photo", "Prends des photos");
+		Categorie categorie2 = new Categorie("Ordinateur portable", "Ordinateur fixe mais transportable, pratique !!");
 		
-			//Récupérer une catégorie
-		Categorie categorie2 = categorieService.getCategorieById(1);
-		for (byte b : photo) {
+				//Ajout de l'objet dans la DataBase
+//		categorieService.ajouterCategorie(categorie);
+//		categorieService.ajouterCategorie(categorie2);
+//		categorieService.ajouterCategorie(categorie2);
+//		categorieService.ajouterCategorie(categorie2);
+//		categorieService.ajouterCategorie(categorie2);
+//		categorieService.ajouterCategorie(categorie2);
+//		categorieService.ajouterCategorie(categorie2);
+//		
 			
+			//================================================================================
+			//==========================Modification d'une catégorie==========================
+			//================================================================================
+		
+//		Categorie categorie3 = categorieService.getCategorieById((long) 1);
+//		categorie3.setNomCategorie("Appareil Photo Reflexe");
+//		categorieService.modifierCategorie(categorie3);
+//		
+		
+			//================================================================================
+			//==========================Suppression d'une catégorie===========================
+			//================================================================================
+		
+//		categorieService.supprimerCategorie((long) 3);
+//		categorieService.supprimerCategorie((long) 4);
+//		categorieService.supprimerCategorie((long) 5);
+//		categorieService.supprimerCategorie((long) 6);
+//			
+		
+			//================================================================================
+			//==========================Récupération d'une catégorie==========================
+			//================================================================================
+		
+		Categorie categorie4 = categorieService.getCategorieById((long) 1);
+		System.out.println("\n\t ===================== Get Categorie By Id =====================");
+		System.out.println("\t\t - "+categorie4);
+		System.out.println("\t ===============================================================");
+		
+		
+			//================================================================================
+			//=======================Récupération Liste d'une catégorie=======================
+			//================================================================================
+		
+		List<Categorie> categories = categorieService.getAllCategorie();
+		System.out.println("\n\t ===================== Get All Categorie =====================");
+		for (Categorie categorieOut : categories) {
+			System.out.println("\t\t - "+categorieOut);
 		}
-		System.out.println(categorie2);
+		System.out.println("\t =============================================================");
+		
+		
 		
 		
 	}//end main

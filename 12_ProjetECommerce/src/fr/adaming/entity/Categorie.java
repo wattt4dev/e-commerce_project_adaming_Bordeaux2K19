@@ -17,7 +17,7 @@ public class Categorie {
 	//declaration des attributs
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idCategorie;
+	private Long idCategorie;
 	private String nomCategorie;
 	private byte[] photo;
 	private String description;
@@ -27,6 +27,14 @@ public class Categorie {
 	public Categorie() {
 		super();
 	}
+	
+
+	public Categorie(String nomCategorie, String description) {
+		super();
+		this.nomCategorie = nomCategorie;
+		this.description = description;
+	}
+
 
 	public Categorie(String nomCategorie, byte[] photo, String description) {
 		super();
@@ -35,7 +43,7 @@ public class Categorie {
 		this.description = description;
 	}
 
-	public Categorie(long idCategorie, String nomCategorie, byte[] photo, String description) {
+	public Categorie(Long idCategorie, String nomCategorie, byte[] photo, String description) {
 		super();
 		this.idCategorie = idCategorie;
 		this.nomCategorie = nomCategorie;
@@ -51,7 +59,7 @@ public class Categorie {
 		return idCategorie;
 	}
 
-	public void setIdCategorie(long idCategorie) {
+	public void setIdCategorie(Long idCategorie) {
 		this.idCategorie = idCategorie;
 	}
 
