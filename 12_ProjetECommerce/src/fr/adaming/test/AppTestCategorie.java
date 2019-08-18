@@ -19,12 +19,15 @@ public class AppTestCategorie {
 		ICategorieService categorieService = new BoutiqueServiceImpl();
 		
 			//Ajouter une catégorie
-		byte[] photo = {15,12,14};
+		
 		Categorie categorie = new Categorie();
 		categorieService.ajouterCategorie(categorie);
 		
 			//Récupérer une catégorie
 		Categorie categorie2 = categorieService.getCategorieById(1);
+		for (byte b : photo) {
+			
+		}
 		System.out.println(categorie2);
 		
 		
