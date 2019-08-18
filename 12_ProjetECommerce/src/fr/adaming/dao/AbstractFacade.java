@@ -45,10 +45,6 @@ public abstract class AbstractFacade<T> {
 		
 		//4.Déclaration des méthodes communes à toute entité
 		
-		/**
-		 * Permet d'ajouter une entité
-		 * @param t
-		 */
 		
 		@Transactional
 		public void add(T t){
@@ -61,13 +57,13 @@ public abstract class AbstractFacade<T> {
 		}
 		
 		@Transactional
-		public void delete(int id) {
-			T t = sf.getCurrentSession().get(entity, id);
+		public void delete(Long idCategorie) {
+			T t = sf.getCurrentSession().get(entity, idCategorie);
 			sf.getCurrentSession().delete(t);
 		}	
 		
 		@Transactional(readOnly=true)
-		public T findById(int id){			
+		public T findById(Long id){			
 			return sf.getCurrentSession().get(entity, id);
 		}
 

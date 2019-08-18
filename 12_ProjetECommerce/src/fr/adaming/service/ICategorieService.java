@@ -7,12 +7,12 @@ import fr.adaming.entity.User;
 public interface ICategorieService {
 	
 	public void ajouterCategorie(Categorie categorie);
-	public void supprimerCategorie(int idCategorie);
+	public void supprimerCategorie(Long idCategorie);
 	public void modifierCategorie(Categorie categorie);
 	public void ajouterUser(User user);
 	public void attribueRole(Role role, int idUser);
 	
 	//Méthodes propres à catégorie
-	public Categorie getCategorieById (int idCategorie);
+	public Categorie getCategorieById (Long idCategorie);
 
 }

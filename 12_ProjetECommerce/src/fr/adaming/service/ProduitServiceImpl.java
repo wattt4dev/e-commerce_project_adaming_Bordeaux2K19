@@ -26,6 +26,16 @@ public class ProduitServiceImpl implements IProduitService{
 		pf.add(p);
 	}
 
+	@Override
+	public void updateService(Produit p) {
+		pf.update(p);
+	}
+
+	@Override
+	public Produit findByIdService(Long id) {
+		return pf.findById(id);
+	}
+
 
  
 	
