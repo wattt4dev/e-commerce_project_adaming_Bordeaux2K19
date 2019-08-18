@@ -3,6 +3,7 @@ package fr.adaming.dao;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +18,8 @@ public class ProduitFacade extends AbstractFacade<Produit>{
 		super(Produit.class);
 	}
 	
-	//attirbut de dao	
+	//attirbut de dao
+	@Autowired	
 	private SessionFactory sf;
 	
 	//getters et setters
@@ -31,13 +33,14 @@ public class ProduitFacade extends AbstractFacade<Produit>{
 	
 	
 	
-	//Méthodes propres à Produit
+	//=================Méthodes propres à Produit ==========================//
 
 	
 	//GetAll les produits
 	
 	@Transactional(readOnly=true)
 	public List<Produit> getAll(){
+		
 		return sf.getCurrentSession().createQuery("FROM produit p").getResultList();			
 		
 	}

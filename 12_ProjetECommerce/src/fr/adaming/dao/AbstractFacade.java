@@ -66,11 +66,6 @@ public abstract class AbstractFacade<T> {
 		public T findById(Long id){			
 			return sf.getCurrentSession().get(entity, id);
 		}
-
-// Vu que dans cette méthode il y a une requête sql, je pense qu'il faut la mettre direct dans l'implémentation		
-//		@Transactional(readOnly=true)
-//		public List<T> getAll(){
-//			return sf.getCurrentSession().createQuery("FROM T").getResultList();			
-//			
+			
 //		}
 }

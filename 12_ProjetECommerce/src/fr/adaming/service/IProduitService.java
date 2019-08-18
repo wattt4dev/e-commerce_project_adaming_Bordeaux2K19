@@ -13,5 +13,9 @@ public interface IProduitService {
 	 public void updateService(Produit p);
 	 
 	 public Produit findByIdService(Long i);
+	 
+	 public void deleteService(Long idCategorie);
+	 
+	 
 
 }

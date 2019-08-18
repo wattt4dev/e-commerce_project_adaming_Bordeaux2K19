@@ -43,24 +43,30 @@ public class AppTestProduit {
 		
 		//5. Modification d'un produit
 		// ------------------------------------------------------------------------------------------
-				System.out.println(" ");
-				System.out.println("------------------------ UPDATE Produit  ------------------------------------");
-				Produit p = produitService.findByIdService((long) 4);
-				System.out.println("\t - Before Update : " + p.getDescription());
-				p.setDescription("C'est un test");
-				System.out.println(p.getDescription());
-				produitService.updateService(p);
-				System.out.println("\t - After Update : " + produitService.findByIdService((long) 4).getDescription());
-		
-		
-//		// 5. get all produits
-//				// ------------------------------------------------------------------------------------------
 //				System.out.println(" ");
-//				System.out.println("------------------------ GET ALL Produits  ------------------------------------");
-//				for (Produit produit : produitService.getAllService()) {
-//
-//					System.out.println("\t - " + produit.getPrix() + " " + produit.getDescription());
-//				}
+//				System.out.println("------------------------ UPDATE Produit  ------------------------------------");
+//				Produit p = produitService.findByIdService((long) 4);
+//				System.out.println("\t - Before Update : " + p.getDescription());
+//				p.setDescription("C'est un test");
+//				System.out.println(p.getDescription());
+//				produitService.updateService(p);
+//				System.out.println("\t - After Update : " + produitService.findByIdService((long) 4).getDescription());
+		
+		//6. Suppression d'un produit
+		// ------------------------------------------------------------------------------------------
+//				produitService.deleteService((long) 3);
+				
+
+		//==============    Méthodes propres à produit =======================================//			
+		
+		// 7. get all produits
+		// ------------------------------------------------------------------------------------------
+				System.out.println(" ");
+				System.out.println("------------------------ GET ALL Produits  ------------------------------------");
+				for (Produit produit : produitService.getAllService()) {
+
+					System.out.println("\t - " + produit.getPrix() + " " + produit.getDescription());
+				}
 		
 	}
 

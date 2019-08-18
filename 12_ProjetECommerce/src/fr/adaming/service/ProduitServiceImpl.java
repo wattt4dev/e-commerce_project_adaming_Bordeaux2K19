@@ -16,8 +16,7 @@ public class ProduitServiceImpl implements IProduitService{
 	private ProduitFacade pf;
 	
 	@Override
-	public List<Produit> getAllService() {
-		
+	public List<Produit> getAllService() {		
 		return pf.getAll();
 	}
 
@@ -34,6 +33,12 @@ public class ProduitServiceImpl implements IProduitService{
 	@Override
 	public Produit findByIdService(Long id) {
 		return pf.findById(id);
+	}
+
+	@Override
+	public void deleteService(Long idCategorie) {
+		pf.delete(idCategorie);
+		
 	}
 
 
