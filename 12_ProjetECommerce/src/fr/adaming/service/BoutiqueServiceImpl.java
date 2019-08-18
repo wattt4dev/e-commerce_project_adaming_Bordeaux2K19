@@ -6,7 +6,7 @@ import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
 
-public class BoutiqueServiceImpl implements IAdminCategorieService {
+public class BoutiqueServiceImpl implements ICategorieService {
 	
 	//Déclaration de la relation avec DAO
 	private GestionCategorieDAO categorieDAO;

@@ -4,7 +4,7 @@ import org.omg.CORBA.PRIVATE_MEMBER;
 
 import fr.adaming.entity.Categorie;
 import fr.adaming.service.BoutiqueServiceImpl;
-import fr.adaming.service.IAdminCategorieService;
+import fr.adaming.service.ICategorieService;
 
 public class AppTestCategorie {
 	
@@ -16,7 +16,7 @@ public class AppTestCategorie {
 
 			//Déclaration du Service Categorie
 		
-		IAdminCategorieService categorieService = new BoutiqueServiceImpl();
+		ICategorieService categorieService = new BoutiqueServiceImpl();
 		
 			//Ajouter une catégorie
 		byte[] photo = {15,12,14};
