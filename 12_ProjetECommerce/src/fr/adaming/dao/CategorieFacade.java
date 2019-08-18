@@ -16,7 +16,7 @@ import fr.adaming.entity.Categorie;
  *
  */
 @Repository
-public class GestionCategorieDAO extends AbstractFacade<Categorie> {
+public class CategorieFacade extends AbstractFacade<Categorie> {
 
 	// Déclaration d'une SessionFactory
 	@Autowired
@@ -32,7 +32,7 @@ public class GestionCategorieDAO extends AbstractFacade<Categorie> {
 	}
 
 	// Constructeur vide
-	public GestionCategorieDAO() {
+	public CategorieFacade() {
 		super(Categorie.class);
 	}// end constructeur vide GestionCategorieDAO
 
