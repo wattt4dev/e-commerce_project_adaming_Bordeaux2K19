@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.CriteriaQuery;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 public abstract class AbstractFacade<T> {
 	
@@ -47,28 +48,31 @@ public abstract class AbstractFacade<T> {
 		 * @param t
 		 */
 		
-		
+		@Transactional
 		public void add(T t){
 			sf.getCurrentSession().save(t);		
 		}
 
+		@Transactional
 		public void update(T t) {
 			sf.getCurrentSession().update(t);
 		}
 		
-		public void delete(T t) {
-			sf.getCurrentSession().remove(t);
-		}
+		@Transactional
+		public void delete(int id) {
+			T t = sf.getCurrentSession().get(entity, id);
+			sf.getCurrentSession().delete(t);
+		}	
 		
-		public T getById(T id) {
-			return sf.getCurrentSession().find(entity, id);
+		@Transactional(readOnly=true)
+		public T findById(int id){			
+			return sf.getCurrentSession().get(entity, id);
 		}
-		
-		public List<T> getAll(){
-			CriteriaBuilder criteriaBuilder = sf.getCriteriaBuilder();
-			javax.persistence.criteria.CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(entity);
-			return null;
-			
-			
-		}
+
+// Vu que dans cette méthode il y a une requête sql, je pense qu'il faut la mettre direct dans l'implémentation		
+//		@Transactional(readOnly=true)
+//		public List<T> getAll(){
+//			return sf.getCurrentSession().createQuery("FROM T").getResultList();			
+//			
+//		}
 }
