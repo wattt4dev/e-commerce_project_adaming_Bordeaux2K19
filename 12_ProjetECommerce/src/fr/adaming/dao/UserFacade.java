@@ -2,9 +2,11 @@ package fr.adaming.dao;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import fr.adaming.entity.User;
 
+@Repository
 public class UserFacade extends AbstractFacade<User> {
 
 	// Déclaration d'une SessionFactory

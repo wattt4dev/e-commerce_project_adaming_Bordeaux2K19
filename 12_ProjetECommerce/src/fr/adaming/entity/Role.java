@@ -49,12 +49,20 @@ public class Role {
 	public void setIdRole(Long idRole) {
 		this.idRole = idRole;
 	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public String getRoleName() {
 		return roleName;
 	}
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
+	
+	
 	
 	//ToString
 	@Override

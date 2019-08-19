@@ -6,6 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.adaming.entity.Categorie;
+import fr.adaming.entity.Role;
+import fr.adaming.entity.User;
 import fr.adaming.service.ICategorieService;
 
 public class AppTestCategorie {
@@ -80,6 +82,19 @@ public class AppTestCategorie {
 		}
 		System.out.println("\t =============================================================");
 		
+			//================================================================================
+			//========================Ajouter un User via ajouterUser=========================
+			//================================================================================
+		
+		User user = new User("admin", "admin", false);
+		//categorieService.ajouterUser(user);
+		
+			//================================================================================
+			//========================AttribuerRole via attribuerRole=========================
+			//================================================================================
+		
+		Role role = new Role("ROLE_USER");
+		categorieService.attribuerRole(role, (long) 13);
 		
 		
 		

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import fr.adaming.dao.AbstractFacade;
 import fr.adaming.dao.CategorieFacade;
+import fr.adaming.dao.RoleFacade;
+import fr.adaming.dao.UserFacade;
 import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
@@ -18,6 +20,11 @@ public class BoutiqueServiceImpl implements ICategorieService {
 	@Autowired //Injection par type du DAO de Categorie
 	private CategorieFacade categorieDAO;
 	
+	@Autowired
+	private UserFacade userDAO;
+	
+	@Autowired
+	private RoleFacade roleDAO;
 	
 	//====================================================================
 	//----------------------- Méthode de Catégorie -----------------------
@@ -43,14 +50,14 @@ public class BoutiqueServiceImpl implements ICategorieService {
 
 	@Override
 	public void ajouterUser(User user) {
-		
-
+		userDAO.add(user);
+	
 	}
 
 	@Override
-	public void attribueRole(Role role, int idUser) {
-		// TODO Auto-generated method stub
-
+	public void attribuerRole(Role role, Long idUser) {
+		role.setUser(userDAO.findById(idUser));
+		roleDAO.add(role);
 	}
 	
 	//Méthodes propres à Categorie
@@ -60,5 +67,10 @@ public class BoutiqueServiceImpl implements ICategorieService {
 	
 	public List<Categorie> getAllCategorie(){
 		return categorieDAO.getAllCategorie();
+	}
+
+	@Override
+	public void ajouterRole(Role role) {
+		roleDAO.add(role);
 	}
 }

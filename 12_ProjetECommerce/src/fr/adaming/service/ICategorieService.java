@@ -12,10 +12,13 @@ public interface ICategorieService {
 	public void supprimerCategorie(Long idCategorie);
 	public void modifierCategorie(Categorie categorie);
 	public void ajouterUser(User user);
-	public void attribueRole(Role role, int idUser);
+	public void attribuerRole(Role role, Long idUser);
 	
 	//Méthodes propres à catégorie
 	public Categorie getCategorieById (Long idCategorie);
 	public List<Categorie> getAllCategorie();
+	
+	//Méthodes User/Role
+	public void ajouterRole (Role role);
 
 }
