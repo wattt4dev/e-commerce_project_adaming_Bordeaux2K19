@@ -19,5 +19,11 @@ public interface IProduitService {
 	 public List<Produit> getAllByMotCleService(String mc);
 	 
 	 public List<Produit> getAllByCategorieService(Long idCat);
+	 
+	 public List<Produit> getAllSelection();
+	 
+	 public Long addProduit(Produit p, Long idCat);
+	 
+	
 
 }
