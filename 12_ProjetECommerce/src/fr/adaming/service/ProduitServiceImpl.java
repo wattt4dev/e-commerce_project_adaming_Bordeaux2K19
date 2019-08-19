@@ -41,6 +41,12 @@ public class ProduitServiceImpl implements IProduitService{
 		
 	}
 
+	@Override
+	public List<Produit> getAllByMotCleService(String mc) {
+	
+		return pf.getAllByMotCle(mc);
+	}
+
 
  
 	

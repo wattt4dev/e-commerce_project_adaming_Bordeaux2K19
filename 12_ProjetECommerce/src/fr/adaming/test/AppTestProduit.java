@@ -61,13 +61,21 @@ public class AppTestProduit {
 		
 		// 7. get all produits
 		// ------------------------------------------------------------------------------------------
-				System.out.println(" ");
-				System.out.println("------------------------ GET ALL Produits  ------------------------------------");
-				for (Produit produit : produitService.getAllService()) {
-
-					System.out.println("\t - " + produit.getPrix() + " " + produit.getDescription());
-				}
+//				System.out.println(" ");
+//				System.out.println("------------------------ GET ALL Produits  ------------------------------------");
+//				for (Produit produit : produitService.getAllService()) {
+//
+//					System.out.println("\t - " + produit.getPrix() + " " + produit.getDescription());
+//				}
 		
+		// 7. get all produits par mot clé
+		// ------------------------------------------------------------------------------------------
+				System.out.println(" ");
+				System.out.println("------------------------ GET ALL Produits Par Mot Clé ------------------------------------");
+				for (Produit produit : produitService.getAllByMotCleService("Titi")) {
+
+					System.out.println("\t - "  + " " + produit.getDesignation()+ produit.getPrix() + " " + produit.getDescription());
+				}
 	}
 
 }
