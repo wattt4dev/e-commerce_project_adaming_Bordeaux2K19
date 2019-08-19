@@ -6,7 +6,7 @@ import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
 
-public interface IAdminCategorieService {
+public interface IAdminCategorieService extends IAdminProduitMetier{
 	
 	public void ajouterCategorie(Categorie categorie);
 	public void supprimerCategorie(Long idCategorie);
@@ -14,9 +14,6 @@ public interface IAdminCategorieService {
 	public void ajouterUser(User user);
 	public void attribuerRole(Role role, Long idUser);
 	
-	//Méthodes propres à catégorie
-	public Categorie getCategorieById (Long idCategorie);
-	public List<Categorie> getAllCategorie();
 	
 	//Méthodes User/Role
 	public void ajouterRole (Role role);

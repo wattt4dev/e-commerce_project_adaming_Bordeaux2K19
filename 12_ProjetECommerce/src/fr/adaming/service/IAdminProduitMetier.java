@@ -6,10 +6,10 @@ public interface IAdminProduitMetier extends IInternauteBoutique{
 	
 	public Long addProduit(Produit p, Long idCat);
 	
-	public void deleteService(Long idCategorie);
+	public void deleteProduitService(Long idCategorie);
 	
-	public void updateService(Produit p);
+	public void updateProduitService(Produit p);
 	
-	public void addService(Produit p);
+	public void addProduitService(Produit p);
 
 }

@@ -7,15 +7,15 @@ import fr.adaming.entity.Produit;
 
 public interface IInternauteBoutique {
 
-	public List<Produit> getAllService();
+	public List<Produit> getAllProduitService();
 
-	public Produit findByIdService(Long i);
+	public Produit findProduitByIdService(Long i);
 
-	public List<Produit> getAllByMotCleService(String mc);
+	public List<Produit> getAllProduitByMotCleService(String mc);
 
-	public List<Produit> getAllByCategorieService(Long idCat);
+	public List<Produit> getAllProduitByCategorieService(Long idCat);
 
-	public List<Produit> getAllSelection();
+	public List<Produit> getAllProduitSelection();
 
 	// Méthodes propres à catégorie
 	public Categorie getCategorieById(Long idCategorie);
