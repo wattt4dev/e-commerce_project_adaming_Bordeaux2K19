@@ -3,6 +3,8 @@ package fr.adaming.dao;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.entity.Categorie;
@@ -13,10 +15,11 @@ import fr.adaming.entity.Categorie;
  * @author IN-BR-006
  *
  */
-
-public class GestionCategorieDAO extends AbstractFacade<Categorie> {
+@Repository
+public class CategorieFacade extends AbstractFacade<Categorie> {
 
 	// Déclaration d'une SessionFactory
+	@Autowired
 	private SessionFactory sf;
 	
 	// Getter et setter de la SessionFactory
@@ -29,19 +32,22 @@ public class GestionCategorieDAO extends AbstractFacade<Categorie> {
 	}
 
 	// Constructeur vide
-	public GestionCategorieDAO() {
+	public CategorieFacade() {
 		super(Categorie.class);
 	}// end constructeur vide GestionCategorieDAO
 
-	// Méthodes propres à la classe Catégorie
-
+	
+	//==================================================================================================
+	//============================= Méthodes propres à la classe Catégorie =============================
+	//==================================================================================================
+	
 	/**
 	  * Méthode getAll Catégorie copié à partir de AbstractFacade
 	  */
 	
 	@Transactional(readOnly=true)
 	public List<Categorie> getAllCategorie(){
-		return sf.getCurrentSession().createQuery("FROM categorie").getResultList();			
+		return sf.getCurrentSession().createQuery("FROM categorie c").getResultList();			
 		
 	}
 	
