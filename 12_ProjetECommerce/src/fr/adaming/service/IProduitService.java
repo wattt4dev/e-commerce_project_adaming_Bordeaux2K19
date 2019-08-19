@@ -17,5 +17,7 @@ public interface IProduitService {
 	 public void deleteService(Long idCategorie);
 	 
 	 public List<Produit> getAllByMotCleService(String mc);
+	 
+	 public List<Produit> getAllByCategorieService(Long idCat);
 
 }

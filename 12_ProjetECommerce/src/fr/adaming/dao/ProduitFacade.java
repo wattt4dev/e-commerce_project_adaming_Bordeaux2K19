@@ -81,5 +81,33 @@ public class ProduitFacade extends AbstractFacade<Produit>{
 		
 		
 	}
+	
+	//GetAll les produits par catégorie
+	
+public List<Produit> getAllByCategorie(Long idCat){
+		
+		// 1. recup de la session d'hibernate
+				Session session = sf.openSession();
+				
+				// 2. la requete HQL avec paramètres 
+				/**
+				 * param : notation par nom de paramètres 
+				 */
+				String requeteGetById = "SELECT p FROM produit p WHERE p.categorie.idCategorie= :pId ";
+				
+				// 3. création de la requete 
+				Query getByIdQuery = session.createQuery(requeteGetById);
+				
+				// 3.1. passage de params 
+				getByIdQuery.setParameter("pId", idCat);
+				
+				// 4. exec + recup du resultat 
+				List<Produit> liste=   (List<Produit>) getByIdQuery.list();
+				
+				// 5. renvoi de la personne 
+				return liste;
+		
+		
+	}
 
 }
