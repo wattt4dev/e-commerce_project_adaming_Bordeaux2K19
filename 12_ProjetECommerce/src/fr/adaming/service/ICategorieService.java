@@ -14,9 +14,6 @@ public interface ICategorieService {
 	public void ajouterUser(User user);
 	public void attribuerRole(Role role, Long idUser);
 	
-	//Méthodes propres à catégorie
-	public Categorie getCategorieById (Long idCategorie);
-	public List<Categorie> getAllCategorie();
 	
 	//Méthodes User/Role
 	public void ajouterRole (Role role);

@@ -12,7 +12,7 @@ import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Produit;
 
 @Service //Déclaration de la classe comme Bean spring
-public class ProduitServiceImpl implements IProduitService{
+public class ProduitServiceImpl implements IInternauteBoutique{
 
 	// déclaration de la DAO 
 	@Autowired //injection par type du bean dao
