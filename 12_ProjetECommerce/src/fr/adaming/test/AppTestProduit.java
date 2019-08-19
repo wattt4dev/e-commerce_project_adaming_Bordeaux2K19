@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.adaming.dao.ProduitFacade;
 import fr.adaming.entity.Produit;
-import fr.adaming.service.IProduitService;
+import fr.adaming.service.IInternauteBoutique;
 
 public class AppTestProduit {
 
@@ -15,7 +15,7 @@ public class AppTestProduit {
 		ApplicationContext conteneurSpring = new ClassPathXmlApplicationContext("applicationContextTest.xml");
 
 		// 2. recup du bean de la couche service a partir du conteneur
-		IProduitService produitService = (IProduitService) conteneurSpring.getBean("produitServiceImpl");
+		IInternauteBoutique produitService = (IInternauteBoutique) conteneurSpring.getBean("produitServiceImpl");
 
 		// ============== Méthodes d'AbstractFacade
 		// =======================================//
