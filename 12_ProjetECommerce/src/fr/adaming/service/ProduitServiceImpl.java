@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.dao.CategorieFacade;
 import fr.adaming.dao.ProduitFacade;
+import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Produit;
 
 @Service //Déclaration de la classe comme Bean spring
@@ -14,6 +17,9 @@ public class ProduitServiceImpl implements IProduitService{
 	// déclaration de la DAO 
 	@Autowired //injection par type du bean dao
 	private ProduitFacade pf;
+	
+	@Autowired //injection par type du bean dao
+	private CategorieFacade cf;
 	
 	@Override
 	public List<Produit> getAllService() {		
@@ -51,6 +57,23 @@ public class ProduitServiceImpl implements IProduitService{
 	public List<Produit> getAllByCategorieService(Long idCat) {
 		
 		return pf.getAllByCategorie(idCat);
+	}
+
+	@Override
+	public List<Produit> getAllSelection() {
+		return pf.getAllSelection();
+	}
+
+	// Ajouter produit par idCat
+	
+	@Transactional
+	public Long addProduit(Produit p, Long idCat) {
+		
+		Categorie c1 = cf.findById(idCat);
+		p.setCategorie(c1);
+		pf.add(p);		
+
+		return null;
 	}
 
 

@@ -23,7 +23,7 @@ public class AppTestProduit {
 		// 3. Ajout de produits dans la bdd via le service
 		// ---------------------------------------------------------------------------------------
 		// 3.1. produit a ajouter
-		Produit p1 = new Produit("Toto", "Titi", 45, 4, true, "Pipo");
+		//Produit p1 = new Produit("Tata", "Tutu", 45, 4, false, "Pipo");
 		// 3.2. invocation du service pour l'ajout
 		// produitService.addService(p1);
 		// -----------------------------------------------------------------------------------------
@@ -79,15 +79,35 @@ public class AppTestProduit {
 		
 		// 9. get all produits par Catégorie
 		// ------------------------------------------------------------------------------------------
-		System.out.println(" ");
-		System.out
-				.println("------------------------ GET ALL Produits Par Catégorie ------------------------------------");
-		for (Produit produit : produitService.getAllByCategorieService((long) 3)) {
-
-			System.out.println(
-					"\t - " + " " + produit.getDesignation() + produit.getPrix() + " " + produit.getDescription());
-		}
+//		System.out.println(" ");
+//		System.out
+//				.println("------------------------ GET ALL Produits Par Catégorie ------------------------------------");
+//		for (Produit produit : produitService.getAllByCategorieService((long) 3)) {
+//
+//			System.out.println(
+//					"\t - " + " " + produit.getDesignation() + produit.getPrix() + " " + produit.getDescription());
+//		}
 	
+		// 10. get all produits Sélectionnés
+		// ------------------------------------------------------------------------------------------
+//		System.out.println(" ");
+//		System.out
+//				.println("------------------------ GET ALL Produits Par Catégorie ------------------------------------");
+//		for (Produit produit : produitService.getAllSelection()) {
+//
+//			System.out.println(
+//					"\t - " + " " + produit.getDesignation() + produit.getPrix() + " " + produit.getDescription());
+//		}
+		
+		// 11. Ajout de produits dans la bdd via le service avec numéro catégorie
+		// ---------------------------------------------------------------------------------------
+		// 3.1. produit a ajouter
+		Produit p2 = new Produit("ordi", "marche très bien", 415, 10, true, "Pipo");
+		
+		// 3.2. invocation du service pour l'ajout
+		produitService.addProduit(p2, (long) 3);
+		// -----------------------------------------------------------------------------------------
+
 	
 	
 	
