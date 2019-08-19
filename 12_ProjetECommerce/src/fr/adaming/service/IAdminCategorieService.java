@@ -6,7 +6,7 @@ import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
 
-public interface ICategorieService {
+public interface IAdminCategorieService {
 	
 	public void ajouterCategorie(Categorie categorie);
 	public void supprimerCategorie(Long idCategorie);

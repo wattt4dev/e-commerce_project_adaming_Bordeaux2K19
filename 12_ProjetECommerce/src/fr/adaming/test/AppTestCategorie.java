@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
-import fr.adaming.service.ICategorieService;
+import fr.adaming.service.IAdminCategorieService;
 
 public class AppTestCategorie {
 	
@@ -22,7 +22,7 @@ public class AppTestCategorie {
 		ApplicationContext conteneurSpring = new ClassPathXmlApplicationContext("applicationContextTest.xml");
 		
 			//Récupération du bean Service de Catégorie
-		ICategorieService categorieService = (ICategorieService) conteneurSpring.getBean("boutiqueServiceImpl");
+		IAdminCategorieService categorieService = (IAdminCategorieService) conteneurSpring.getBean("boutiqueServiceImpl");
 		
 			//================================================================================
 			//=========================Ajout d'une nouvelle catégorie=========================

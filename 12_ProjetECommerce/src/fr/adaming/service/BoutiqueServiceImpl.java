@@ -14,7 +14,7 @@ import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
 
 @Service //Déclaration Bean dans Spring
-public class CategorieServiceImpl implements ICategorieService {
+public class BoutiqueServiceImpl implements IAdminCategorieService {
 	
 	//Déclaration de la relation avec DAO
 	@Autowired //Injection par type du DAO de Categorie
