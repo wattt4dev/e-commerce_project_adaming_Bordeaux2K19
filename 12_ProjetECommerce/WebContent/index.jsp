@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
- <% response.sendRedirect("welcome"); %>
+ <% response.sendRedirect("welcomeAdminCategorie"); %>
 		
 	
 </body>
