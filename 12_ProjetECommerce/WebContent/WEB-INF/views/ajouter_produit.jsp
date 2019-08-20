@@ -14,11 +14,11 @@
 
 
 	<div align="center">
-		<h1>Ajout d'un nouveau produti</h1>
+		<h1>Ajout d'un nouveau produit</h1>
 		<!-- formulaire -->
 
 		<form:form modelAttribute="produitCommande"
-			action="/produit/add" method="post">
+			action="produit/add" method="post">
 			<table>
 				<tr>
 					<td><form:label path="designation">Désignation</form:label></td>
@@ -39,7 +39,7 @@
 					<td><form:label path="quantite">Quantité</form:label></td>
 					<td><form:input path="quantite" /></td>
 				</tr>
-
+				
 
 				<!-- bouton -->
 				<tr>

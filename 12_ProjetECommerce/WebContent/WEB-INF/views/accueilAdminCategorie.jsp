@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -28,10 +29,10 @@
 		<fmt:formatDate value="${attribut_date}" type="time" timeStyle="short" />
 	</h3>
 
-<div align="center">
+	<div align="center">
 
 		<h1 style="background-color: blue; color: yellow;">Liste des
-			fcatégories</h1>
+			catégories</h1>
 
 		<table cellspacing="0" cellpadding="6" width="60%">
 
@@ -45,10 +46,11 @@
 
 			<!-- affichage de la liste des fonctionnaire -->
 			<tr bgcolor="grey" style="color: white">
-				<th>Id Catégorie</th>
+				<th>#ID Catégorie</th>
 				<th>Nom Catégorie</th>
 				<th>Description Catégorie</th>
 				<th>Photo</th>
+				<th>Actions</th>
 
 				<c:forEach items="${attribut_categories}" var="categorie">
 
@@ -57,14 +59,16 @@
 						<td>${categorie.nomCategorie}</td>
 						<td>${categorie.description}</td>
 						<td>${categorie.photo}</td>
+						<td><a
+							href="${pageContext.request.contextPath}/adminCategorie/updateCategorie?idCategorie=${categorie.idCategorie}">Modifier</a>
+							<a
+							href="${pageContext.request.contextPath}/adminCategorie/categorie/delete/${categorie.idCategorie}">Supprimer</a>
+						</td>
 					</tr>
 
 				</c:forEach>
 		</table>
-
 	</div>
-
-
-
+	
 </body>
 </html>

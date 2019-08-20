@@ -41,7 +41,7 @@ public class AdminProduitsController {
 	//================Méthode permettant de lister les produits=========//
 	//==================================================================//
 	
-	@RequestMapping(value = "/produit/liste", method = RequestMethod.GET)
+	@RequestMapping(value = "/liste_produits", method = RequestMethod.GET)
 	public String listerProduitsBdd(ModelMap modeleDonnees) {
 		
 		//1 - récup des données de la bdd
@@ -61,7 +61,7 @@ public class AdminProduitsController {
 	//=====================================================================//
 
 	@RequestMapping(value =  "/produit/delete/{pProduitId}", method = RequestMethod.GET)
-public String deleteProduit(@PathVariable("pProduitId") Long aProduitId, ModelMap modeleDonnees) {
+	public String deleteProduit(@PathVariable("pProduitId") Long aProduitId, ModelMap modeleDonnees) {
 		
 		iapm.deleteProduitService((long)aProduitId);
 		
@@ -69,7 +69,7 @@ public String deleteProduit(@PathVariable("pProduitId") Long aProduitId, ModelMa
 		
 		modeleDonnees.addAttribute("att_listeProduits", listeProduits );
 
-		return "liste_produits";
+		return "redirect:/liste_produits";
 		
 	}
 	
@@ -106,14 +106,14 @@ public String deleteProduit(@PathVariable("pProduitId") Long aProduitId, ModelMa
 	public String addProduitBDD(@ModelAttribute("produitCommande") Produit pProduit, ModelMap modeleDonnees) {
 		
 		// 1 - Méthode
-		Long idCat= pProduit.getCategorie().getIdCategorie();
+		//Long idCat= pProduit.getCategorie().getIdCategorie();
 		//iapm.addProduit(pProduit, (long) idCat);
 		iapm.addProduitService(pProduit);
 		List<Produit> listeProduits = iapm.getAllProduitService();
 		
 		modeleDonnees.addAttribute("att_listeProduits", listeProduits );
 		
-		return "liste_produits";
+		return "redirect:/liste_produits";
 	}//end addProduit
 
 	
