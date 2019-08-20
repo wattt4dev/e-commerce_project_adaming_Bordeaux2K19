@@ -103,8 +103,8 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	}
 
 	@Override
-	public void deleteProduitService(Long idCategorie) {
-		produitDAO.delete(idCategorie);
+	public void deleteProduitService(Long idP) {
+		produitDAO.delete(idP);
 	}
 
 	@Override
