@@ -3,6 +3,9 @@ package fr.adaming.service;
 import java.util.List;
 
 import fr.adaming.entity.Categorie;
+import fr.adaming.entity.Client;
+import fr.adaming.entity.Commande;
+import fr.adaming.entity.GestionPanier;
 import fr.adaming.entity.Produit;
 
 public interface IInternauteBoutique {
@@ -21,5 +24,7 @@ public interface IInternauteBoutique {
 	public Categorie getCategorieById(Long idCategorie);
 
 	public List<Categorie> getAllCategorie();
+	
+	public Commande enregistrerCommande(GestionPanier p, Client c);
 
 }

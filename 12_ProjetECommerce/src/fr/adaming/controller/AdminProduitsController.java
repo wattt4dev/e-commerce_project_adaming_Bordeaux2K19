@@ -6,14 +6,18 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Produit;
+import fr.adaming.service.IAdminCategorieService;
 import fr.adaming.service.IAdminProduitMetier;
 
 /**
@@ -36,6 +40,18 @@ public class AdminProduitsController {
 	public void setIapm(IAdminProduitMetier iapm) {
 		this.iapm = iapm;
 	}
+	
+	@Autowired
+	private IAdminCategorieService iacs;
+
+	// Getter et setter du Bean IAdminCategorieService pour accès Spring
+	public IAdminCategorieService getIacs() {
+		return iacs;
+	}// end getter
+
+	public void setIacs(IAdminCategorieService iacs) {
+		this.iacs = iacs;
+	}// end setter
 	
 	//==================================================================//
 	//================Méthode permettant de lister les produits=========//
@@ -85,9 +101,13 @@ public class AdminProduitsController {
 		
 		// 1.1 définition des objets de commande (objet fonctionnaire vide)
 		Produit produit = new Produit();
+		Categorie categorie = new Categorie();
+		List<Categorie> listeCategories = iapm.getAllCategorie();
 		
 		// 1.2 Association
 		data.put("produitCommande",produit);
+		data.put("categorieCommande",categorie);
+		data.put("attribut_categories", listeCategories);
 		
 		// 2. nom logique de la vue
 		String viewName = "ajouter_produit";
@@ -103,12 +123,15 @@ public class AdminProduitsController {
 	//================================================================//
 
 	@RequestMapping(value = "/produit/add", method = RequestMethod.POST)
-	public String addProduitBDD(@ModelAttribute("produitCommande") Produit pProduit, ModelMap modeleDonnees) {
+	public String addProduitBDD(@ModelAttribute("produitCommande") Produit pProduit,ModelMap modeleDonnees) {
 		
 		// 1 - Méthode
+		Long idCat =pProduit.getIdCat();
 		//Long idCat= pProduit.getCategorie().getIdCategorie();
-		//iapm.addProduit(pProduit, (long) idCat);
-		iapm.addProduitService(pProduit);
+
+
+		iapm.addProduit(pProduit, (long) idCat);
+		//iapm.addProduitService(pProduit);
 		List<Produit> listeProduits = iapm.getAllProduitService();
 		
 		modeleDonnees.addAttribute("att_listeProduits", listeProduits );
@@ -116,7 +139,7 @@ public class AdminProduitsController {
 		return "redirect:/liste_produits";
 	}//end addProduit
 
-	
+
 	
 	
 	

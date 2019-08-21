@@ -1,5 +1,6 @@
 package fr.adaming.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,9 +15,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.Transient;
+
 @Entity(name="produit")
 @Table(name="produits")
-public class Produit {
+public class Produit implements Serializable {
 	
 	
 	//Attributs
@@ -29,6 +32,10 @@ public class Produit {
 	private int quantite;
 	private boolean selectionne;
 	private String photo;
+	
+	//-----
+	@Transient
+	private Long idCat;
 
 	//Associations
 	
@@ -149,9 +156,21 @@ public class Produit {
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
+	
+	
 
 	
 	//Méthode ToString
+
+
+	public Long getIdCat() {
+		return idCat;
+	}
+
+
+	public void setIdCat(Long idCat) {
+		this.idCat = idCat;
+	}
 
 
 	@Override
