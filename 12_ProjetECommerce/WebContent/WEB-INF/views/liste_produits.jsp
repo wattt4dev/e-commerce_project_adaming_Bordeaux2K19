@@ -18,7 +18,7 @@
 		<table>
 			<tr>
 				<td colspan="4">
-					<a href="${pageContext.request.contextPath}/addProduit" style="background-color: lightblue">Ajouter un produit</a>
+					<a href="${pageContext.request.contextPath}/adminProduit/addProduit" style="background-color: lightblue">Ajouter un produit</a>
 				</td>
 			</tr>
 			<tr>
@@ -39,7 +39,7 @@
 					<td>${produit.prix}</td>
 					<td>${produit.quantite}</td>
 
-					<td><a href="${pageContext.request.contextPath}/produit/delete/${produit.idProduit}">Supprimer</a></td>
+					<td><a href="${pageContext.request.contextPath}/adminCategorie/produit/delete/${produit.idProduit}">Supprimer</a></td>
 				</tr>
 
 			</c:forEach>

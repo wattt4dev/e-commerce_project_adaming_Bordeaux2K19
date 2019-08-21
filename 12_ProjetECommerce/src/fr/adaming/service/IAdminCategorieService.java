@@ -17,5 +17,11 @@ public interface IAdminCategorieService extends IAdminProduitMetier{
 	
 	//Méthodes User/Role
 	public void ajouterRole (Role role);
+	public List<User> getAllUser();
+	public User getUserById (Long idUser);
+	public void supprimerUser(Long idUser);
+	public void modifierUser(User user);
+	public List<Role> getAllRole();
+	public Role getRoleById(int idRole);
 
 }

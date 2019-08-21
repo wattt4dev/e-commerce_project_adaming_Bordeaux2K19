@@ -41,7 +41,7 @@ public class AdminProduitsController {
 	//================Méthode permettant de lister les produits=========//
 	//==================================================================//
 	
-	@RequestMapping(value = "/liste_produits", method = RequestMethod.GET)
+	@RequestMapping(value = "adminProduit/liste_produits", method = RequestMethod.GET)
 	public String listerProduitsBdd(ModelMap modeleDonnees) {
 		
 		//1 - récup des données de la bdd
@@ -60,7 +60,7 @@ public class AdminProduitsController {
 	//================Méthode permettant de supprimer les produits=========//
 	//=====================================================================//
 
-	@RequestMapping(value =  "/produit/delete/{pProduitId}", method = RequestMethod.GET)
+	@RequestMapping(value =  "/adminProduit/produit/delete/{pProduitId}", method = RequestMethod.GET)
 	public String deleteProduit(@PathVariable("pProduitId") Long aProduitId, ModelMap modeleDonnees) {
 		
 		iapm.deleteProduitService((long)aProduitId);
@@ -69,7 +69,7 @@ public class AdminProduitsController {
 		
 		modeleDonnees.addAttribute("att_listeProduits", listeProduits );
 
-		return "redirect:/liste_produits";
+		return "redirect:/adminProduit/liste_produits";
 		
 	}
 	
@@ -77,7 +77,7 @@ public class AdminProduitsController {
 	//================Méthode permettant  Affichage formulaire Ajout=========//
 	//=======================================================================//
 	
-	@RequestMapping(value = "/addProduit", method = RequestMethod.GET)
+	@RequestMapping(value = "/adminProduit/addProduit", method = RequestMethod.GET)
 	public ModelAndView setUpFormulaireAjout() {
 		
 		// 1 - definition des donnes a retourner vers la servlet
@@ -102,7 +102,7 @@ public class AdminProduitsController {
 	//================Méthode permettant d'ajouter un produit=========//
 	//================================================================//
 
-	@RequestMapping(value = "/produit/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/adminProduit/produit/add", method = RequestMethod.POST)
 	public String addProduitBDD(@ModelAttribute("produitCommande") Produit pProduit, ModelMap modeleDonnees) {
 		
 		// 1 - Méthode
@@ -113,7 +113,7 @@ public class AdminProduitsController {
 		
 		modeleDonnees.addAttribute("att_listeProduits", listeProduits );
 		
-		return "redirect:/liste_produits";
+		return "redirect:/adminProduit/liste_produits";
 	}//end addProduit
 
 	

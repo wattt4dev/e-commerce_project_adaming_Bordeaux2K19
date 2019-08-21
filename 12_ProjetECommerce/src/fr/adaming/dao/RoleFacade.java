@@ -1,5 +1,7 @@
 package fr.adaming.dao;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,7 +37,16 @@ public class RoleFacade extends AbstractFacade<Role> {
 		sf.getCurrentSession();
 		Role roleIn = findById(role.getIdRole());
 		add(role);
-		
+	}
+	
+	@Transactional
+	public List<Role> getAllRole(){
+		return sf.getCurrentSession().createQuery("FROM role r").getResultList();
+	}
+	
+	@Transactional
+	public Role getRoleById (long idRole) {
+		return findById(idRole);
 	}
 
 }

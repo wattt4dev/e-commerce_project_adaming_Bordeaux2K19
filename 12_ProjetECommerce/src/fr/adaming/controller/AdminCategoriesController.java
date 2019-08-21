@@ -17,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Commande;
+import fr.adaming.entity.Role;
+import fr.adaming.entity.User;
 import fr.adaming.service.IAdminCategorieService;
 
 @Controller
@@ -34,7 +36,7 @@ public class AdminCategoriesController {
 		this.iacs = iacs;
 	}// end setter
 
-	@RequestMapping(value = "/welcomeAdminCategorie", method = RequestMethod.GET)
+	@RequestMapping(value = "/adminCategorie/welcomeAdminCategorie", method = RequestMethod.GET)
 	public ModelAndView pageAccueilAdminCategorie() {
 		// =======================================================//
 		// =======construction de l'objet ModelAndView============//
@@ -46,6 +48,8 @@ public class AdminCategoriesController {
 		String message = "Gestion des Catégories, Produits, Users et des Roles";
 		Date toDay = new Date();
 		List<Categorie> categories = iacs.getAllCategorie();
+		List<User> users = iacs.getAllUser();
+		List<Role> roles = iacs.getAllRole();
 
 		// 1.1 encapsulation des données dans une map de type string object
 		Map<String, Object> data = new HashMap<>();
@@ -53,6 +57,8 @@ public class AdminCategoriesController {
 		data.put("attribut_message", message);
 		data.put("attribut_date", toDay);
 		data.put("attribut_categories", categories);
+		data.put("attribut_users", users);
+		data.put("attribut_roles", roles);
 
 		// 2. definition du nom logique de la vue (view de l'objet modelandview)
 		String viewName = "accueilAdminCategorie";
@@ -71,7 +77,7 @@ public class AdminCategoriesController {
 	// =========================================================================================================================================
 	// =========================================================================================================================================
 
-	@RequestMapping(value = "adminCategorie/addCategorie", method = RequestMethod.GET)
+	@RequestMapping(value = "/adminCategorie/addCategorie", method = RequestMethod.GET)
 	public ModelAndView ajouterCategorieFormulaire() {
 
 		// Données à retourner
@@ -100,7 +106,7 @@ public class AdminCategoriesController {
 
 		modelDonnees.addAttribute("attribut_categories", iacs.getAllCategorie());
 
-		return "redirect:/welcomeAdminCategorie";
+		return "redirect:/adminCategorie/welcomeAdminCategorie";
 	}// end ajouterCategorieBDD
 
 	// =========================================================================================================================================
@@ -109,7 +115,7 @@ public class AdminCategoriesController {
 	// =========================================================================================================================================
 	// =========================================================================================================================================
 
-	@RequestMapping(value = "adminCategorie/updateCategorie", method = RequestMethod.GET)
+	@RequestMapping(value = "/adminCategorie/updateCategorie", method = RequestMethod.GET)
 	public ModelAndView modifierCategorieFormulaire(@RequestParam("idCategorie") int pIdCategorie) {
 
 		Categorie categorieUpdate = iacs.getCategorieById((long) pIdCategorie);
@@ -128,7 +134,7 @@ public class AdminCategoriesController {
 
 		modelDonnees.addAttribute("attribut_categories", iacs.getAllCategorie());
 
-		return "redirect:/welcomeAdminCategorie";
+		return "redirect:/adminCategorie/welcomeAdminCategorie";
 	}// end modifierCategorieBDD
 
 	// =========================================================================================================================================
@@ -145,27 +151,118 @@ public class AdminCategoriesController {
 		List<Categorie> categories = iacs.getAllCategorie();
 		modelDonnees.addAttribute("attribut_categories", categories);
 
-		return "redirect:/welcomeAdminCategorie";
+		return "redirect:/adminCategorie/welcomeAdminCategorie";
 	}// end supprimerCategorieBDD
 
-	public ModelAndView ajouterProduitFormulaire() {
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+
+	@RequestMapping(value = "/adminCategorie/addUser", method = RequestMethod.GET)
+	public ModelAndView ajouterUserFormulaire() {
+
 		// Données à retourner
 		Map<String, Object> data = new HashMap<>();
 
 		// Objet de commande à ajouter dans HashMap
-		Categorie categorie = new Categorie();
+		User user = new User();
 
 		// Nom de l'objet ajouté à HashMap
-		String objetDeCommandeCategorie = "categorieCommand";
+		String objetDeCommandeUser = "userCommand";
 
 		// Association Nom/Objet de Commande et ajout dans HashMap
-		data.put(objetDeCommandeCategorie, categorie);
+		data.put(objetDeCommandeUser, user);
 
 		// Nom logique de la vue (partie View du ModelAndView)
-		String viewName = "ajouterCategorie";
+		String viewName = "ajouterUser";
 
 		ModelAndView modelAndView = new ModelAndView(viewName, data);
 		return modelAndView;
-	}
+	}// end ajouterUserFormulaire
 
+	@RequestMapping(value = "/adminCategorie/user/add", method = RequestMethod.POST)
+	public String ajouterUserBDD(@ModelAttribute("userCommand") User pUser, ModelMap modelDonnees) {
+
+		iacs.ajouterUser(pUser);
+
+		modelDonnees.addAttribute("attribut_users", iacs.getAllUser());
+
+		return "redirect:/adminCategorie/welcomeAdminCategorie";
+	}// end ajouterUserBDD
+
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+
+	@RequestMapping(value = "/adminCategorie/updateUser", method = RequestMethod.GET)
+	public ModelAndView modifierUserFormulaire(@RequestParam("idUser") long pIdUser) {
+
+		User userUpdate = iacs.getUserById(pIdUser);
+
+		String viewName = "updateUser";
+
+		return new ModelAndView(viewName, "userCommandUpdate", userUpdate);
+
+	}// end modifierUserFormulaire
+
+	@RequestMapping(value = "/adminCategorie/user/update", method = RequestMethod.POST)
+	public String modifierUserBDD(@ModelAttribute("userCommandUpdate") User userToUpdate,
+			ModelMap modelDonnees) {
+
+		iacs.modifierUser(userToUpdate);
+
+		modelDonnees.addAttribute("attribut_users", iacs.getAllUser());
+
+		return "redirect:/adminCategorie/welcomeAdminCategorie";
+	}// end modifierUserBDD
+
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+
+	@RequestMapping(value = "/adminCategorie/user/delete/{idUser}", method = RequestMethod.GET)
+	public String supprimerUserBDD(@PathVariable("idUser") int userID, ModelMap modelDonnees) {
+
+		iacs.supprimerUser((long) userID);;
+
+		List<User> users = iacs.getAllUser();
+		modelDonnees.addAttribute("attribut_users", users);
+
+		return "redirect:/adminCategorie/welcomeAdminCategorie";
+	}// end supprimerUserBDD
+	
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================
+	// =========================================================================================================================================	
+
+	@RequestMapping(value = "/adminCategorie/attribuerRole", method = RequestMethod.GET)
+	public ModelAndView attribuerRoleFormulaire(@RequestParam("idRole") long pIdRole) {
+		
+		Role role = iacs.getRoleById((int) pIdRole);
+		
+		return new ModelAndView("attribuerRole", "roleAttributeCommand", role);
+	}//end attribuerRole
+	
+	
+	@RequestMapping(value = "/adminCategorie/role/attribute", method = RequestMethod.POST)
+	public String attribuerRoleBDD(@ModelAttribute("roleAttributeCommand") Role roleToAttribute, int idUser,
+			ModelMap modelDonnees) {
+		
+		iacs.attribuerRole(roleToAttribute, (long) idUser);
+		
+		List<Role> roles = iacs.getAllRole();
+		modelDonnees.addAttribute("attribut_roles", roles);
+		
+		return "redirect:/adminCategorie/welcomeAdminCategorie";
+	}
+	
+	
 }// end class

@@ -9,6 +9,7 @@
 	<configs>
 		<config>WebContent/WEB-INF/applicationContext.xml</config>
 		<config>WebContent/WEB-INF/projetECommerceServlet-servlet.xml</config>
+		<config>WebContent/WEB-INF/eCommerce-security.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

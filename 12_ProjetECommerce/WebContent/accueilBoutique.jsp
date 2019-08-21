@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<a href="${pageContext.request.contextPath}/liste_produits">AdminProduit</a>
-<a href="${pageContext.request.contextPath}/welcomeAdminCategorie">AdminCategorie</a>
+<a href="${pageContext.request.contextPath}/adminProduit/liste_produits">AdminProduit</a>
+<a href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">AdminCategorie</a>
 
 </body>
 </html>

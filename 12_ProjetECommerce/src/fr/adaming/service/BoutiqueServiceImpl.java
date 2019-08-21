@@ -77,6 +77,26 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 		roleDAO.add(role);
 	}
 
+	@Override
+	public List<User> getAllUser() {
+		return userDAO.getAllUser();
+	}
+
+	@Override
+	public User getUserById(Long idUser) {
+		return userDAO.findById(idUser);
+	}
+	
+	@Override
+	public void supprimerUser(Long idUser) {
+		userDAO.delete(idUser);
+	}
+
+	@Override
+	public void modifierUser(User user) {
+		userDAO.update(user);
+	}
+
 	// ====================================================================
 	// ------------------------- Méthode de Role --------------------------
 	// ====================================================================
@@ -84,6 +104,16 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	@Override
 	public void ajouterRole(Role role) {
 		roleDAO.add(role);
+	}
+	
+	@Override
+	public List<Role> getAllRole() {
+		return roleDAO.getAllRole();
+	}
+
+	@Override
+	public Role getRoleById(int idRole) {
+		return roleDAO.findById((long) idRole);
 	}
 
 	
@@ -141,4 +171,5 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	public List<Produit> getAllProduitSelection() {
 		return produitDAO.getAllSelection();
 	}
+
 }

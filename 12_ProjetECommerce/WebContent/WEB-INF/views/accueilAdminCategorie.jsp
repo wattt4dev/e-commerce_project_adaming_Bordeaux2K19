@@ -70,5 +70,83 @@
 		</table>
 	</div>
 	
+	
+	
+	
+	<div align="center">
+
+		<h1 style="background-color: blue; color: yellow;">Liste des
+			users</h1>
+
+		<table cellspacing="0" cellpadding="6" width="60%">
+
+			<!-- lein pour ajout du fonctionnaire -->
+			<tr>
+				<td colspan="4" align="right"><a
+					href="${pageContext.request.contextPath}/adminCategorie/addUser"
+					style="background-color: lightblue">Ajouter un user</a></td>
+			</tr>
+
+
+			<!-- affichage de la liste des fonctionnaire -->
+			<tr bgcolor="grey" style="color: white">
+				<th>#ID User</th>
+				<th>Username</th>
+				<th>Password</th>
+				<th>Activation</th>
+				<th>Actions</th>
+
+				<c:forEach items="${attribut_users}" var="user">
+
+					<tr bgcolor="lightyellow">
+						<td><b>${user.idUser}</b></td>
+						<td>${user.userName}</td>
+						<td>${user.password}</td>
+						<td>${user.actived}</td>
+						<td><a
+							href="${pageContext.request.contextPath}/adminCategorie/updateUser?idUser=${user.idUser}">Modifier | </a>
+							<a
+							href="${pageContext.request.contextPath}/adminCategorie/updateUser?idUser=${user.idUser}">Attribuer Role | </a>
+							<a
+							href="${pageContext.request.contextPath}/adminCategorie/user/delete/${user.idUser}">Supprimer</a>
+						</td>
+					</tr>
+
+				</c:forEach>
+		</table>
+	</div>
+	
+	<div align="center">
+
+		<h1 style="background-color: blue; color: yellow;">Liste des
+			roles</h1>
+
+		<table cellspacing="0" cellpadding="6" width="60%">
+
+
+			<!-- affichage de la liste des fonctionnaire -->
+			<tr bgcolor="grey" style="color: white">
+				<th>#ID Role</th>
+				<th>Role</th>
+				<th>Actions</th>
+
+				<c:forEach items="${attribut_roles}" var="role">
+
+					<tr bgcolor="lightyellow">
+						<td><b>${role.idRole}</b></td>
+						<td>${role.roleName}</td>
+						<td><a
+							href="${pageContext.request.contextPath}/adminCategorie/updateUser?idUser=${user.idUser}">Modifier | </a>
+							<a
+							href="${pageContext.request.contextPath}/adminCategorie/updateUser?idUser=${user.idUser}">Attribuer Role | </a>
+							<a
+							href="${pageContext.request.contextPath}/adminCategorie/user/delete/${user.idUser}">Supprimer</a>
+						</td>
+					</tr>
+
+				</c:forEach>
+		</table>
+	</div>
+	
 </body>
 </html>
