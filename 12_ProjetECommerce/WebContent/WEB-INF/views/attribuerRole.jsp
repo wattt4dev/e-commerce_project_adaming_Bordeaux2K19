@@ -29,13 +29,13 @@
 				
 				<!--champs nom -->
 				<tr>
-					<td><form:label path="roleName">Username : </form:label></td>
+					<td><form:label path="roleName">Role : </form:label></td>
 					<td><form:input path="roleName" /></td>
 				</tr>
 				<!-- button -->
 				<tr>
 					<td colspan="2"><input type="submit"
-						value="Modifier le user" /></td>
+						value="Modifier le role" /></td>
 				</tr>
 
 			</table>

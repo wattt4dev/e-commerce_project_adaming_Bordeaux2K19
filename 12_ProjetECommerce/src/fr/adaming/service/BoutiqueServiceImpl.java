@@ -11,6 +11,9 @@ import fr.adaming.dao.ProduitFacade;
 import fr.adaming.dao.RoleFacade;
 import fr.adaming.dao.UserFacade;
 import fr.adaming.entity.Categorie;
+import fr.adaming.entity.Client;
+import fr.adaming.entity.Commande;
+import fr.adaming.entity.GestionPanier;
 import fr.adaming.entity.Produit;
 import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
@@ -170,6 +173,12 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	@Override
 	public List<Produit> getAllProduitSelection() {
 		return produitDAO.getAllSelection();
+	}
+
+	@Override
+	public Commande enregistrerCommande(GestionPanier p, Client c) {
+		
+		return null;
 	}
 
 }
