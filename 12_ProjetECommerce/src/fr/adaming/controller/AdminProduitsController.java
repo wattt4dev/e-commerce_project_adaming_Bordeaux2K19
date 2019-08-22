@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Produit;
@@ -76,7 +78,7 @@ public class AdminProduitsController {
 	//================Méthode permettant de supprimer les produits=========//
 	//=====================================================================//
 
-	@RequestMapping(value =  "/adminProduit/produit/delete/{pProduitId}", method = RequestMethod.GET)
+	@RequestMapping(value =  "adminProduit/produit/delete/{pProduitId}", method = RequestMethod.GET)
 	public String deleteProduit(@PathVariable("pProduitId") Long aProduitId, ModelMap modeleDonnees) {
 		
 		iapm.deleteProduitService((long)aProduitId);
@@ -127,11 +129,7 @@ public class AdminProduitsController {
 		
 		// 1 - Méthode
 		Long idCat =pProduit.getIdCat();
-		//Categorie categorie = iapm.getCategorieById(idCat);
-		
-		//pProduit.setCategorie(categorie);
-		//Long idCat= pProduit.getCategorie().getIdCategorie();
-		System.out.println("valeurs produits :"+pProduit);
+
 
 		iapm.addProduit(pProduit, idCat);
 		
@@ -144,7 +142,39 @@ public class AdminProduitsController {
 	}//end addProduit
 
 
+	//==================================================================//
+	//================Méthode permettant de modifier un produit=========//
+	//==================================================================//
+
+	@RequestMapping(value="adminProduit/produit/updateform", method=RequestMethod.GET)
+	public ModelAndView setUpFormulaireUpdate(@RequestParam("produitId") Long pIdProduit) {
+			//1. recup du fonctionnaire à modifier via son id
+		Map<String, Object> data = new HashMap<>();
+		
+		Produit produitUp = iapm.findProduitByIdService((long) pIdProduit);
+		
+		List<Categorie> listeCategories = iapm.getAllCategorie();
+		
+		data.put("attribut_categories", listeCategories);
+		data.put("produitUpCommand", produitUp );
+		
+
+		//return new ModelAndView("updateProduit", "produitUpCommand", produitUp );
+		return new ModelAndView("updateProduit", data ); 
+
+	}//end setUpFormulaireUpdate
 	
+	@RequestMapping(value= "/adminProduit/produit/update", method=RequestMethod.POST)
+	public String updateProduitBdd(@ModelAttribute("produitUpCommand") Produit produitToUpdate, ModelMap modelDOnnees) {
+		
+		//1. Modif du fonctionnaire das la bdd via le service
+		iapm.updateProduitService(produitToUpdate);
+		
+		//2.recup de la liste des fonct dans la bdd + redirection vers la liste_fonctionnaires.jsp
+		modelDOnnees.addAttribute("att_listeProduits",iapm.getAllProduitService() );
+		
+		return "redirect:/adminProduit/liste_produits";
+	}
 	
 	
 }//end controller
