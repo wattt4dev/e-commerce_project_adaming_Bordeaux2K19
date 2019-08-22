@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
- <% response.sendRedirect("accueilBoutique.jsp"); %>
+ <% response.sendRedirect("accueil_internaute.jsp"); %>
 		
 	
 </body>

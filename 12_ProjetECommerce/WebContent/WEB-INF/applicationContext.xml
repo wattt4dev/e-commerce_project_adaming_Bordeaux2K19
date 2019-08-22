@@ -8,6 +8,9 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+<!--  déclaraton de la location pour les images -->
+
+<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 
 	<!-- =================================================================== -->
 <!-- ===association des requetes au controller spring mvc========== -->

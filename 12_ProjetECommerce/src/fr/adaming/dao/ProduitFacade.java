@@ -65,7 +65,7 @@ public class ProduitFacade extends AbstractFacade<Produit> {
 		Query getByIdQuery = session.createQuery(requeteGetById);
 
 		// 3.1. passage de params
-		getByIdQuery.setParameter("kw", mc);
+		getByIdQuery.setParameter("kw","%"+mc+"%");
 
 		// 4. exec + recup du resultat
 		List<Produit> liste = (List<Produit>) getByIdQuery.list();

@@ -22,8 +22,13 @@
 
 	</bean>
 
+<<<<<<< HEAD
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:annotation-driven />
+=======
+<!--  déclaraton de la location pour les images -->
+<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+>>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
 
 
 </beans>
