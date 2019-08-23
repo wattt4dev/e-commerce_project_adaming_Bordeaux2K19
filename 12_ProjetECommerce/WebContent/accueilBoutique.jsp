@@ -172,8 +172,8 @@
 	<footer class="py-5 bg-dark">
 	<div class="container">
 		<p class="m-0 text-center text-white">
-			Copyright &copy; Chouquette & Co. 2019</br> <a href="#">Accueil
-				Administrateur Catégorie</a></br> <a href="#">Accueil Administrateur
+			Copyright &copy; Chouquette & Co. 2019</br> <a href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
+				Administrateur Catégorie</a></br> <a href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil Administrateur
 				Produit</a>
 		</p>
 	</div>
