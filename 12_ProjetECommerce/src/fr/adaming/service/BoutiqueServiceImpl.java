@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import fr.adaming.dao.AbstractFacade;
 import fr.adaming.dao.CategorieFacade;
+import fr.adaming.dao.CommandeDAO;
 import fr.adaming.dao.GestionPanierDao;
+import fr.adaming.dao.LigneCommandeDAO;
 import fr.adaming.dao.ProduitFacade;
 import fr.adaming.dao.RoleFacade;
 import fr.adaming.dao.UserFacade;
@@ -38,6 +40,12 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	
 	@Autowired
 	private GestionPanierDao gpDao;
+	
+	@Autowired
+    LigneCommandeDAO lcDAO;
+	
+	@Autowired
+	CommandeDAO cDAO;
 
 	public GestionPanierDao getGpDao() {
 		return gpDao;
@@ -201,33 +209,168 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	}
 	
 	// ====================================================================
+	// ------------------------ Méthode de LigneCommande ------------------------
+	// ====================================================================
+
+
+	//Méthodes du crude
+	
+
+	public int addLigneCommandeService(LigneCommande pLigneCommande) {
+
+		pLigneCommande.setPrix(pLigneCommande.getQuantite()*pLigneCommande.getProduit().getPrix());
+
+		return lcDAO.addLigneCommandeDao(pLigneCommande);
+
+	}
+
+
+	public void updateLigneCommandeService(LigneCommande pLigneCommande) {
+
+		lcDAO.updateLigneCommandeDao(pLigneCommande);		
+
+	}
+
+
+	public void deleteLigneCommandeService(int pIdLigneCommande) {
+
+		lcDAO.deleteLigneCommandeDao(pIdLigneCommande);;
+
+	
+	}
+
+
+	public LigneCommande getLigneCommandeService(int pIdLigneCommande) {
+
+		
+		return lcDAO.getLigneCommandeDao(pIdLigneCommande);
+
+	}
+
+
+
+	public List<LigneCommande> getAllLigneCommandeService() {
+		
+		return lcDAO.getAllLigneCommandeDao();
+
+	}
+
+
+	public void ajouterLigneCommandeDansCommandeBDD(LigneCommande pLigneCommande, Commande pCommande) {
+
+	
+		pLigneCommande.setCommande(pCommande);
+
+		lcDAO.updateLigneCommandeDao(pLigneCommande);
+
+		pCommande=cDAO.getCommandeDao(pCommande.getIdCommande());
+
+		List<LigneCommande> listeLigneCommande= pCommande.getListeLigneCommande();
+
+		
+		Double total = 0.0;
+	
+
+		for(LigneCommande ligneCommande : listeLigneCommande) {
+
+			System.out.println("> Prix de la ligne:"+ligneCommande.getPrix());
+
+			total = total + ligneCommande.getPrix();
+
+		}
+
+		
+
+		System.out.println("tolal="+ total);
+
+		pCommande.setTotal(total);
+
+		cDAO.updateCommandeDao(pCommande);
+
+	}
+	
+	// ====================================================================
 	// ------------------------ Méthode de Panier ------------------------
 	// ====================================================================
 
-	public void ajouterProduitPanierService(LigneCommande lc, long idProduit) {
-		Produit p=produitDAO.findById(idProduit);
-		lc.setProduit(p);
-		gpDao.ajouterLigneCommande(lc);
+	
+	public int addPanierService(Panier pPanier) {
+
+		return gpDao.addPanierDao(pPanier);
+
+	}
+
+
+	public void updatePanierService(Panier pPanier) {
+
+		gpDao.updatePanierDao(pPanier);
+
+	}
+
+
+	public void deletePanierService(int pIdPanier) {
+
+		gpDao.deletePanierDao(pIdPanier);
+
+	}
+
+
+	public Panier getPanierService(int pIdPanier) {
+
+		return gpDao.getPanierDao(pIdPanier);
+
+	}
+
+
+	public List<Panier> getAllPanierService() {
+	
+		return gpDao.getAllPanierDao();
+
+	}
+
+	// ====================================================================
+	// ------------------------ Méthode de Commande ------------------------
+	// ====================================================================
+
+
+	
+	public int addCommandeService(Commande pCommande) {
+	
+		return cDAO.addCommandeDao(pCommande);
+
+	}
+
+
+	public void updateCommandeService(Commande pCommande) {
+
+		cDAO.updateCommandeDao(pCommande);	
+
+	}
+
+
+	public void deleteCommandeService(int pIdCommande) {
+
+		cDAO.deleteCommandeDao(pIdCommande);
+
+	
+	}
+
+
+
+	public Commande getCommandeService(int pIdCommande) {
 		
-	}
-	
-	public void modifierQuantite(LigneCommande lc) {
-		gpDao.modifierQuantite(lc);
-	}
-	
-	public void retirerProduitPanierService(int idl) {
-		gpDao.retirerProduitPanier(idl);
-	}
-	
-	public List<LigneCommande> getAllLigneService(){
-		return gpDao.getAllLigne();
 
-	}
-	
-	public LigneCommande rechercherLCService(int idl) {
-		return gpDao.rechercherLigne(idl);
+		return cDAO.getCommandeDao(pIdCommande);
+
 	}
 
 
+
+	public List<Commande> getAllCommandeService() {
+
 	
+		return cDAO.getAllCommandeDao();
+
+	}
+
 }

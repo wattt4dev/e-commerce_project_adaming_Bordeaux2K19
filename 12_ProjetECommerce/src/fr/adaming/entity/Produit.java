@@ -26,7 +26,7 @@ public class Produit implements Serializable {
 	//Attributs
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idProduit;
+	private Integer idProduit;
 	private String designation;
 	private String description;
 	private double prix;
@@ -44,7 +44,7 @@ public class Produit implements Serializable {
 	@JoinColumn(name="categorie_id",referencedColumnName="idCategorie")
 	private Categorie categorie;
 	
-	@OneToMany
+	@OneToMany(mappedBy="produit")
 	private LigneCommande ligneCommande;
 	
 	//Constructeurs
@@ -79,7 +79,7 @@ public class Produit implements Serializable {
 
 
 	//Getters et setters
-	public Long getIdProduit() {
+	public Integer getIdProduit() {
 		return idProduit;
 	}
 

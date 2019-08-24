@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,40 +34,51 @@ public class GestionPanierDao {
 	
 	
 	//metdodes	
-	public void ajouterLigneCommande(LigneCommande lc) {
-		sf.getCurrentSession().save(lc);
-	}
 	
-	
-	public void modifierQuantite( LigneCommande lc) {
-		sf.getCurrentSession().update(lc);
-	}
-	
-	
-	
-	public void retirerProduitPanier (int idl) {
-		LigneCommande lc=rechercherLigne(idl);
-		System.out.println("ligne de commande avant null produit "+lc);		
-		lc.setProduit(null);
-		lc.setIdP(0);
-		sf.getCurrentSession().flush();
-		lc.setIdLigneCommande(idl);
-		System.out.println("juste avant de supprimer la ligne de commande"+lc);
-		sf.getCurrentSession().delete(lc);
-	}	
+		@Transactional
+		public int addPanierDao(Panier pPanier) {
+			return (int) sf.getCurrentSession().save(pPanier);
+		}
 
+				
+
+		@Transactional
+		public void updatePanierDao(Panier pPanier) {
+			sf.getCurrentSession().update(pPanier);
+		}
+
+		
+
+		
+
+		@Transactional
+		public void deletePanierDao(int pIdPanier) {
+
+			Session session = sf.getCurrentSession();
+
+			Panier nPanier = session.get(Panier.class, pIdPanier);
+
+			session.delete(nPanier);
+			
+
+		}
+
+		
 	
-	public LigneCommande rechercherLigne(int idl) {
-		LigneCommande lc=sf.getCurrentSession().get(LigneCommande.class, idl);
-		return lc;
+		@Transactional
+		public Panier getPanierDao(int pIdPanier) {
+			return sf.getCurrentSession().get(Panier.class, pIdPanier);
+
+		}
+
 		
-	}
-	
-	public List<LigneCommande> getAllLigne(){
+
+
+		@Transactional
+		public List<Panier> getAllPanierDao() {
+			return sf.getCurrentSession().createQuery("FROM panier p").getResultList();
+		}
+
 		
-		return sf.getCurrentSession().createQuery("FROM ligneCommande l").getResultList();
-		
-		
-	}
 
 }

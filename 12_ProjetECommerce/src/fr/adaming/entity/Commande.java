@@ -26,6 +26,9 @@ public class Commande {
 	private Long idCommande;
 	private Date dateCommande;
 	
+	private double total;
+	private boolean valider;
+	
 	//Associations
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="commande_id", referencedColumnName="idClient")
@@ -66,6 +69,38 @@ public class Commande {
 
 	public void setDateCommande(Date dateCommande) {
 		this.dateCommande = dateCommande;
+	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	public boolean isValider() {
+		return valider;
+	}
+
+	public void setValider(boolean valider) {
+		this.valider = valider;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public List<LigneCommande> getListeLigneCommande() {
+		return listeLigneCommande;
+	}
+
+	public void setListeLigneCommande(List<LigneCommande> listeLigneCommande) {
+		this.listeLigneCommande = listeLigneCommande;
 	}
 	
 	
