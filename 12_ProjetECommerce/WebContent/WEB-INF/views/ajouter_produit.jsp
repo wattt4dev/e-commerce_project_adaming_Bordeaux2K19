@@ -46,6 +46,11 @@
 					<td><form:input path="quantite" /></td>
 				</tr>
 				
+				<tr>
+					<td><form:label path="photo">Photo</form:label></td>
+					<td><form:input path="photo"/></td>
+				</tr>
+				
 				
 				<tr>
 					<td>Categorie</td>

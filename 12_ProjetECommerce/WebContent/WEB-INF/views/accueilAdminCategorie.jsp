@@ -9,144 +9,193 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Accueil Admin Categorie</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="http://localhost:8080/12_ProjetECommerce/resources/css/homepage-admin.css"
+	type="text/css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+
 </head>
 <body>
 
-	<h1 style="background-color: yellow; color: blue; text-align: center;">
-		${attribut_titre}</h1>
+	<header> <nav class="py-5 bg-dark">
+	<ul class="nav justify-content-end">
+		<li class="nav-item"><a class="nav-link"
+			style="color: white; position: absolute; left: 10px"
+			href="accueilBoutique.jsp">Chouquette & Co. Boutique</a></li>
+
+		<li class="nav-item"><a class="nav-link active" style="color: red;">${attribut_message}</a></li>
+		<li class="nav-item"><a class="nav-link active" style="color: white;"><fmt:formatDate value="${attribut_date}"
+					pattern="dd-MM-yyyy" /> | <fmt:formatDate value="${attribut_date}"
+					type="time" timeStyle="short" /></a></li>
 
 
-	<!-- recup du message renvoyé par le controller-->
-	<h2 style="background-color: red; color: black; text-align: center;">
-		${attribut_message}</h2>
+		<li class="nav-item"><a class="nav-link active"
+			style="color: white;" href="accueilBoutique.jsp">Home</a></li>
+
+		<li class="nav-item"><a class="nav-link" style="color: white"
+			href="#">Contact Us</a></li>
+
+		<li class="nav-item"><a class="nav-link" style="color: white"
+			href="#">About Us</a></li>
+
+		<li class="nav-item"><a class="nav-link" style="color: white"
+			href="#">More</a></li>
+	</ul>
+	</nav> </header>
+
+	
 
 
-	<!-- recup de la date renvoyée par le controller-->
-	<h3 style="background-color: green; color: blac; text-align: center;">
-		Nous sommes le :
-		<fmt:formatDate value="${attribut_date}" pattern="dd-MM-yyyy" />
-		<br /> il est :
-		<fmt:formatDate value="${attribut_date}" type="time" timeStyle="short" />
-	</h3>
+	<div class="row">
+		<div class="col" align="center">
 
-	<div align="center">
+			<h1>Liste des catégories</h1>
 
-		<h1 style="background-color: blue; color: yellow;">Liste des
-			catégories</h1>
 
-		<table cellspacing="0" cellpadding="6" width="60%">
 
 			<!-- lein pour ajout du fonctionnaire -->
-			<tr>
-				<td colspan="4" align="right"><a
-					href="${pageContext.request.contextPath}/adminCategorie/addCategorie"
-					style="background-color: lightblue">Ajouter une catégorie</a></td>
-			</tr>
 
+			<a
+				href="${pageContext.request.contextPath}/adminCategorie/addCategorie">Ajouter
+				une catégorie</a>
 
-			<!-- affichage de la liste des fonctionnaire -->
-			<tr bgcolor="grey" style="color: white">
-				<th>#ID Catégorie</th>
-				<th>Nom Catégorie</th>
-				<th>Description Catégorie</th>
-				<th>Photo</th>
-				<th>Actions</th>
-
-				<c:forEach items="${attribut_categories}" var="categorie">
-
-					<tr bgcolor="lightyellow">
-						<td><b>${categorie.idCategorie}</b></td>
-						<td>${categorie.nomCategorie}</td>
-						<td>${categorie.description}</td>
-						<td>${categorie.photo}</td>
-						<td><a
-							href="${pageContext.request.contextPath}/adminCategorie/updateCategorie?idCategorie=${categorie.idCategorie}">Modifier</a>
-							<a
-							href="${pageContext.request.contextPath}/adminCategorie/categorie/delete/${categorie.idCategorie}">Supprimer</a>
-						</td>
+			<table class="table">
+				<thead class="thead bg-dark">
+					<tr>
+						<th scope="col" class="column">#ID Catégorie</th>
+						<th scope="col" class="column">Nom Catégorie</th>
+						<th scope="col" class="column">Description Catégorie</th>
+						<th scope="col" class="column">Photo</th>
+						<th scope="col" class="column">Actions</th>
 					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${attribut_categories}" var="categorie">
 
-				</c:forEach>
-		</table>
+						<tr class="bg-light">
+							<td><b>${categorie.idCategorie}</b></td>
+							<td>${categorie.nomCategorie}</td>
+							<td>${categorie.description}</td>
+							<td>${categorie.photo}</td>
+							<td><a
+								href="${pageContext.request.contextPath}/adminCategorie/updateCategorie?idCategorie=${categorie.idCategorie}">Modifier</a>
+								<a
+								href="${pageContext.request.contextPath}/adminCategorie/categorie/delete/${categorie.idCategorie}">Supprimer</a>
+							</td>
+						</tr>
+
+					</c:forEach>
+				</tbody>
+			</table>
+
+
+		</div>
 	</div>
-	
-	
-	
-	
-	<div align="center">
 
-		<h1 style="background-color: blue; color: yellow;">Liste des
-			users</h1>
-
-		<table cellspacing="0" cellpadding="6" width="60%">
-
-			<!-- lein pour ajout du fonctionnaire -->
-			<tr>
-				<td colspan="4" align="right"><a
-					href="${pageContext.request.contextPath}/adminCategorie/addUser"
-					style="background-color: lightblue">Ajouter un user</a></td>
-			</tr>
-
-
-			<!-- affichage de la liste des fonctionnaire -->
-			<tr bgcolor="grey" style="color: white">
-				<th>#ID User</th>
-				<th>Username</th>
-				<th>Password</th>
-				<th>Activation</th>
-				<th>Actions</th>
-
-				<c:forEach items="${attribut_users}" var="user">
-
-					<tr bgcolor="lightyellow">
-						<td><b>${user.idUser}</b></td>
-						<td>${user.userName}</td>
-						<td>${user.password}</td>
-						<td>${user.actived}</td>
-						<td><a
-							href="${pageContext.request.contextPath}/adminCategorie/updateUser?idUser=${user.idUser}">Modifier | </a>
-							<a
-							href="${pageContext.request.contextPath}/adminCategorie/updateUser?idUser=${user.idUser}">Attribuer Role | </a>
-							<a
-							href="${pageContext.request.contextPath}/adminCategorie/user/delete/${user.idUser}">Supprimer</a>
-						</td>
+	<div class="row">
+		<div class="col" align="center">
+			<h1>Liste des users</h1>
+			<a href="${pageContext.request.contextPath}/adminCategorie/addUser">Ajouter
+				un user</a>
+			<table class="table">
+				<thead class="thead bg-dark">
+					<tr>
+						<th scope="col" class="column">#ID User</th>
+						<th scope="col" class="column">Username</th>
+						<th scope="col" class="column">Password</th>
+						<th scope="col" class="column">Activation</th>
+						<th scope="col" class="column">Actions</th>
 					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${attribut_users}" var="user">
 
-				</c:forEach>
-		</table>
+						<tr class="bg-light">
+							<td><b>${user.idUser}</b></td>
+							<td>${user.userName}</td>
+							<td>${user.password}</td>
+							<td>${user.actived}</td>
+							<td><a
+								href="${pageContext.request.contextPath}/adminCategorie/updateUser?idUser=${user.idUser}">Modifier
+									| </a> <a
+								href="${pageContext.request.contextPath}/adminCategorie/attribuerRole?idUser=${user.idUser}">Attribuer
+									Role | </a> <a
+								href="${pageContext.request.contextPath}/adminCategorie/user/delete/${user.idUser}">Supprimer</a>
+							</td>
+						</tr>
+
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	
-	<div align="center">
 
-		<h1 style="background-color: blue; color: yellow;">Liste des
-			roles</h1>
+	<div class="row">
+		<div class="col" align="center">
 
-		<table cellspacing="0" cellpadding="6" width="60%">
+			<h1>Liste des roles</h1>
 
-
-			<!-- affichage de la liste des fonctionnaire -->
-			<tr bgcolor="grey" style="color: white">
-				<th>#ID Role</th>
-				<th>Role</th>
-				<th>Actions</th>
-
-				<c:forEach items="${attribut_roles}" var="role">
-
-					<tr bgcolor="lightyellow">
-						<td><b>${role.idRole}</b></td>
-						<td>${role.roleName}</td>
-						<td><a
-							href="${pageContext.request.contextPath}/adminCategorie/updateUser?idUser=${user.idUser}">Modifier | </a>
-							<a
-							href="${pageContext.request.contextPath}/adminCategorie/updateUser?idUser=${user.idUser}">Attribuer Role | </a>
-							<a
-							href="${pageContext.request.contextPath}/adminCategorie/user/delete/${user.idUser}">Supprimer</a>
-						</td>
+			<table class="table">
+				<thead class="thead bg-dark">
+					<tr>
+						<th scope="col" class="column">#ID Role</th>
+						<th scope="col" class="column">Role</th>
+						<th scope="col" class="column">#ID User</th>
+						<th scope="col" class="column">Actions</th>
 					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${attribut_roles}" var="role">
 
-				</c:forEach>
-		</table>
+						<tr class="bg-light">
+							<td><b>${role.idRole}</b></td>
+							<td>${role.roleName}</td>
+							<td>${user.idUser}</td>
+							<td><a
+								href="${pageContext.request.contextPath}/adminCategorie/updateUser?idUser=${user.idUser}">Modifier
+									| </a> <a
+								href="${pageContext.request.contextPath}/adminCategorie/attribuerRole?idUser=${user.idUser}">Attribuer
+									User | </a> <a
+								href="${pageContext.request.contextPath}/adminCategorie/user/delete/${user.idUser}">Supprimer</a>
+							</td>
+						</tr>
+
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	
+
+	</br>
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+	<div class="container">
+		<p class="m-0 text-center text-white">
+			Copyright &copy; Chouquette & Co. 2019</br> <a
+				href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
+				Administrateur Catégorie</a></br> <a
+				href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil
+				Administrateur Produit</a>
+		</p>
+	</div>
+	</footer>
+
 </body>
 </html>

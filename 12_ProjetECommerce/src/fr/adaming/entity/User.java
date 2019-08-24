@@ -6,7 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.springframework.data.annotation.Transient;
 
 @Entity(name="user")
 @Table(name="users")
@@ -20,6 +23,7 @@ public class User {
 	private String password;
 	private boolean actived;
 	
+
 	//Constructeurs
 		//Constructeur vide
 	public User() {

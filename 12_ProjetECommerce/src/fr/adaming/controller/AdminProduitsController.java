@@ -1,5 +1,6 @@
 package fr.adaming.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,10 +65,13 @@ public class AdminProduitsController {
 		
 		//1 - récup des données de la bdd
 		List<Produit> listeProduits = iapm.getAllProduitService();
+		String message = "Gestion des Produits";
+		Date toDay = new Date();
 		
 		//2 - encapsulation dans le model map
 		modeleDonnees.addAttribute("att_listeProduits", listeProduits );
-		
+		modeleDonnees.addAttribute("attribut_message", message);
+		modeleDonnees.addAttribute("attribut_date", toDay);
 		//3 - Nom logique de la vue
 		String nomVue = "liste_produits";
 		

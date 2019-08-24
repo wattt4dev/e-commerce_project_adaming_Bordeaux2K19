@@ -17,7 +17,11 @@
 <h6 style="text-align: right;">${produit.categorie}</h6>
 <br/>
 
+<<<<<<< HEAD
+<img src="${pageContext.request.contextPath}/resources/images/${produitPhoto}">
+=======
 <img src="${pageContext.request.contextPath}/resources/${produit.photo}">
+>>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
 
 
 ${produit.description}

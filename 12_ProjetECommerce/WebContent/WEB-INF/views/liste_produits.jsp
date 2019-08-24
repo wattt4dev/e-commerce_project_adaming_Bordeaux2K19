@@ -1,60 +1,117 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
+	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>liste_produits</title>
+<title>Accueil Admin Produit</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="http://localhost:8080/12_ProjetECommerce/resources/css/homepage-admin.css"
+	type="text/css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+
+
 </head>
 <body>
 
-<div align="center">
-		<h1>Liste des Produits</h1>
+		<header> <nav class="py-5 bg-dark">
+	<ul class="nav justify-content-end">
+		<li class="nav-item"><a class="nav-link"
+			style="color: white; position: absolute; left: 10px"
+			href="accueilBoutique.jsp">Chouquette & Co. Boutique</a></li>
+
+		<li class="nav-item"><a class="nav-link active" style="color: red;">${attribut_message}</a></li>
+		<li class="nav-item"><a class="nav-link active" style="color: white;"><fmt:formatDate value="${attribut_date}"
+					pattern="dd-MM-yyyy" /> | <fmt:formatDate value="${attribut_date}"
+					type="time" timeStyle="short" /></a></li>
 
 
-		<table>
-			<tr>
-				<td colspan="4">
-					<a href="${pageContext.request.contextPath}/adminProduit/addProduit" style="background-color: lightblue">Ajouter un produit</a>
-				</td>
-			</tr>
-			<tr>
-				<th>Identifiant</th>
-				<th>Désignation</th>
-				<th>Déscription</th>
-				<th>Prix</th>
-				<th>Quantité</th>
-			</tr>
+		<li class="nav-item"><a class="nav-link active"
+			style="color: white;" href="accueilBoutique.jsp">Home</a></li>
 
-			<c:forEach items="${att_listeProduits}"
-				var="produit">
+		<li class="nav-item"><a class="nav-link" style="color: white"
+			href="#">Contact Us</a></li>
 
-				<tr>
-					<td>${produit.idProduit}</td>
-					<td>${produit.designation}</td>
-					<td>${produit.description}</td>
-					<td>${produit.prix}</td>
-					<td>${produit.quantite}</td>
+		<li class="nav-item"><a class="nav-link" style="color: white"
+			href="#">About Us</a></li>
 
-					<td><a href="${pageContext.request.contextPath}/adminProduit/produit/delete/${produit.idProduit}">Supprimer</a></td>
-					<td><a href="${pageContext.request.contextPath}/adminProduit/produit/updateform?produitId=${produit.idProduit}">
-					Modifier</a></td>
-				</tr>
-
-			</c:forEach>
+		<li class="nav-item"><a class="nav-link" style="color: white"
+			href="#">More</a></li>
+	</ul>
+	</nav> </header>
 
 
-		</table>
+		<div class="row">
+			<div class="col" align="center">
+
+				<h1>Liste des Produits</h1>
+				<a href="${pageContext.request.contextPath}/adminProduit/addProduit">Ajouter
+					un produit</a>
+				<table class="table">
+					<thead class="thead bg-dark">
+						<tr>
+							<th class="column">Identifiant</th>
+							<th class="column">Désignation</th>
+							<th class="column">Déscription</th>
+							<th class="column">Prix</th>
+							<th class="column">Quantité</th>
+							<th class="column">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${att_listeProduits}" var="produit">
+							<tr class="bg-light">
+								<td>${produit.idProduit}</td>
+								<td>${produit.designation}</td>
+								<td>${produit.description}</td>
+								<td>${produit.prix}</td>
+								<td>${produit.quantite}</td>
+
+								<td><a
+									href="${pageContext.request.contextPath}/adminProduit/produit/delete/${produit.idProduit}">Supprimer</a>
+								<a
+									href="${pageContext.request.contextPath}/adminProduit/produit/updateform?produitId=${produit.idProduit}">
+										Modifier</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 
-
-
-	</div>
-
-
-
+		<!-- Footer -->
+		<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">
+				Copyright &copy; Chouquette & Co. 2019</br> <a
+					href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
+					Administrateur Catégorie</a></br> <a
+					href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil
+					Administrateur Produit</a>
+			</p>
+		</div>
+		</footer>
 </body>
 </html>
