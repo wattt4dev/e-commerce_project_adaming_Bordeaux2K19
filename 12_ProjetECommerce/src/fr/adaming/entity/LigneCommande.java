@@ -30,9 +30,14 @@ public class LigneCommande implements Serializable{
 	@JoinColumn(name="commande_id", referencedColumnName="idCommande")
 	private Commande commande;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="produit_id", referencedColumnName="idProduit")
 	private Produit produit;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="panier_id")
+	private Panier panier;
 
 	private long idP;
 	

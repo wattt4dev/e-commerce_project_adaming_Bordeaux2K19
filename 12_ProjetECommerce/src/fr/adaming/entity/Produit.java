@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -43,7 +44,7 @@ public class Produit implements Serializable {
 	@JoinColumn(name="categorie_id",referencedColumnName="idCategorie")
 	private Categorie categorie;
 	
-	@OneToOne(mappedBy="produit", cascade=CascadeType.ALL)
+	@OneToMany
 	private LigneCommande ligneCommande;
 	
 	//Constructeurs
