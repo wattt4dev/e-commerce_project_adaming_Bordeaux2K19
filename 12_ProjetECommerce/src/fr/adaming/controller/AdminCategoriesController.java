@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.entity.Categorie;
-import fr.adaming.entity.Commande;
 import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
 import fr.adaming.service.IAdminCategorieService;

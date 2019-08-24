@@ -31,5 +31,8 @@ Liste des Catégories :
 
 <a href="${pageContext.request.contextPath}/advancedresearch">Rechercher un article par mot-clé</a>
 
+
+
+<a href="${pageContext.request.contextPath}/afficher/panier"> Voir mon panier</a>
 </body>
 </html>

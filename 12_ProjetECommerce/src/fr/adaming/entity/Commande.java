@@ -31,7 +31,7 @@ public class Commande {
 	@JoinColumn(name="commande_id", referencedColumnName="idClient")
 	private Client client;
 	
-	@OneToMany(mappedBy="commande", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="commande", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<LigneCommande> listeLigneCommande;
 	
 	//Constructeur

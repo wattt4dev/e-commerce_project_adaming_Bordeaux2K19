@@ -31,5 +31,14 @@ Liste des Catégories :
 
 <a href="${pageContext.request.contextPath}/advancedresearch">Rechercher un article par mot-clé</a>
 
+
+
+<div style="background-color: aqua">
+
+<a href="${pageContext.request.contextPath}/afficher/panier"> Voir mon panier</a>
+
+
+
+</div>
 </body>
 </html>

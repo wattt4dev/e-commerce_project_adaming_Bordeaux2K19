@@ -16,10 +16,10 @@ Accueil rechercher par Catégorie
 
 <div style="color: red; background-color: gray">
 
-<h1>${categorieNom}</h1>
+<h1>${categorie.nomCategorie}</h1>
 
-<h3>${categorieDescription}</h3>
-<img src="${pageContext.request.contextPath}/resources/${categoriePhoto}">
+<h3>${categorie.description}</h3>
+<img src="${pageContext.request.contextPath}/resources/${categorie.photo}">
 
 
 </div>
@@ -37,10 +37,9 @@ Accueil rechercher par Catégorie
 			<td><img src="${pageContext.request.contextPath}/resources/${produit.photo}"></td>
 			
 			<td><a href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a>
-			<br/>
-			${produit.description}
-				<a >Ajouter au panier</a>
-			</td>
+			<td>
+			${produit.description}</td>
+				<td><a >Ajouter au panier</a></td>
 		</tr>
 		</c:forEach>
 	</table>

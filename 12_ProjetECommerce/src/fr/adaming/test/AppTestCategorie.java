@@ -33,8 +33,8 @@ public class AppTestCategorie {
 		Categorie categorie2 = new Categorie("Ordinateur portable", "Ordinateur fixe mais transportable, pratique !!");
 		
 				//Ajout de l'objet dans la DataBase
-//		categorieService.ajouterCategorie(categorie);
-//		categorieService.ajouterCategorie(categorie2);
+		categorieService.ajouterCategorie(categorie);
+		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
@@ -64,43 +64,43 @@ public class AppTestCategorie {
 			//================================================================================
 			//==========================Récupération d'une catégorie==========================
 			//================================================================================
-		
-		Categorie categorie4 = categorieService.getCategorieById((long) 1);
-		System.out.println("\n\t ===================== Get Categorie By Id =====================");
-		System.out.println("\t\t - "+categorie4);
-		System.out.println("\t ===============================================================");
-		
-		
-			//================================================================================
-			//=======================Récupération Liste d'une catégorie=======================
-			//================================================================================
-		
-		List<Categorie> categories = categorieService.getAllCategorie();
-		System.out.println("\n\t ===================== Get All Categorie =====================");
-		for (Categorie categorieOut : categories) {
-			System.out.println("\t\t - "+categorieOut);
-		}
-		System.out.println("\t =============================================================");
-		
-			//================================================================================
-			//========================Ajouter un User via ajouterUser=========================
-			//================================================================================
-		
-		User user1 = new User("admincat", "admincat", true);
-		categorieService.ajouterUser(user1);
-		User user2 = new User("adminprod", "adminprod", true);
-		categorieService.ajouterUser(user2);
-		
-			//================================================================================
-			//========================AttribuerRole via attribuerRole=========================
-			//================================================================================
-		
-		Role roleCat = new Role("ROLE_ADMINCAT");
-		Role roleProd = new Role("ROLE_ADMINPROD");
-		categorieService.attribuerRole(roleCat, (long) 1);
-		categorieService.attribuerRole(roleProd, (long) 2);
-		
-		
+//		
+//		Categorie categorie4 = categorieService.getCategorieById((long) 1);
+//		System.out.println("\n\t ===================== Get Categorie By Id =====================");
+//		System.out.println("\t\t - "+categorie4);
+//		System.out.println("\t ===============================================================");
+//		
+//		
+//			//================================================================================
+//			//=======================Récupération Liste d'une catégorie=======================
+//			//================================================================================
+//		
+//		List<Categorie> categories = categorieService.getAllCategorie();
+//		System.out.println("\n\t ===================== Get All Categorie =====================");
+//		for (Categorie categorieOut : categories) {
+//			System.out.println("\t\t - "+categorieOut);
+//		}
+//		System.out.println("\t =============================================================");
+//		
+//			//================================================================================
+//			//========================Ajouter un User via ajouterUser=========================
+//			//================================================================================
+//		
+//		User user1 = new User("admincat", "admincat", true);
+//		categorieService.ajouterUser(user1);
+//		User user2 = new User("adminprod", "adminprod", true);
+//		categorieService.ajouterUser(user2);
+//		
+//			//================================================================================
+//			//========================AttribuerRole via attribuerRole=========================
+//			//================================================================================
+//		
+//		Role roleCat = new Role("ROLE_ADMINCAT");
+//		Role roleProd = new Role("ROLE_ADMINPROD");
+//		categorieService.attribuerRole(roleCat, (long) 1);
+//		categorieService.attribuerRole(roleProd, (long) 2);
+//		
+//		
 		
 	}//end main
 

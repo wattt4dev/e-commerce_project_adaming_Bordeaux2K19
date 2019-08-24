@@ -7,13 +7,15 @@ import org.springframework.stereotype.Service;
 
 import fr.adaming.dao.AbstractFacade;
 import fr.adaming.dao.CategorieFacade;
+import fr.adaming.dao.GestionPanierDao;
 import fr.adaming.dao.ProduitFacade;
 import fr.adaming.dao.RoleFacade;
 import fr.adaming.dao.UserFacade;
 import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Client;
 import fr.adaming.entity.Commande;
-import fr.adaming.entity.GestionPanier;
+import fr.adaming.entity.LigneCommande;
+import fr.adaming.entity.Panier;
 import fr.adaming.entity.Produit;
 import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
@@ -33,6 +35,18 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 
 	@Autowired
 	private ProduitFacade produitDAO;
+	
+	@Autowired
+	private GestionPanierDao gpDao;
+
+	public GestionPanierDao getGpDao() {
+		return gpDao;
+	}
+
+	public void setGpDao(GestionPanierDao gpDao) {
+		this.gpDao = gpDao;
+	}
+
 
 	// ====================================================================
 	// ----------------------- Méthode de Catégorie -----------------------
@@ -176,9 +190,44 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	}
 
 	@Override
-	public Commande enregistrerCommande(GestionPanier p, Client c) {
+	public Commande enregistrerCommande(Panier p, Client c) {
 		
 		return null;
 	}
 
+	
+	public void ajouterProduitPanier(Produit produit, int quantite) {
+		
+	}
+	
+	// ====================================================================
+	// ------------------------ Méthode de Panier ------------------------
+	// ====================================================================
+
+	public void ajouterProduitPanierService(LigneCommande lc, long idProduit) {
+		Produit p=produitDAO.findById(idProduit);
+		lc.setProduit(p);
+		gpDao.ajouterLigneCommande(lc);
+		
+	}
+	
+	public void modifierQuantite(LigneCommande lc) {
+		gpDao.modifierQuantite(lc);
+	}
+	
+	public void retirerProduitPanierService(int idl) {
+		gpDao.retirerProduitPanier(idl);
+	}
+	
+	public List<LigneCommande> getAllLigneService(){
+		return gpDao.getAllLigne();
+
+	}
+	
+	public LigneCommande rechercherLCService(int idl) {
+		return gpDao.rechercherLigne(idl);
+	}
+
+
+	
 }

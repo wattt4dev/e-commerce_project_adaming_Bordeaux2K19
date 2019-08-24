@@ -22,7 +22,7 @@ public class Categorie implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idCategorie;
 	private String nomCategorie;
-	private byte[] photo;
+	private String photo;
 	private String description;
 	
 	@OneToMany(mappedBy="categorie")
@@ -43,14 +43,14 @@ public class Categorie implements Serializable {
 	}
 
 
-	public Categorie(String nomCategorie, byte[] photo, String description) {
+	public Categorie(String nomCategorie, String photo, String description) {
 		super();
 		this.nomCategorie = nomCategorie;
 		this.photo = photo;
 		this.description = description;
 	}
 
-	public Categorie(Long idCategorie, String nomCategorie, byte[] photo, String description) {
+	public Categorie(Long idCategorie, String nomCategorie, String photo, String description) {
 		super();
 		this.idCategorie = idCategorie;
 		this.nomCategorie = nomCategorie;
@@ -78,11 +78,11 @@ public class Categorie implements Serializable {
 		this.nomCategorie = nomCategorie;
 	}
 
-	public byte[] getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 
@@ -97,7 +97,7 @@ public class Categorie implements Serializable {
 	@Override
 	public String toString() {
 		return "Categorie [idCategorie=" + idCategorie + ", nomCategorie=" + nomCategorie + ", photo="
-				+ Arrays.toString(photo) + ", description=" + description + "]";
+				+ photo + ", description=" + description + "]";
 	}
 	
 	
