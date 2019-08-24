@@ -52,12 +52,13 @@ public class InternauteBoutiqueController {
 		this.ib = ib;
 	}
 	
-	@RequestMapping(value="/accueil/internaute", method=RequestMethod.GET)
+	@RequestMapping(value="/accueilBoutique", method=RequestMethod.GET)
 	public ModelAndView accueillirInternaute () {
 		System.out.println("je sus dans la methode accueillir internaute");
 		//Construction de l'objet Model and view
 		//1- définition des données a retourer dans la vue
 		List<Categorie> listeCategorie=ib.getAllCategorie();
+		List<Produit> produits=ib.getAllProduitService();
 		
 		for (Categorie cat:listeCategorie) {
 			System.out.println(cat);
@@ -66,10 +67,10 @@ public class InternauteBoutiqueController {
 		//1.1 Encapsulation dans une map
 		Map<String, Object> data=new HashMap<>();
 		data.put("listeCategorie", listeCategorie);
+		data.put("listeProduits", produits);
 		
 		//2- définition de la vue logique 
-		String viewName="accueil_internaute";
-		System.out.println("accueil_internaute");
+		String viewName="accueilBoutique";
 		
 		//3- constrction de l'objet Model and View
 		 ModelAndView modelAndViewAI = new ModelAndView(viewName, data);

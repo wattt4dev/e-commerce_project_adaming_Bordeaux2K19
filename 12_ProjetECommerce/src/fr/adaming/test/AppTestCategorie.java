@@ -33,10 +33,10 @@ public class AppTestCategorie {
 		Categorie categorie2 = new Categorie("Ordinateur portable", "Ordinateur fixe mais transportable, pratique !!");
 		
 				//Ajout de l'objet dans la DataBase
-//		categorieService.ajouterCategorie(categorie);
-//		categorieService.ajouterCategorie(categorie2);
-//		categorieService.ajouterCategorie(categorie2);
-//		categorieService.ajouterCategorie(categorie2);
+		categorieService.ajouterCategorie(categorie);
+		categorieService.ajouterCategorie(categorie2);
+		categorieService.ajouterCategorie(categorie2);
+		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);

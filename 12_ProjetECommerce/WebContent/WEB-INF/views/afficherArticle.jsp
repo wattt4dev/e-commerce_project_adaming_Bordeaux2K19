@@ -16,7 +16,7 @@
 <h6 style="text-align: right;">${produitCategorie}</h6>
 <br/>
 
-<img src="${pageContext.request.contextPath}/resources/${produitPhoto}">
+<img src="${pageContext.request.contextPath}/resources/images/${produitPhoto}">
 
 
 ${produitDescription}

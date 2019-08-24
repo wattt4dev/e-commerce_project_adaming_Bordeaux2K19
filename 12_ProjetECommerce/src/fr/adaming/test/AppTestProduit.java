@@ -28,6 +28,7 @@ public class AppTestProduit {
 		// ---------------------------------------------------------------------------------------
 		// 3.1. produit a ajouter
 		Produit p1 = new Produit("Tata", "Tutu", 45, 4, false, "Pipo");
+		p1.setPhoto("chat.jpg");
 		// 3.2. invocation du service pour l'ajout
 		produitService.addProduitService(p1);
 		// -----------------------------------------------------------------------------------------
@@ -52,7 +53,7 @@ public class AppTestProduit {
 
 		// 6. Suppression d'un produit
 		// ------------------------------------------------------------------------------------------
-		 produitService.deleteProduitService((long) 1);
+		// produitService.deleteProduitService((long) 1);
 
 		// ============== Méthodes propres à produit
 		// =======================================//

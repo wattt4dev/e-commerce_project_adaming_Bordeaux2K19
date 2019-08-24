@@ -27,7 +27,7 @@
 			
 		<c:forEach items="${listeProduitMotCle}" var="produit">
 		<tr>
-			<td><img src="${pageContext.request.contextPath}/resources/${produit.photo}"></td>
+			<td><img src="${pageContext.request.contextPath}/resources/images/${produit.photo}"></td>
 			<td><a href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a>
 			<br/>
 			${produit.description}
