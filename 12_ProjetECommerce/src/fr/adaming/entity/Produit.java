@@ -65,7 +65,7 @@ public class Produit implements Serializable {
 	}
 
 
-	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
+	public Produit(Integer idProduit, String designation, String description, double prix, int quantite,
 			boolean selectionne, String photo) {
 		super();
 		this.idProduit = idProduit;
@@ -84,7 +84,7 @@ public class Produit implements Serializable {
 	}
 
 
-	public void setIdProduit(Long idProduit) {
+	public void setIdProduit(Integer idProduit) {
 		this.idProduit = idProduit;
 	}
 

@@ -35,13 +35,11 @@ public class AppTestCategorie {
 				//Ajout de l'objet dans la DataBase
 		categorieService.ajouterCategorie(categorie);
 		categorieService.ajouterCategorie(categorie2);
-<<<<<<< HEAD
 		categorieService.ajouterCategorie(categorie2);
 		categorieService.ajouterCategorie(categorie2);
-=======
+
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
->>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);

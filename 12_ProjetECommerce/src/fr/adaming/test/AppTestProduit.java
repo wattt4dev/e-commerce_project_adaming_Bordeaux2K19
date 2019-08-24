@@ -30,21 +30,20 @@ public class AppTestProduit {
 		// 3. Ajout de produits dans la bdd via le service
 		// ---------------------------------------------------------------------------------------
 		// 3.1. produit a ajouter
-<<<<<<< HEAD
+
 		Produit p1 = new Produit("Tata", "Tutu", 45, 4, false, "Pipo");
 		p1.setPhoto("chat.jpg");
 		// 3.2. invocation du service pour l'ajout
 		produitService.addProduitService(p1);
-=======
+
 	//	Produit p1 = new Produit("Harry Potter à l'école des Sorciers", "blabla hp 1", 8.7, 10, true, "hp1.jpg");
 	//	Produit p2 = new Produit("Harry Potter et la chambre des Secrets", "blabla hp 2", 8.7, 10, true, "hp2.jpg");
 ////		// 3.2. invocation du service pour l'ajout
 	//	produitService.addProduitService(p1);
 	//	produitService.addProduitService(p2);
->>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
 		// -----------------------------------------------------------------------------------------
 
-<<<<<<< HEAD
+
 		// 4. Get produit par Id
 		// ------------------------------------------------------------------------------------------
 		//System.out.println(" ");
@@ -72,7 +71,6 @@ public class AppTestProduit {
 
 		// 7. get all produits
 //		 ------------------------------------------------------------------------------------------
-=======
 //		// 4. Get produit par Id
 //		// ------------------------------------------------------------------------------------------
 //		//System.out.println(" ");
@@ -110,7 +108,6 @@ public class AppTestProduit {
 //
 //		// 8. get all produits par mot clé
 //		// ------------------------------------------------------------------------------------------
->>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
 //		 System.out.println(" ");
 //		 System.out.println("------------------------ GET ALL Produits Par Mot Clé------------------------------------");
 //		 for (Produit produit : produitService.getAllProduitByMotCleService("Titi")) {
@@ -142,35 +139,7 @@ public class AppTestProduit {
 //		 produit.getDescription());
 //		 }
 //
-//		// 11. Ajout de produits dans la bdd via le service avec numéro catégorie
-//		// ---------------------------------------------------------------------------------------
-//		// 3.1. produit a ajouter
-		//Produit p3 = new Produit("ordi", "marche très bien", 415, 10, true, "Pipo");
-////
-////		// 3.2. invocation du service pour l'ajout
-		//System.out.println("--- ajout d'une ligne de commande ---");
-		//LigneCommande lc= new LigneCommande();
-		//produitService.ajouterProduitPanierService(lc, 9);
-		LigneCommande lc=produitService.rechercherLCService(41);
-		lc.setIdP(9);
-		lc.setPrix(lc.getProduit().getPrix());
-		
-		
-		System.out.println("--- afficchage des lignes ---");
-		List<LigneCommande> panier=produitService.getAllLigneService();
-		for(LigneCommande l : panier) {
-			System.out.println(l);
-		}
-		
-		
-		
-//		System.out.println("--- suppression d'une ligne de commande ---");
-//		produitService.retirerProduitPanierService(39);
-//		
-//		panier=produitService.getAllLigneService();
-//		for(LigneCommande l : panier) {
-//			System.out.println(l);
-//		}
+
 //		
 	}// end main
 

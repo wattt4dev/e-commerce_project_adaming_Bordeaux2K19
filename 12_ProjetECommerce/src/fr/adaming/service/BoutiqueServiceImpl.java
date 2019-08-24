@@ -197,11 +197,6 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 		return produitDAO.getAllSelection();
 	}
 
-	@Override
-	public Commande enregistrerCommande(Panier p, Client c) {
-		
-		return null;
-	}
 
 	
 	public void ajouterProduitPanier(Produit produit, int quantite) {

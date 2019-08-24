@@ -60,9 +60,9 @@ public class InternauteBoutiqueController {
 		this.ib = ib;
 	}
 	
-<<<<<<< HEAD
+
 	@RequestMapping(value="/accueilBoutique", method=RequestMethod.GET)
-=======
+
 	public GestionPanierEssai getGp() {
 		return gp;
 	}
@@ -72,7 +72,6 @@ public class InternauteBoutiqueController {
 	}
 
 	@RequestMapping(value="/accueil/internaute", method=RequestMethod.GET)
->>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
 	public ModelAndView accueillirInternaute () {
 		System.out.println("je sus dans la methode accueillir internaute");
 		//Construction de l'objet Model and view
