@@ -115,6 +115,6 @@
 		</property>
 	</bean>
 
-
+<bean id="panierbean" class="fr.adaming.entity.Panier" scope="session"/>
 
 </beans>

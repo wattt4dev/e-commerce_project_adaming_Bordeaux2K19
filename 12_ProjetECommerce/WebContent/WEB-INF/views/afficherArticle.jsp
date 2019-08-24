@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,20 +13,28 @@
 
 
 <div>
-<h2>${produitDesignation}</h2>
-<h6 style="text-align: right;">${produitCategorie}</h6>
+<h2>${produit.designation}</h2>
+<h6 style="text-align: right;">${produit.categorie}</h6>
 <br/>
 
+<<<<<<< HEAD
 <img src="${pageContext.request.contextPath}/resources/images/${produitPhoto}">
+=======
+<img src="${pageContext.request.contextPath}/resources/${produit.photo}">
+>>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
 
 
-${produitDescription}
+${produit.description}
 
 
-<h5>${produitPrix}</h5>
+<h5>${produit.prix}</h5>
 
-<h6>${ProduitQuantite}</h6>
-<a>Ajouter au panier</a>
+
+
+<h6>${produit.quantite}</h6>
+<a href="${pageContext.request.contextPath}/ligneCommande?produitId=${produit.idProduit}">Ajouter au panier</a>
+
+
 
 
 

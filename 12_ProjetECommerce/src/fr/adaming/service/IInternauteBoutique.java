@@ -5,7 +5,8 @@ import java.util.List;
 import fr.adaming.entity.Categorie;
 import fr.adaming.entity.Client;
 import fr.adaming.entity.Commande;
-import fr.adaming.entity.GestionPanier;
+import fr.adaming.entity.LigneCommande;
+import fr.adaming.entity.Panier;
 import fr.adaming.entity.Produit;
 
 public interface IInternauteBoutique {
@@ -25,6 +26,16 @@ public interface IInternauteBoutique {
 
 	public List<Categorie> getAllCategorie();
 	
-	public Commande enregistrerCommande(GestionPanier p, Client c);
+	public Commande enregistrerCommande(Panier p, Client c);
+	
+	public void ajouterProduitPanierService(LigneCommande lc, long idProduit) ;
+	
+	public void modifierQuantite (LigneCommande lc);
+	
+	public void retirerProduitPanierService(int idl) ;
+	
+	public List<LigneCommande> getAllLigneService();
+	
+	public LigneCommande rechercherLCService(int idl) ;
 
 }

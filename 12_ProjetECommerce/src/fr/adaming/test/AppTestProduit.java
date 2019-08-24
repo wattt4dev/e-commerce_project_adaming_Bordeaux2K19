@@ -1,9 +1,12 @@
 package fr.adaming.test;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.adaming.dao.ProduitFacade;
+import fr.adaming.entity.LigneCommande;
 import fr.adaming.entity.Produit;
 import fr.adaming.service.IAdminCategorieService;
 
@@ -27,12 +30,21 @@ public class AppTestProduit {
 		// 3. Ajout de produits dans la bdd via le service
 		// ---------------------------------------------------------------------------------------
 		// 3.1. produit a ajouter
+<<<<<<< HEAD
 		Produit p1 = new Produit("Tata", "Tutu", 45, 4, false, "Pipo");
 		p1.setPhoto("chat.jpg");
 		// 3.2. invocation du service pour l'ajout
 		produitService.addProduitService(p1);
+=======
+	//	Produit p1 = new Produit("Harry Potter à l'école des Sorciers", "blabla hp 1", 8.7, 10, true, "hp1.jpg");
+	//	Produit p2 = new Produit("Harry Potter et la chambre des Secrets", "blabla hp 2", 8.7, 10, true, "hp2.jpg");
+////		// 3.2. invocation du service pour l'ajout
+	//	produitService.addProduitService(p1);
+	//	produitService.addProduitService(p2);
+>>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
 		// -----------------------------------------------------------------------------------------
 
+<<<<<<< HEAD
 		// 4. Get produit par Id
 		// ------------------------------------------------------------------------------------------
 		//System.out.println(" ");
@@ -60,56 +72,106 @@ public class AppTestProduit {
 
 		// 7. get all produits
 //		 ------------------------------------------------------------------------------------------
+=======
+//		// 4. Get produit par Id
+//		// ------------------------------------------------------------------------------------------
+//		//System.out.println(" ");
+//		//System.out.println("------------------------ GET Produit BY ID ------------------------------------");
+//		//System.out.println("\t - " + produitService.findProduitByIdService((long) 1).getPrix() + " "
+//		//		+ produitService.findProduitByIdService((long) 1).getDescription());
+//
+//		// 5. Modification d'un produit
+//		// ------------------------------------------------------------------------------------------
+////		System.out.println(" ");
+////		System.out.println("------------------------ UPDATE Produit------------------------------------");
+////		Produit p = produitService.findProduitByIdService((long) 4);
+////		System.out.println("\t - Before Update : " + p.getDescription());
+////		p.setDescription("C'est un test");
+////		System.out.println(p.getDescription());
+////		produitService.updateProduitService(p);
+////		System.out.println("\t - After Update : " + produitService.findProduitByIdService((long) 4).getDescription());
+//
+//		// 6. Suppression d'un produit
+//		// ------------------------------------------------------------------------------------------
+//		 produitService.deleteProduitService((long) 1);
+//
+//		// ============== Méthodes propres à produit
+//		// =======================================//
+//
+//		// 7. get all produits
+////		 ------------------------------------------------------------------------------------------
+////		 System.out.println(" ");
+////		 System.out.println("------------------------ GET ALL Produits------------------------------------");
+////		 for (Produit produit : produitService.getAllProduitService()) {
+////		
+////		 System.out.println("\t - " + produit.getPrix() + " " +
+////		 produit.getDescription());
+////		 }
+//
+//		// 8. get all produits par mot clé
+//		// ------------------------------------------------------------------------------------------
+>>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
 //		 System.out.println(" ");
-//		 System.out.println("------------------------ GET ALL Produits------------------------------------");
-//		 for (Produit produit : produitService.getAllProduitService()) {
+//		 System.out.println("------------------------ GET ALL Produits Par Mot Clé------------------------------------");
+//		 for (Produit produit : produitService.getAllProduitByMotCleService("Titi")) {
 //		
-//		 System.out.println("\t - " + produit.getPrix() + " " +
+//		 System.out.println(
+//		 "\t - " + " " + produit.getDesignation() + produit.getPrix() + " " +
 //		 produit.getDescription());
 //		 }
-
-		// 8. get all produits par mot clé
-		// ------------------------------------------------------------------------------------------
-		 System.out.println(" ");
-		 System.out.println("------------------------ GET ALL Produits Par Mot Clé------------------------------------");
-		 for (Produit produit : produitService.getAllProduitByMotCleService("Titi")) {
-		
-		 System.out.println(
-		 "\t - " + " " + produit.getDesignation() + produit.getPrix() + " " +
-		 produit.getDescription());
-		 }
-
-		// 9. get all produits par Catégorie
-		// ------------------------------------------------------------------------------------------
-		 System.out.println(" ");
-		 System.out.println("------------------------ GET ALL Produits Par Catégorie------------------------------------");
-		 for (Produit produit : produitService.getAllProduitByCategorieService((long) 3)) {
-		
-		 System.out.println(
-		 "\t - " + " " + produit.getDesignation() + produit.getPrix() + " " +
-		 produit.getDescription());
-		 }
-
-		// 10. get all produits Sélectionnés
-		// ------------------------------------------------------------------------------------------
-		 System.out.println(" ");
-		 System.out.println("------------------------ GET ALL Produits Par Catégorie------------------------------------");
-		 for (Produit produit : produitService.getAllProduitSelection()) {
-		
-		 System.out.println(
-		 "\t - " + " " + produit.getDesignation() + produit.getPrix() + " " +
-		 produit.getDescription());
-		 }
-
-		// 11. Ajout de produits dans la bdd via le service avec numéro catégorie
-		// ---------------------------------------------------------------------------------------
-		// 3.1. produit a ajouter
-//		Produit p2 = new Produit("ordi", "marche très bien", 415, 10, true, "Pipo");
 //
-//		// 3.2. invocation du service pour l'ajout
-//		produitService.addProduit(p2, (long) 3);
-//		// -----------------------------------------------------------------------------------------
-
+//		// 9. get all produits par Catégorie
+//		// ------------------------------------------------------------------------------------------
+//		 System.out.println(" ");
+//		 System.out.println("------------------------ GET ALL Produits Par Catégorie------------------------------------");
+//		 for (Produit produit : produitService.getAllProduitByCategorieService((long) 3)) {
+//		
+//		 System.out.println(
+//		 "\t - " + " " + produit.getDesignation() + produit.getPrix() + " " +
+//		 produit.getDescription());
+//		 }
+//
+//		// 10. get all produits Sélectionnés
+//		// ------------------------------------------------------------------------------------------
+//		 System.out.println(" ");
+//		 System.out.println("------------------------ GET ALL Produits Par Catégorie------------------------------------");
+//		 for (Produit produit : produitService.getAllProduitSelection()) {
+//		
+//		 System.out.println(
+//		 "\t - " + " " + produit.getDesignation() + produit.getPrix() + " " +
+//		 produit.getDescription());
+//		 }
+//
+//		// 11. Ajout de produits dans la bdd via le service avec numéro catégorie
+//		// ---------------------------------------------------------------------------------------
+//		// 3.1. produit a ajouter
+		//Produit p3 = new Produit("ordi", "marche très bien", 415, 10, true, "Pipo");
+////
+////		// 3.2. invocation du service pour l'ajout
+		//System.out.println("--- ajout d'une ligne de commande ---");
+		//LigneCommande lc= new LigneCommande();
+		//produitService.ajouterProduitPanierService(lc, 9);
+		LigneCommande lc=produitService.rechercherLCService(41);
+		lc.setIdP(9);
+		lc.setPrix(lc.getProduit().getPrix());
+		
+		
+		System.out.println("--- afficchage des lignes ---");
+		List<LigneCommande> panier=produitService.getAllLigneService();
+		for(LigneCommande l : panier) {
+			System.out.println(l);
+		}
+		
+		
+		
+//		System.out.println("--- suppression d'une ligne de commande ---");
+//		produitService.retirerProduitPanierService(39);
+//		
+//		panier=produitService.getAllLigneService();
+//		for(LigneCommande l : panier) {
+//			System.out.println(l);
+//		}
+//		
 	}// end main
 
 }// end classe
