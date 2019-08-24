@@ -49,12 +49,6 @@
 		</table>
 	</form>
 	
-	<!-- Affichage d'un lien vers la page d'accueil à la deconnexion -->
-	<c:if test="${not empty param.logout_message }">
-		<font>
-			<a href="${pageContext.request.contextPath}/index">Home Page</a>
-		</font>
-	</c:if>
 
 </body>
 </html>

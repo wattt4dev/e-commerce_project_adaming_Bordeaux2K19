@@ -39,7 +39,9 @@
 					<td>${produit.prix}</td>
 					<td>${produit.quantite}</td>
 
-					<td><a href="${pageContext.request.contextPath}/adminCategorie/produit/delete/${produit.idProduit}">Supprimer</a></td>
+					<td><a href="${pageContext.request.contextPath}/adminProduit/produit/delete/${produit.idProduit}">Supprimer</a></td>
+					<td><a href="${pageContext.request.contextPath}/adminProduit/produit/updateform?produitId=${produit.idProduit}">
+					Modifier</a></td>
 				</tr>
 
 			</c:forEach>

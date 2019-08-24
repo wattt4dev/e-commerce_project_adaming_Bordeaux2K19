@@ -8,21 +8,22 @@
 
 
 	<!-- ====================================================================== -->
-	<!-- déclaration du ViewResolver de Spring MVC comme bean de spring 	-->
+	<!-- déclaration du ViewResolver de Spring MVC comme bean de spring -->
 	<!-- ====================================================================== -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-	
-		<!-- prefix= déclare emplacement des vues -->
-		<property name="prefix" value="/WEB-INF/views/"/>
-		
-		<!-- suffix = déclare le type de page web -->
-		<property name="suffix" value=".jsp"/>	
-	
-	
-	</bean>
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
-<!--  déclaraton de la location pour les images -->
-<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+		<!-- prefix= déclare emplacement des vues -->
+		<property name="prefix" value="/WEB-INF/views/" />
+
+		<!-- suffix = déclare le type de page web -->
+		<property name="suffix" value=".jsp" />
+
+
+	</bean>
+	
+	
+
 
 
 </beans>
