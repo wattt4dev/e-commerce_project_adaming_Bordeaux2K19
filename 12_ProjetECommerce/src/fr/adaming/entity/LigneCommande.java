@@ -30,7 +30,7 @@ public class LigneCommande implements Serializable{
 	@JoinColumn(name="commande_id", referencedColumnName="idCommande")
 	private Commande commande;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="produit_id", referencedColumnName="idProduit")
 	private Produit produit;
 	

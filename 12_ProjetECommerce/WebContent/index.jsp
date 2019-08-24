@@ -7,11 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
- <% response.sendRedirect("accueilBoutique"); %>
-=======
- <% response.sendRedirect("accueil/internaute"); %>
->>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
+
+
+<a href="${pageContext.request.contextPath}/accueil/internaute">Lien </a>
+
 		
 	
 </body>

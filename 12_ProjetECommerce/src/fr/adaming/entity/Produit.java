@@ -44,7 +44,7 @@ public class Produit implements Serializable {
 	@JoinColumn(name="categorie_id",referencedColumnName="idCategorie")
 	private Categorie categorie;
 	
-	@OneToMany(mappedBy="produit")
+	@OneToOne(mappedBy="produit")
 	private LigneCommande ligneCommande;
 	
 	//Constructeurs
@@ -164,6 +164,16 @@ public class Produit implements Serializable {
 	//Méthode ToString
 
 
+	public LigneCommande getLigneCommande() {
+		return ligneCommande;
+	}
+
+
+	public void setLigneCommande(LigneCommande ligneCommande) {
+		this.ligneCommande = ligneCommande;
+	}
+
+
 	public Long getIdCat() {
 		return idCat;
 	}
@@ -178,8 +188,10 @@ public class Produit implements Serializable {
 	public String toString() {
 		return "Produit [idProduit=" + idProduit + ", designation=" + designation + ", description=" + description
 				+ ", prix=" + prix + ", quantite=" + quantite + ", selectionne=" + selectionne + ", photo=" + photo
-				+ ", idCat=" + idCat + ", categorie=" + categorie.getIdCategorie() + ", ligneCommande=" + ligneCommande + "]";
+				+ ", idCat=" + idCat + ", categorie=" + categorie + ", ligneCommande=" + ligneCommande + "]";
 	}
+
+
 
 
 	

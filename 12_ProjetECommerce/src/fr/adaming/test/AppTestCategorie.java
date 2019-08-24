@@ -35,8 +35,7 @@ public class AppTestCategorie {
 				//Ajout de l'objet dans la DataBase
 		categorieService.ajouterCategorie(categorie);
 		categorieService.ajouterCategorie(categorie2);
-		categorieService.ajouterCategorie(categorie2);
-		categorieService.ajouterCategorie(categorie2);
+
 
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);

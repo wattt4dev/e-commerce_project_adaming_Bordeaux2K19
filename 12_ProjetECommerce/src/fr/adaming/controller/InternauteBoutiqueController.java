@@ -61,15 +61,6 @@ public class InternauteBoutiqueController {
 	}
 	
 
-	@RequestMapping(value="/accueilBoutique", method=RequestMethod.GET)
-
-	public GestionPanierEssai getGp() {
-		return gp;
-	}
-
-	public void setGp(GestionPanierEssai gp) {
-		this.gp = gp;
-	}
 
 	@RequestMapping(value="/accueil/internaute", method=RequestMethod.GET)
 	public ModelAndView accueillirInternaute () {
