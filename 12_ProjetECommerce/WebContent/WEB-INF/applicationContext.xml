@@ -107,6 +107,7 @@
 				<value>fr.adaming.entity.Client</value>
 				<value>fr.adaming.entity.Commande</value>
 				<value>fr.adaming.entity.LigneCommande</value>
+				<value>fr.adaming.entity.Panier</value>
 				<value>fr.adaming.entity.Produit</value>
 				<value>fr.adaming.entity.Role</value>
 				<value>fr.adaming.entity.User</value>
@@ -115,6 +116,7 @@
 		</property>
 	</bean>
 
-<bean id="panierbean" class="fr.adaming.entity.Panier" scope="session"/>
+	<bean id="panierbean" class="fr.adaming.entity.Panier"
+		scope="session" />
 
 </beans>

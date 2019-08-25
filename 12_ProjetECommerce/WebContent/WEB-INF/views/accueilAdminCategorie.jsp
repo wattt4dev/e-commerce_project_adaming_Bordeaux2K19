@@ -38,7 +38,7 @@
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link"
 			style="color: white; position: absolute; left: 10px"
-			href="accueilBoutique.jsp">Chouquette & Co. Boutique</a></li>
+			href="${pageContext.request.contextPath}/accueilBoutique">Chouquette & Co. Boutique</a></li>
 
 		<li class="nav-item"><a class="nav-link active" style="color: red;">${attribut_message}</a></li>
 		<li class="nav-item"><a class="nav-link active" style="color: white;"><fmt:formatDate value="${attribut_date}"
@@ -47,16 +47,16 @@
 
 
 		<li class="nav-item"><a class="nav-link active"
-			style="color: white;" href="accueilBoutique.jsp">Home</a></li>
+			style="color: white;" href="http://localhost:8080/12_ProjetECommerce/accueilBoutique">Home</a></li>
 
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="#">Contact Us</a></li>
 
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">About Us</a></li>
+			href="${pageContext.request.contextPath}/aboutUs.jsp">About Us</a></li>
 
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">More</a></li>
+			href="${pageContext.request.contextPath}/more.jsp">More</a></li>
 	</ul>
 	</nav> </header>
 

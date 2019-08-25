@@ -41,19 +41,19 @@
 	<div class="row">
 		<div class="col-1"></div>
 		<div class="col-3">
-			<div class="card">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath}/resources/images/"
+			<div class="border border-info rounded">
+				<img class="rounded"
+					src="${pageContext.request.contextPath}/resources/images/received_691782937970292.jpeg"
 					alt="Card image cap">
 				<div class="card-body">
-					<h5 class="card-title">Emma Llor</h5>
+					<h5 class="card-title">Audrey Arnould</h5>
 					<p class="card-text">Bio</p>
 				</div>
 			</div>
 		</div>
 		<div class="col-3">
-			<div class="card">
-				<img class="card-img-top"
+			<div class="border border-info rounded">
+				<img class="rounded"
 					src="${pageContext.request.contextPath}/resources/images/68961880_1623864364414427_4938672830838472704_n.jpg"
 					alt="Card image cap">
 				<div class="card-body">
@@ -63,13 +63,22 @@
 			</div>
 		</div>
 		<div class="col-3">
-			<div class="card">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath}/resources/images/60981712_10217208421936869_7145118030396129280_n.jpg"
+			<div class="border border-info rounded">
+				<img class="rounded"
+					src="${pageContext.request.contextPath}/resources/images/IMG_20190522_090004.jpg"
 					alt="Card image cap">
 				<div class="card-body">
 					<h5 class="card-title">Romain Wasselin</h5>
-					<p class="card-text">Bio</p>
+					<p class="card-text">
+						Anciennement diplomé d'un Master Biologie Santé en Immunologie et
+						Microbiologie par l'université de Bordeaux, j'ai 25 ans et je suis
+						passioné par le sport, la nature et les voyages. J'adore également
+						le Hardrock/Metal et la mécanique automobile.</br>
+						</br>
+						<i>L'apprentissage de la vie consiste à transformer les doutes
+							en certitudes.</br>- Alex Martial -
+						</i>
+					</p>
 				</div>
 			</div>
 		</div>

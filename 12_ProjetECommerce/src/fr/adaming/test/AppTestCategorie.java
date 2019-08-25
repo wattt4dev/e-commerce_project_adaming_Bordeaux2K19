@@ -35,13 +35,13 @@ public class AppTestCategorie {
 				//Ajout de l'objet dans la DataBase
 		categorieService.ajouterCategorie(categorie);
 		categorieService.ajouterCategorie(categorie2);
-<<<<<<< HEAD
-		categorieService.ajouterCategorie(categorie2);
-		categorieService.ajouterCategorie(categorie2);
-=======
+
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
->>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
+
+//		categorieService.ajouterCategorie(categorie2);
+//		categorieService.ajouterCategorie(categorie2);
+
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
@@ -91,20 +91,20 @@ public class AppTestCategorie {
 //			//========================Ajouter un User via ajouterUser=========================
 //			//================================================================================
 //		
-//		User user1 = new User("admincat", "admincat", true);
-//		categorieService.ajouterUser(user1);
-//		User user2 = new User("adminprod", "adminprod", true);
-//		categorieService.ajouterUser(user2);
-//		
+		User user1 = new User("admincat", "admincat", true);
+		categorieService.ajouterUser(user1);
+		User user2 = new User("adminprod", "adminprod", true);
+		categorieService.ajouterUser(user2);
+		
 //			//================================================================================
 //			//========================AttribuerRole via attribuerRole=========================
 //			//================================================================================
 //		
-//		Role roleCat = new Role("ROLE_ADMINCAT");
-//		Role roleProd = new Role("ROLE_ADMINPROD");
-//		categorieService.attribuerRole(roleCat, (long) 1);
-//		categorieService.attribuerRole(roleProd, (long) 2);
-//		
+		Role roleCat = new Role("ROLE_ADMINCAT");
+		Role roleProd = new Role("ROLE_ADMINPROD");
+		categorieService.attribuerRole(roleCat, (long) 1);
+		categorieService.attribuerRole(roleProd, (long) 2);
+		
 //		
 		
 	}//end main

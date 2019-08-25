@@ -44,7 +44,7 @@ public class Produit implements Serializable {
 	@JoinColumn(name="categorie_id",referencedColumnName="idCategorie")
 	private Categorie categorie;
 	
-	@OneToMany
+	@OneToOne(mappedBy="produit")
 	private LigneCommande ligneCommande;
 	
 	//Constructeurs
