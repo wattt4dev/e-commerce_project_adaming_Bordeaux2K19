@@ -68,7 +68,6 @@ public class AppTestProduit {
 		// =======================================//
 
 		// 7. get all produits
-//		 ----------------------------------------------------------------------------------------
 //		// 4. Get produit par Id
 //		// ------------------------------------------------------------------------------------------
 //		//System.out.println(" ");
@@ -137,35 +136,7 @@ public class AppTestProduit {
 //		 produit.getDescription());
 //		 }
 //
-//		// 11. Ajout de produits dans la bdd via le service avec numéro catégorie
-//		// ---------------------------------------------------------------------------------------
-//		// 3.1. produit a ajouter
-		//Produit p3 = new Produit("ordi", "marche très bien", 415, 10, true, "Pipo");
-////
-////		// 3.2. invocation du service pour l'ajout
-		//System.out.println("--- ajout d'une ligne de commande ---");
-		//LigneCommande lc= new LigneCommande();
-		//produitService.ajouterProduitPanierService(lc, 9);
-		LigneCommande lc=produitService.rechercherLCService(41);
-		lc.setIdP(9);
-		lc.setPrix(lc.getProduit().getPrix());
-		
-		
-		System.out.println("--- afficchage des lignes ---");
-		List<LigneCommande> panier=produitService.getAllLigneService();
-		for(LigneCommande l : panier) {
-			System.out.println(l);
-		}
-		
-		
-		
-//		System.out.println("--- suppression d'une ligne de commande ---");
-//		produitService.retirerProduitPanierService(39);
-//		
-//		panier=produitService.getAllLigneService();
-//		for(LigneCommande l : panier) {
-//			System.out.println(l);
-//		}
+
 //		
 	}// end main
 

@@ -25,17 +25,8 @@ public interface IInternauteBoutique {
 	public Categorie getCategorieById(Long idCategorie);
 
 	public List<Categorie> getAllCategorie();
-	
-	public Commande enregistrerCommande(Panier p, Client c);
-	
-	public void ajouterProduitPanierService(LigneCommande lc, long idProduit) ;
-	
-	public void modifierQuantite (LigneCommande lc);
-	
-	public void retirerProduitPanierService(int idl) ;
-	
+
 	public List<LigneCommande> getAllLigneService();
 	
-	public LigneCommande rechercherLCService(int idl) ;
 
 }

@@ -155,7 +155,7 @@ public class AdminProduitsController {
 			//1. recup du fonctionnaire à modifier via son id
 		Map<String, Object> data = new HashMap<>();
 		
-		Produit produitUp = iapm.findProduitByIdService((long) pIdProduit);
+		Produit produitUp = iapm.findProduitByIdService(pIdProduit);
 		
 		List<Categorie> listeCategories = iapm.getAllCategorie();
 		

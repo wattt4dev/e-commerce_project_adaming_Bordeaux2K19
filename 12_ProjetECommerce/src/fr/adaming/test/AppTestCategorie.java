@@ -36,8 +36,11 @@ public class AppTestCategorie {
 		categorieService.ajouterCategorie(categorie);
 		categorieService.ajouterCategorie(categorie2);
 
+		categorieService.ajouterCategorie(categorie2);
+
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
+
 
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);

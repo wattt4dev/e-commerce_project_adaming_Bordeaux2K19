@@ -26,7 +26,7 @@ public class Produit implements Serializable {
 	//Attributs
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idProduit;
+	private Integer idProduit;
 	private String designation;
 	private String description;
 	private double prix;
@@ -65,7 +65,7 @@ public class Produit implements Serializable {
 	}
 
 
-	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
+	public Produit(Integer idProduit, String designation, String description, double prix, int quantite,
 			boolean selectionne, String photo) {
 		super();
 		this.idProduit = idProduit;
@@ -79,12 +79,12 @@ public class Produit implements Serializable {
 
 
 	//Getters et setters
-	public Long getIdProduit() {
+	public Integer getIdProduit() {
 		return idProduit;
 	}
 
 
-	public void setIdProduit(Long idProduit) {
+	public void setIdProduit(Integer idProduit) {
 		this.idProduit = idProduit;
 	}
 
@@ -164,6 +164,16 @@ public class Produit implements Serializable {
 	//Méthode ToString
 
 
+	public LigneCommande getLigneCommande() {
+		return ligneCommande;
+	}
+
+
+	public void setLigneCommande(LigneCommande ligneCommande) {
+		this.ligneCommande = ligneCommande;
+	}
+
+
 	public Long getIdCat() {
 		return idCat;
 	}
@@ -178,8 +188,10 @@ public class Produit implements Serializable {
 	public String toString() {
 		return "Produit [idProduit=" + idProduit + ", designation=" + designation + ", description=" + description
 				+ ", prix=" + prix + ", quantite=" + quantite + ", selectionne=" + selectionne + ", photo=" + photo
-				+ ", idCat=" + idCat + ", categorie=" + categorie.getIdCategorie() + ", ligneCommande=" + ligneCommande + "]";
+				+ ", idCat=" + idCat + ", categorie=" + categorie + ", ligneCommande=" + ligneCommande + "]";
 	}
+
+
 
 
 	
