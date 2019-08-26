@@ -36,16 +36,20 @@ public class AppTestProduit {
 		// 3.2. invocation du service pour l'ajout
 		//produitService.addProduitService(p1);
 //
-		Produit p1 = new Produit("Harry Potter à l'école des Sorciers", "blabla hp 1", 8.7, 10, true, "hp1.jpg");
-		Produit p2 = new Produit("Harry Potter et la chambre des Secrets", "blabla hp 2", 8.7, 10, true, "hp2.jpg");
-		Produit p3 = new Produit("Harry Potter et le prisonier d'Azkaban", "blabla hp 3", 8.7, 10, true, "hp3.jpg");
+		Produit p1 = new Produit("Harry Potter à l'école des Sorciers", "Le jour de ses onze ans, Harry Potter, un orphelin élevé par un oncle et une tante qui le détestent, voit son existence bouleversée. Un géant nommé Hagrid,vient le chercher pour l'emmener à Poudlard, une école de sorcellerie ! Voler en balai, jeter des sorts, combattre les trolls : Harry se révèle un sorcier doué. Mais quel est le mystère qui l'entoure ? Et qui est l'effroyable V..., le mage dont personne n'ose prononcer le nom ? \r\n" + 
+				"\r\n" + 
+				"Amitié, surprises, dangers, scènes comiques, Harry découvre ses pouvoirs et la vie à Poudlard. Le premier tome des aventures du jeune héros vous ensorcelle aussitôt !\r\n" + 
+				"\r\n" + 
+				"Harry Potter à l'école des sorciers a obtenu le prix Sorcières du roman 1999 et le prix Tam-Tam du livre de jeunesse 1999, catégorie Je Bouquine...", 8.7, 10, true, "hp1.jpg");
+		Produit p2 = new Produit("Harry Potter et la chambre des Secrets", "Une rentrée fracassante en voiture volante, une étrange malédiction qui s'abat sur les élèves, cette deuxième année à l'école des sorciers ne s'annonce pas de tout repos ! Entre les cours de potions magiques, les matches de Quidditch et les combats de mauvais sorts, Harry Potter trouvera-t-il le temps de percer le mystère de la Chambre des Secrets ? Un livre magique pour sorciers confirmés.", 8.7, 10, true, "hp2.jpg");
+		Produit p3 = new Produit("Harry Potter et le prisonier d'Azkaban", "Sirius Black, le dangereux criminel qui s’est échappé de la forteresse d’Azkaban, recherche Harry Potter. C’est donc sous bonne garde que l’apprenti sorcier fait sa troisième rentrée. Au programme : des cours de divination, la fabrication d’une potion de ratatinage, le dressage des hippogriffes… Mais Harry est-il vraiment à l’abri du danger qui le menace ? Un livre époustouflant qui vous emportera dans un tourbillon de surprises et d’émotions !", 8.7, 10, true, "hp3.jpg");
 
 		Produit cd1 = new Produit("The Beatles", "Imagine all the people ",11 , 10, true, "beatles.jpg");
 		Produit cd2 = new Produit("Mago de Oz", "Cuando despiertes un dia y sientas que no puedes mas",12, 10, true, "mago.jpg");
 		Produit cd3 = new Produit("Joaquin Sabina", "blabla hp 2", 10, 10, true, "js.jpg");
 
 		
-		Produit j1 = new Produit("Trivial Pursuit", "Amusant!!!", 20, 10, true, "tp.jpg");
+		Produit j1 = new Produit("Trivial Pursuit", "Une très large variété de questions est disponible pour le jeu. Chaque couleur correspond à un thème — par exemple dans le jeu ordinaire « Genus » — celles en vert sont sur la « vie et nature ». Il y a des versions pour les plus jeunes, sur des périodes de l'Histoire, des univers de fiction ou beaucoup d'autres qui dépendent de la culture notamment d'un pays.", 20, 10, true, "tp.jpg");
 		Produit j2 = new Produit("UNO", "A l'origine des divorces", 5.2, 10, true, "uno.jpg");
 		Produit j3 = new Produit("TriDomino", "Triplement amusant!", 15, 10, true, "dom.jpg");
 
