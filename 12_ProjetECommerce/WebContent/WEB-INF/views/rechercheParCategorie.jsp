@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<<<<<<< HEAD
+
 	<header> <nav class="py-5 bg-dark">
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link"
@@ -31,39 +31,19 @@
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="#">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">More</a></li>
+			href="${pageContext.request.contextPath}/panier/getProduits">Panier </a> </li>
 	</ul>
 	</nav> </header>
-=======
-Accueil rechercher par Catégorie
-
-<div style="color: red; background-color: gray">
-
-<h1>${categorie.nomCategorie}</h1>
-
-<h3>${categorie.description}</h3>
-<img src="${pageContext.request.contextPath}/resources/${categorie.photo}">
 
 
-</div>
-
-
-<div>
->>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
-
-
-
-<<<<<<< HEAD
-	</hr>
-
-	<div class="row">
+	<div class="row" style="border-bottom-color: lightgrey; border: solid;">
 		<div align="center" class="col">
 
-			<h1>${categorieNom}</h1>
+			<h1>${categorie.nomCategorie}</h1>
 
-			<h3>${categorieDescription}</h3>
+			<h3>${categorie.description}</h3>
 			<img style="height: 200px; width: auto;"
-				src="${pageContext.request.contextPath}/resources/images/${categoriePhoto}">
+				src="${pageContext.request.contextPath}/resources/images/${categorie.photo}">
 
 
 		</div>
@@ -74,47 +54,21 @@ Accueil rechercher par Catégorie
 
 
 
-		<table>
-
-			<c:forEach items="${listeProduitCategorie}" var="produit">
-				<tr>
-					<td>
-						<img style="height: 200px; width: auto;" src="${pageContext.request.contextPath}/resources/images/${produit.photo}">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<a href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						${produit.description}
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<a>Ajouter au panier</a>
-					</td>
-				</tr>
-			</c:forEach>
-		</table>
-=======
 	<table>
 			
 		<c:forEach items="${listeProduitCategorie}" var="produit">
 		<tr>
 			
-			<td><img src="${pageContext.request.contextPath}/resources/${produit.photo}"></td>
+			<td><img style="height: 200px" src="${pageContext.request.contextPath}/resources/${produit.photo}"></td>
 			
 			<td><a href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a>
 			<td>
 			${produit.description}</td>
-				<td><a >Ajouter au panier</a></td>
+				<td><a href="${pageContext.request.contextPath}/panier/addProduit/${produit.idProduit}" >Ajouter au panier</a></td>
 		</tr>
 		</c:forEach>
 	</table>
->>>>>>> branch 'master' of https://github.com/wattt8wattt/e-commerce_project_adaming_Bordeaux2K19.git
+
 
 
 

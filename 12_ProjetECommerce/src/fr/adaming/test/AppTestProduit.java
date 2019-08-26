@@ -31,16 +31,19 @@ public class AppTestProduit {
 		// ---------------------------------------------------------------------------------------
 		// 3.1. produit a ajouter
 
-		Produit p1 = new Produit("Tata", "Tutu", 45, 4, false, "Pipo");
-		p1.setPhoto("chat.jpg");
+		//Produit p1 = new Produit("Tata", "Tutu", 45, 4, false, "Pipo");
+		//.setPhoto("chat.jpg");
 		// 3.2. invocation du service pour l'ajout
+		//produitService.addProduitService(p1);
+//
+		Produit p1 = new Produit("Harry Potter à l'école des Sorciers", "blabla hp 1", 8.7, 10, true, "hp1.jpg");
+		Produit p2 = new Produit("Harry Potter et la chambre des Secrets", "blabla hp 2", 8.7, 10, true, "hp2.jpg");
+//////		// 3.2. invocation du service pour l'ajout
 		produitService.addProduitService(p1);
-
-	//	Produit p1 = new Produit("Harry Potter à l'école des Sorciers", "blabla hp 1", 8.7, 10, true, "hp1.jpg");
-	//	Produit p2 = new Produit("Harry Potter et la chambre des Secrets", "blabla hp 2", 8.7, 10, true, "hp2.jpg");
-////		// 3.2. invocation du service pour l'ajout
-	//	produitService.addProduitService(p1);
-	//	produitService.addProduitService(p2);
+		produitService.addProduitService(p2);
+		
+		
+		
 		// -----------------------------------------------------------------------------------------
 
 
@@ -139,6 +142,31 @@ public class AppTestProduit {
 //		 produit.getDescription());
 //		 }
 //
+		
+		//-----------------------------------
+		//    Testligne commande et panier
+		//-----------------------------------
+		
+		
+		Produit p = produitService.findProduitByIdService((long)2);
+		System.out.println("produit p " +p);
+		LigneCommande lp=new LigneCommande();
+		lp.setProduit(p);
+		lp.setIdP(p.getIdProduit());
+		lp.setPrix(p.getPrix());
+		lp.setQuantite(1);
+//		
+//		
+		int v=produitService.addLigneCommandeService(lp);
+		System.out.println(v);
+//		
+		
+		LigneCommande lp2=produitService.getLigneCommandeService(1);
+		lp2.setQuantite(3);
+		produitService.updateLigneCommandeService(lp2);
+		
+		
+		
 
 //		
 	}// end main

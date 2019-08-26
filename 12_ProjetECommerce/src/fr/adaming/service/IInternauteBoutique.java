@@ -26,5 +26,62 @@ public interface IInternauteBoutique {
 
 	public List<Categorie> getAllCategorie();
 	
+	public int addLigneCommandeService(LigneCommande pLigneCommande) ;
+
+
+	public void updateLigneCommandeService(LigneCommande pLigneCommande);
+
+	public void deleteLigneCommandeService(int pIdLigneCommande) ;
+
+
+	public LigneCommande getLigneCommandeService(int pIdLigneCommande) ;
+
+
+	public List<LigneCommande> getAllLigneCommandeService() ;
+
+	public void ajouterLigneCommandeDansCommandeBDD(LigneCommande pLigneCommande, Commande pCommande) ;
+	
+	// ====================================================================
+	// ------------------------ Méthode de Panier ------------------------
+	// ====================================================================
+
+	
+	public int addPanierService(Panier pPanier);
+
+
+	public void updatePanierService(Panier pPanier) ;
+
+
+	public void deletePanierService(int pIdPanier) ;
+
+
+	public Panier getPanierService(int pIdPanier) ;
+
+
+	public List<Panier> getAllPanierService() ;
+
+	// ====================================================================
+	// ------------------------ Méthode de Commande ------------------------
+	// ====================================================================
+
+
+	
+	public int addCommandeService(Commande pCommande) ;
+
+
+	public void updateCommandeService(Commande pCommande) ;
+
+
+	public void deleteCommandeService(int pIdCommande) ;
+
+
+
+	public Commande getCommandeService(int pIdCommande);
+
+
+
+	public List<Commande> getAllCommandeService() ;
+
+	
 
 }

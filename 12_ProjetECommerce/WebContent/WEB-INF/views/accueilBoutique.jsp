@@ -32,12 +32,12 @@
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">More</a></li>
+			href="${pageContext.request.contextPath}/panier/getProduits">Panier </a></li>
 	</ul>
 	</nav> </header>
 
 
-	</br>
+	<br/>
 	<div class="row">
 		<div class="col-3" id="categories">
 
@@ -136,7 +136,6 @@
 										<h5 class="card-title">${produit.designation}</h5>
 										<p class="card-text">${produit.description}</p>
 										<p class="card-text">${produit.prix}euros</p>
-										<p class="card-text">${produit.description}</p>
 										<a
 											href="${pageContext.request.contextPath}/afficherArticle/?produitId=${produit.idProduit}"
 											class="btn btn-primary">Visionner l'article</a>

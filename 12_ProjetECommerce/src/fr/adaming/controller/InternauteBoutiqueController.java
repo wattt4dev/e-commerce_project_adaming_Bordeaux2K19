@@ -62,7 +62,7 @@ public class InternauteBoutiqueController {
 	
 
 
-	@RequestMapping(value="/accueil/internaute", method=RequestMethod.GET)
+	@RequestMapping(value="/accueilBoutique", method=RequestMethod.GET)
 	public ModelAndView accueillirInternaute () {
 		System.out.println("je sus dans la methode accueillir internaute");
 		//Construction de l'objet Model and view
@@ -139,8 +139,12 @@ public class InternauteBoutiqueController {
 		Map<String, Object> modeleDonnees = new HashMap<>();
 		Produit produitRecherche= ib.findProduitByIdService(idProduit);
 		
-		modeleDonnees.put("produit", produitRecherche);
+		Categorie c= ib.getCategorieById(produitRecherche.getCategorie().getIdCategorie());
+		List<Categorie> listeCategorie=ib.getAllCategorie();
 		
+		modeleDonnees.put("produit", produitRecherche);
+		modeleDonnees.put("categorie", c);
+		modeleDonnees.put("listeCategorie", listeCategorie);
 	
 		return new ModelAndView("afficherArticle", modeleDonnees);
 	}

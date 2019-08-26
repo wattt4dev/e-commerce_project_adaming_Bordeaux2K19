@@ -1,5 +1,6 @@
 package fr.adaming.controller;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import fr.adaming.entity.Categorie;
+import fr.adaming.entity.Client;
 import fr.adaming.entity.LigneCommande;
 import fr.adaming.entity.Panier;
 import fr.adaming.entity.Produit;
@@ -23,7 +26,7 @@ import fr.adaming.service.BoutiqueServiceImpl;
 public class PanierController {
 
 	
-	private Map<Integer, LigneCommande> articles = new HashMap<Integer, LigneCommande>();
+	private Map<Long, LigneCommande> articles = new HashMap<Long, LigneCommande>();
 
 	
 
@@ -46,9 +49,6 @@ public class PanierController {
 	@RequestMapping(value = "/panier/liste", method = RequestMethod.GET)
 
 	public String listePaniersBDD(ModelMap modelDonnees) {
-
-		
-
 		//Etape 1 : recupération de la liste des paniers depuis la BDD
 
 		List<Panier> listePaniers = panierService.getAllPanierService();
@@ -63,8 +63,6 @@ public class PanierController {
 
 
 	}
-
-
 
 	@RequestMapping(value = { "/panier/delete/{pPanierId}"}, method = RequestMethod.GET)
 
@@ -93,97 +91,87 @@ public class PanierController {
 
 
 
-	@RequestMapping(value = "/addPanier", method = RequestMethod.GET)
-
-	private ModelAndView setUpFormulaireAjout() {
-
-		
-		//Etape 1 : création de l'objet à retourner pour les données
-
-		Map<String, Object> data = new HashMap<String, Object>();
-
-		Panier panier = new Panier();
 	
-
-		data.put("panierCommand", panier);
-	
-
-		// Etape 2 : création du nom logique vue + renvoi du ModelandView
-
-		String nomVue = "ajouter_panier";
-
-		
-		return new ModelAndView(nomVue, data);
-
-
-
-	}
 
 	@RequestMapping(value="/panier/add", method=RequestMethod.POST)
 
 	public String addPanierBDD(@ModelAttribute("panierCommand") Panier pPanier, ModelMap modeleDonnees) {
-
-		
-
 		panierService.addPanierService(pPanier);
-
-		
-
 		//redirection vers liste_panier
 
 		modeleDonnees.addAttribute("liste_paniers", panierService.getAllPanierService());
-
-		
 
 		return "redirect:/panier/liste";
 
 		
 
 	}
+	//---------------------------------------------------------------------------
+	//ajouter un article au panier (panier intermédiaire)
+		@RequestMapping(value="/panier/addProduit/{pIdProduit}", method=RequestMethod.GET)
+		public ModelAndView addProduitPanier(@PathVariable("pIdProduit") long idProduit) {
+			Map<String, Object> data = new HashMap<>();
+			LigneCommande lignC=articles.get(idProduit);
+			Produit p=panierService.findProduitByIdService(idProduit);
+			if(lignC==null) {
+			
 
-	
-	@RequestMapping(value="/panier/addProduit", method=RequestMethod.POST)
+				lignC = new LigneCommande();
+				lignC.setProduit(panierService.findProduitByIdService(idProduit));
+				lignC.setQuantité(1);
+				lignC.setIdP(idProduit);
+				lignC.setPrix(panierService.findProduitByIdService(idProduit).getPrix());
+				
+				articles.put(idProduit, lignC);
 
-	public void addProduitPanier(Produit p, int quantite) {
-
-		
-
-		LigneCommande lc=articles.get(p.getIdProduit());
-		
-
-		if(lc==null) {
-		
-
-			LigneCommande lignC = new LigneCommande();
-
-			lignC.setProduit(p);
-
-			lignC.setQuantité(quantite);
-
-			lignC.setPrix(p.getPrix());
-
-			articles.put(p.getIdProduit(), lignC);
-
-		
-
-		}else {
-		
-
-			lc.setQuantité(lc.getQuantite() + quantite);
-
+			}
+			
+			List<Categorie> listeCategorie=panierService.getAllCategorie();
+			data.put("listeCategorie", listeCategorie);
+			data.put("produit", p);
+			data.put("ligneCommande", lignC);
+			
+			return new ModelAndView("ligneCommande", data);
 		}
-
-
+	
+	//confirmer l 'ajout d'un article au panier avec quantite
+	@RequestMapping(value="/panier/ajouterPanier", method=RequestMethod.POST)
+	public ModelAndView ajouterPanier(@ModelAttribute("ligneCommande") LigneCommande lc) {
+		Map<String, Object> data = new HashMap<>();
+		
+		Produit p=panierService.findProduitByIdService(lc.getIdP());
+		lc.setProduit(p);
+		System.out.println("ligne commande dans ajouterPanier" + lc);
+		panierService.addLigneCommandeService(lc);
+		
+		List<LigneCommande> panier=panierService.getAllLigneCommandeService();
+		data.put("panier_attribut", panier);
+		double total=0;
+		for (LigneCommande ligne : panier) {
+			total=total+ligne.getPrix();
+		}
+		data.put("total", total);
+		
+		return new ModelAndView("panier", data);
 	}
 
 	
+
+	
 	//methode pour recuperer la liste des produits du panier
-
 	@RequestMapping(value="/panier/getProduits", method=RequestMethod.GET)
-
-	public Collection<LigneCommande> getProduitsPanier(){
-
-		return articles.values();
+	public ModelAndView getProduitsPanier(){
+		Map<String, Object> data = new HashMap<>();
+		
+		List<LigneCommande> panier=panierService.getAllLigneCommandeService();
+		data.put("panier_attribut", panier);
+		double total=0;
+		for (LigneCommande ligne : panier) {
+			total=total+ligne.getPrix();
+		}
+		data.put("total", total);
+	
+		return new ModelAndView("panier", data);
 
 	}
 
@@ -192,10 +180,16 @@ public class PanierController {
 	//methode pour recuperer le nombre de produits dans le panier
 
 		@RequestMapping(value="/panier/getNbreProduits", method=RequestMethod.GET)
-
 		public int getSizePanier() {
-
-			return articles.size();
+			Map<String, Object> data = new HashMap<>();
+			List<LigneCommande> panier=panierService.getAllLigneCommandeService();
+			data.put("panier_attribut", panier);
+			int nbArticles=0;
+			for (LigneCommande lc: panier) {
+				nbArticles=nbArticles+lc.getQuantite();
+			}
+			
+			return nbArticles;
 
 		}
 
@@ -219,12 +213,67 @@ public class PanierController {
 	
 	//methode pour supprimer un produit d'un panier
 
-		@RequestMapping(value="/panier/suppProduit", method=RequestMethod.GET)
+		@RequestMapping(value="/panier/suppProduit/{idLigneCommande}", method=RequestMethod.GET)
+		public ModelAndView deleteProduitPanier(@PathVariable("idLigneCommande") int idL) {
+			Map<String, Object> data = new HashMap<>();
+			
+			LigneCommande lc = panierService.getLigneCommandeService(idL);
+			lc.setProduit(null);
+			panierService.updateLigneCommandeService(lc);
+			panierService.deleteLigneCommandeService(idL);
+			
+			List<LigneCommande> panier=panierService.getAllLigneCommandeService();
+			data.put("panier_attribut", panier);
+			double total=0;
+			for (LigneCommande ligne : panier) {
+				total=total+ligne.getPrix();
+			}
+			data.put("total", total);
+		
+			return new ModelAndView("panier", data);
+		}
+		
+		
+		@RequestMapping(value = "/addPanier/{panier_attribut}", method = RequestMethod.GET)
 
-		public void deleteProduitPanier(int idProduit) {
+		private ModelAndView setUpFormulaireAjout(@PathVariable("panier_attribut") List<LigneCommande> listeLC) {
 
-			articles.remove(idProduit);
+			
+			//Etape 1 : création de l'objet à retourner pour les données
+			for (LigneCommande lc: listeLC) {
+				System.out.println(lc);
+			}
+			
+			
+			
+			Map<String, Object> data = new HashMap<String, Object>();
+			Panier panier=new Panier();
+			panier.setPanier(listeLC);
+			data.put("panierCommande", panier);
+			
+			double total=0;
+			for (LigneCommande lc: listeLC) {
+				total=total+lc.getPrix();
+			}
+			panier.setTotal(total);
+			
+			panierService.addPanierService(panier);
+			
+			
+			Client client=new Client();
+			data.put("clientCommande", client);
+		
+
+			// Etape 2 : création du nom logique vue + renvoi du ModelandView
+
+			String nomVue = "confirmerCommande";
+
+			
+			return new ModelAndView(nomVue, data);
+
+
 
 		}
+		
 
 }
