@@ -22,9 +22,11 @@
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link"
 			style="color: white; position: absolute; left: 10px"
-			href="${pageContext.request.contextPath}/accueilBoutique">Chouquette & Co. Boutique</a></li>
+			href="${pageContext.request.contextPath}/accueilBoutique">Chouquette
+				& Co. Boutique</a></li>
 		<li class="nav-item"><a class="nav-link active"
-			style="color: white;" href="${pageContext.request.contextPath}/accueilBoutique">Home</a></li>
+			style="color: white;"
+			href="${pageContext.request.contextPath}/accueilBoutique">Home</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="#">Contact Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
@@ -38,13 +40,18 @@
 	<div>
 		<div class="row">
 			<div align="center" class="col">
+				<div class="border border-info rounded bg-light"
+					style="height: 300px; width: 500px;">
+					<div class="row">
+						<img style="height: auto; width: 200px;"
+							src="${pageContext.request.contextPath}/resources/images/${categorie.photo}">
+					</div>
+					<div>
+						<h3>${categorie.nomCategorie}</h3>
 
-				<h1>${categorie.nomCategorie}</h1>
-
-				<h3>${categorie.description}</h3>
-				<img style="height: 200px; width: auto;"
-					src="${pageContext.request.contextPath}/resources/images/${categorie.photo}">
-
+						<h5>${categorie.description}</h5>
+					</div>
+				</div>
 
 			</div>
 		</div>
