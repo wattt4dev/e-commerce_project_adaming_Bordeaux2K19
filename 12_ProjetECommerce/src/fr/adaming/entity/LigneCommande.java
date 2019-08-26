@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name="ligneCommande")
-@Table(name="lignesCommande")
+@Table(name="ligneCommandes")
 public class LigneCommande implements Serializable{
 	
 	
@@ -131,6 +131,19 @@ public class LigneCommande implements Serializable{
 
 	public void setIdLigneCommande(int idLigneCommande) {
 		this.idLigneCommande = idLigneCommande;
+	}
+
+	
+
+
+	public Panier getPanier() {
+		return panier;
+	}
+
+
+
+	public void setPanier(Panier panier) {
+		this.panier = panier;
 	}
 
 

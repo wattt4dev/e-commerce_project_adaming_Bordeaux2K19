@@ -29,8 +29,8 @@ public class AppTestCategorie {
 			//================================================================================
 		
 				//Instanciation d'un objet de type Categorie
-		Categorie categorie = new Categorie("Appareil Photo", "Prends des photos");
-		Categorie categorie2 = new Categorie("Ordinateur portable", "Ordinateur fixe mais transportable, pratique !!");
+		Categorie categorie = new Categorie("Livres", "La lecture quelle aventure");
+		Categorie categorie2 = new Categorie("Jeux", "Allez!! Juste une partie");
 		
 				//Ajout de l'objet dans la DataBase
 		categorieService.ajouterCategorie(categorie);

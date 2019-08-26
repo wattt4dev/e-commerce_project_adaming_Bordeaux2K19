@@ -23,6 +23,9 @@ public class User {
 	private String password;
 	private boolean actived;
 	
+	
+	private long idRole;
+	
 
 	//Constructeurs
 		//Constructeur vide
@@ -48,6 +51,16 @@ public class User {
 	//Getters et setters
 	public Long getIdUser() {
 		return idUser;
+	}
+
+	
+	
+	public long getIdRole() {
+		return idRole;
+	}
+
+	public void setIdRole(long idRole) {
+		this.idRole = idRole;
 	}
 
 	public void setIdUser(Long idUser) {

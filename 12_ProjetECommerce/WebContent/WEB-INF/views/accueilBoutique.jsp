@@ -33,12 +33,12 @@
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">More</a></li>
+			href="${pageContext.request.contextPath}/panier/getProduits">Panier </a></li>
 	</ul>
 	</nav> </header>
 
 
-	</br>
+	<br/>
 	<div class="row">
 		<div class="col-3" id="categories">
 
@@ -183,16 +183,18 @@
 									<a
 										href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><img
 										class="card-img-top"
-										src="${pageContext.request.contextPath}/resources/images/${produit.photo}"
+										src="${pageContext.request.contextPath}/resources/images/${produit.photo}" style="margin-top: 5px; height: 200px; width: auto;"
 										alt="Card image cap"></a>
 									<div class="card-body" style="text-align: left;">
 										<h5 class="card-title">${produit.designation}</h5>
 										<p class="card-text" style="display: none;">${produit.idProduit}</p>
 										<p class="card-text">${produit.description}</p>
 										<p class="card-text">${produit.prix}euros</p>
-										<p class="card-text">${produit.description}</p>
+										<a
+											href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"
+											class="btn btn-primary">Visionner l'article</a>
 										<a class="btn btn-primary"
-											href="${pageContext.request.contextPath}/ligneCommande">Ajouter
+											href="${pageContext.request.contextPath}/panier/addProduit/${produit.idProduit}">Ajouter
 											au panier</a>
 
 									</div>
@@ -203,6 +205,7 @@
 				</c:forEach>
 			</div>
 		</div>
+	</div>
 
 		</br> </br> </br>
 

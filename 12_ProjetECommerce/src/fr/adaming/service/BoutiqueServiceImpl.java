@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import fr.adaming.dao.AbstractFacade;
 import fr.adaming.dao.CategorieFacade;
 import fr.adaming.dao.CommandeDAO;
@@ -213,6 +215,8 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 
 	public int addLigneCommandeService(LigneCommande pLigneCommande) {
 
+		System.out.println("quantite dans lc dao " +pLigneCommande.getQuantite());
+		System.out.println("produit dans lc dao "+pLigneCommande.getProduit());
 		pLigneCommande.setPrix(pLigneCommande.getQuantite()*pLigneCommande.getProduit().getPrix());
 
 		return lcDAO.addLigneCommandeDao(pLigneCommande);
@@ -221,7 +225,6 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 
 
 	public void updateLigneCommandeService(LigneCommande pLigneCommande) {
-
 		lcDAO.updateLigneCommandeDao(pLigneCommande);		
 
 	}

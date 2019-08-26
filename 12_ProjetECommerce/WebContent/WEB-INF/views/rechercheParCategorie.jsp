@@ -18,6 +18,7 @@
 </head>
 <body>
 
+
 	<header> <nav class="py-5 bg-dark">
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link"
@@ -32,25 +33,25 @@
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="${pageContext.request.contextPath}/aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="${pageContext.request.contextPath}/more.jsp">More</a></li>
+			href="${pageContext.request.contextPath}/panier/getProduits">Panier
+		</a></li>
+
+
 	</ul>
 	</nav> </header>
+
 
 
 	<div>
 		<div class="row">
 			<div align="center" class="col">
 				<div class="border border-info rounded bg-light"
-					style="height: 300px; width: 500px;">
-					<div class="row">
-						<img style="height: auto; width: 200px;"
-							src="${pageContext.request.contextPath}/resources/images/${categorie.photo}">
-					</div>
-					<div>
-						<h3>${categorie.nomCategorie}</h3>
+					style="width: 1200px; margin-top: 5px; margin-bottom: 10px;">
+					<img style="height: 150px; width: auto;"
+						src="${pageContext.request.contextPath}/resources/images/${categorie.photo}">
+					<h3>${categorie.nomCategorie}</h3>
 
-						<h5>${categorie.description}</h5>
-					</div>
+					<h5>${categorie.description}</h5>
 				</div>
 
 			</div>
@@ -62,43 +63,32 @@
 					<tbody>
 						<c:forEach items="${listeProduitCategorie}" var="produit">
 							<tr>
-								<td><img style="height: 200px; width: auto;"
-									src="${pageContext.request.contextPath}/resources/images/${produit.photo}">
+								
+								<td>
+									<div class="col">
+										<img style="height: 200px; width: auto;"
+											src="${pageContext.request.contextPath}/resources/images/${produit.photo}">
+									</div>
 								</td>
-							</tr>
-							<tr>
-								<td><a
-									href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a>
-								</td>
-							</tr>
-							<tr>
-								<td>${produit.description}</td>
-							</tr>
-							<tr>
-								<td><a>Ajouter au panier</a></td>
+								<td>
+								<div class="col"><a
+									href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a></div>
+									
+									
+								<td><div class="col">${produit.description}</div></td>
+								
+								
+								<td><div class="col"><a
+									href="${pageContext.request.contextPath}/panier/addProduit/${produit.idProduit}">Ajouter
+										au panier</a></div></td>
+								
 							</tr>
 						</c:forEach>
-					</tbody>
-				</table>
-
-				<table>
-
-					<c:forEach items="${listeProduitCategorie}" var="produit">
-						<tr>
-
-							<td><img
-								src="${pageContext.request.contextPath}/resources/images${produit.photo}"></td>
-
-							<td><a
-								href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a></td>
-							<td>${produit.description}</td>
-							<td><a>Ajouter au panier</a></td>
-						</tr>
-					</c:forEach>
 				</table>
 			</div>
 		</div>
 	</div>
+
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">

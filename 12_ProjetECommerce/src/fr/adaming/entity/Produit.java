@@ -18,40 +18,38 @@ import javax.persistence.Table;
 
 import org.springframework.data.annotation.Transient;
 
-@Entity(name="produit")
-@Table(name="produits")
+@Entity(name = "produit")
+@Table(name = "produits")
 public class Produit implements Serializable {
-	
-	
-	//Attributs
+
+	// Attributs
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idProduit;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idProduit;
 	private String designation;
 	private String description;
 	private double prix;
 	private int quantite;
 	private boolean selectionne;
 	private String photo;
-	
-	//-----
-	//@Transient
+
+	// -----
+	// @Transient
 	private Long idCat;
 
-	//Associations
-	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="categorie_id",referencedColumnName="idCategorie")
+	// Associations
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "categorie_id", referencedColumnName = "idCategorie")
 	private Categorie categorie;
-	
-	@OneToOne(mappedBy="produit")
+
+	@OneToOne(mappedBy = "produit")
 	private LigneCommande ligneCommande;
-	
-	//Constructeurs
+
+	// Constructeurs
 	public Produit() {
 		super();
 	}
-
 
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionne,
 			String photo) {
@@ -63,7 +61,6 @@ public class Produit implements Serializable {
 		this.selectionne = selectionne;
 		this.photo = photo;
 	}
-
 
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
 			boolean selectionne, String photo) {
@@ -77,112 +74,88 @@ public class Produit implements Serializable {
 		this.photo = photo;
 	}
 
-
-	//Getters et setters
-	public Long getIdProduit() {
+	// Getters et setters
+	public long getIdProduit() {
 		return idProduit;
 	}
 
-
-	public void setIdProduit(Long idProduit) {
+	public void setIdProduit(long idProduit) {
 		this.idProduit = idProduit;
 	}
-
 
 	public String getDesignation() {
 		return designation;
 	}
 
-
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
-
 
 	public String getDescription() {
 		return description;
 	}
 
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 
 	public double getPrix() {
 		return prix;
 	}
 
-
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
-
 
 	public int getQuantite() {
 		return quantite;
 	}
 
-
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
-
 
 	public boolean isSelectionne() {
 		return selectionne;
 	}
 
-
 	public void setSelectionne(boolean selectionne) {
 		this.selectionne = selectionne;
 	}
-
 
 	public String getPhoto() {
 		return photo;
 	}
 
-
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 
-	
 	public Categorie getCategorie() {
 		return categorie;
 	}
 
-
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
-	
-	
 
-	
-	//Méthode ToString
-
+	// Méthode ToString
 
 	public LigneCommande getLigneCommande() {
 		return ligneCommande;
 	}
 
-
 	public void setLigneCommande(LigneCommande ligneCommande) {
 		this.ligneCommande = ligneCommande;
 	}
-
 
 	public Long getIdCat() {
 		return idCat;
 	}
 
-
 	public void setIdCat(Long idCat) {
 		this.idCat = idCat;
 	}
-
 
 	@Override
 	public String toString() {
@@ -190,14 +163,5 @@ public class Produit implements Serializable {
 				+ ", prix=" + prix + ", quantite=" + quantite + ", selectionne=" + selectionne + ", photo=" + photo
 				+ ", idCat=" + idCat + ", categorie=" + categorie + ", ligneCommande=" + ligneCommande + "]";
 	}
-
-
-
-
-	
-	
-	
-	
-	
 
 }

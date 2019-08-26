@@ -34,13 +34,17 @@
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">More</a></li>
+			href="${pageContext.request.contextPath}/panier/getProduits">Panier </a></li>
 	</ul>
 	</nav> </header>
 
-	<div>
 
-		<h1 style="background-color: blue; color: yellow;">Modification d'un user</h1>
+
+
+	<div class="list-group-item bg-light" align="center"
+				style="margin-top: 20px; margin-bottom: 20px; margin-right: 20px; margin-left: 20px; border-radius: 5px;">
+		
+		<h1 style="margin-top: 20px; margin-bottom: 20px;">Modification d'un user</h1>
 
 		<!-- formulaire -->
 

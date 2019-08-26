@@ -34,20 +34,21 @@
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">More</a></li>
+			href="${pageContext.request.contextPath}/panier/getProduits">Panier </a></li>
 	</ul>
 	</nav> </header>
 
 
 
 
-	<div>
-
-		<h1 style="background-color: blue; color: yellow;">Ajout d'une
+	<div class="list-group-item bg-light" align="center"
+				style="margin-top: 20px; margin-bottom: 20px; margin-right: 20px; margin-left: 20px; border-radius: 5px;">
+		
+		<h1 style="margin-top: 20px; margin-bottom: 20px;">Ajout d'une
 			nouvelle catégorie</h1>
 
 		<!-- formulaire -->
-
+		<div align="center">
 		<form:form modelAttribute="categorieCommand"
 			action="categorie/add" method="post">
 			<!-- on va associer ce formulaire à notre objet de commande "fonctionnaireCommand" grace à modelAttribute -->
@@ -74,14 +75,14 @@
 
 				<!-- button -->
 				<tr>
-					<td colspan="2"><input type="submit" value="Ajouter une catégorie" /></td>
+					<td colspan="2"><input type="submit" class="btn btn-primary" value="Ajouter une catégorie" /></td>
 				</tr>
 
 			</table>
 
 
 		</form:form>
-
+		</div>
 
 
 	</div>

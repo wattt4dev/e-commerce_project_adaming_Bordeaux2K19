@@ -18,7 +18,7 @@
 
 </head>
 <body>
-<header> <nav class="py-5 bg-dark">
+	<header> <nav class="py-5 bg-dark">
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link"
 			style="color: white; position: absolute; left: 10px"
@@ -32,88 +32,90 @@
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">More</a></li>
+			href="${pageContext.request.contextPath}/panier/getProduits">Panier </a></li>
 	</ul>
 	</nav> </header>
 
-	<div>
 
-		<h1 style="background-color: blue; color: yellow;">Modification d'une catégorie</h1>
+
+
+	<div class="list-group-item bg-light" align="center"
+				style="margin-top: 20px; margin-bottom: 20px; margin-right: 20px; margin-left: 20px; border-radius: 5px;">
+		
+		<h1 style="margin-top: 20px; margin-bottom: 20px;">Modification
+			d'une catégorie</h1>
 
 		<!-- formulaire -->
+		<div align="center">
+			<form:form modelAttribute="categorieCommandUpdate"
+				action="categorie/update" method="post">
+				<!-- on va associer ce formulaire à notre objet de commande "fonctionnaireCommand" grace à modelAttribute -->
 
-		<form:form modelAttribute="categorieCommandUpdate" action="categorie/update"
-			method="post">
-			<!-- on va associer ce formulaire à notre objet de commande "fonctionnaireCommand" grace à modelAttribute -->
+				<table width="100%">
 
-			<table width="100%">
-				
-				<tr>
-					<td></td>
-					<td><form:hidden path="idCategorie"/></td>
-				</tr>
-				
-				<!--champs nom -->
-				<tr>
-					<td><form:label path="nomCategorie">Nom de la Categorie : </form:label></td>
-					<td><form:input path="nomCategorie" /></td>
-				</tr>
+					<tr>
+						<td></td>
+						<td><form:hidden path="idCategorie" /></td>
+					</tr>
 
-				<!--champs fonction -->
-				<tr>
-					<td><form:label path="description">Description de la catégorie : </form:label></td>
-					<td><form:input path="description" /></td>
-				</tr>
+					<!--champs nom -->
+					<tr>
+						<td><form:label path="nomCategorie">Nom de la Categorie : </form:label></td>
+						<td><form:input path="nomCategorie" /></td>
+					</tr>
 
-				<!--champs salaire -->
-				<tr>
-					<td><form:label path="photo">Photo : </form:label></td>
-					<td><form:input path="photo" /></td>
-				</tr>
+					<!--champs fonction -->
+					<tr>
+						<td><form:label path="description">Description de la catégorie : </form:label></td>
+						<td><form:input path="description" /></td>
+					</tr>
 
-				<!-- button -->
-				<tr>
-					<td colspan="2"><input type="submit"
-						value="Modifier la catégorie" /></td>
-				</tr>
+					<!--champs salaire -->
+					<tr>
+						<td><form:label path="photo">Photo : </form:label></td>
+						<td><form:input path="photo" /></td>
+					</tr>
 
-			</table>
+					<!-- button -->
+					<tr>
+						<td colspan="2"><input class="btn btn-primary" type="submit"
+							value="Modifier la catégorie" /></td>
+					</tr>
+
+				</table>
 
 
-		</form:form>
-
+			</form:form>
+		</div>
 
 
 	</div>
 
-<!-- Footer -->
-		<footer class="py-5 bg-dark">
-		<div class="container" align="center">
-			<p class="m-0 text-center text-white">
-				Copyright &copy; Chouquette & Co. 2019</br> <a
-					href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
-					Administrateur Catégorie</a></br> <a
-					href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil
-					Administrateur Produit</a>
-			</p>
-		</div>
-		</footer>
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+	<div class="container" align="center">
+		<p class="m-0 text-center text-white">
+			Copyright &copy; Chouquette & Co. 2019</br> <a
+				href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
+				Administrateur Catégorie</a></br> <a
+				href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil
+				Administrateur Produit</a>
+		</p>
+	</div>
+	</footer>
 
 
 
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-			crossorigin="anonymous"></script>
-
-
-
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
 </html>

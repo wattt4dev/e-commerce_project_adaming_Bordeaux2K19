@@ -2,6 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="s" uri="http://www.springframework.org/security/tags"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,6 +18,12 @@
 <link rel="stylesheet" href="resources/css/shop-homepage.css"
 	type="text/css">
 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/shop-item.css" rel="stylesheet">
 </head>
 <body>
 
@@ -33,42 +41,53 @@
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">More</a></li>
+			href="${pageContext.request.contextPath}/panier/getProduits">Panier</a></li>
 	</ul>
 	</nav> </header>
+	<br />
 
-	<div>
-		<h2>${produit.designation}</h2>
-		<h6 style="text-align: right;">${produit.categorie}</h6>
-		<br /> <img
-			src="${pageContext.request.contextPath}/resources/images/${produitPhoto}">
+	<div class="row">
+		<div class="col-3" id="categories">
+
+			<h3 class="list-group-item" style="border-radius: 3px;">Catégories</h3>
+			<div class="list-group">
+				<table>
+					<c:forEach items="${listeCategorie}" var="cat">
+						<tr>
+							<td><a class="list-group-item bg-light"
+								href="${pageContext.request.contextPath}/recherche/catégorie/${cat.idCategorie}">${cat.nomCategorie}</a></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</div>
+
+		<div align="center" class="col-lg-9">
+
+			<div align="center" class="border border-info rounded" style="height: 800px; width: 450px;">
+				<img class="card-img-top img-fluid"
+					style="height: 300px; width: auto; margin-top: 5px;"
+					src="${pageContext.request.contextPath}/resources/images/${produit.photo}"
+					alt="">
+				<div class="card-body">
+					<h3 class="card-title">${produit.designation}</h3>
+					<h4>Prix unitaire : ${produit.prix} euros</h4>
+					<p class="card-text">${produit.description}</p>
+					<a class="btn btn-primary"
+						href="${pageContext.request.contextPath}/panier/addProduit/${produit.idProduit}">Ajouter
+						au panier</a>
 
 
-
-		${produit.description}
-
-
-		<h5>${produit.prix}</h5>
-
-
-
-		<h6>${produit.quantite}</h6>
-		<a
-			href="${pageContext.request.contextPath}/ligneCommande?produitId=${produit.idProduit}">Ajouter
-			au panier</a>
-
-
-
-
-
-
-
-
-
+				</div>
+			</div>
+		</div>
 	</div>
 
+	<!-- /.container -->
 
-
+	<br />
+	<br />
+	<br />
 
 
 	<!-- Footer -->
@@ -98,6 +117,10 @@
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
 
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="resources/css/jquery.min.js"></script>
+	<script src="resources/css/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

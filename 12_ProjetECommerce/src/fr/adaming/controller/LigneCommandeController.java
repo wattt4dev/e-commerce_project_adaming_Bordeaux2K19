@@ -24,31 +24,38 @@ public class LigneCommandeController {
 	}
 	
 
+	@RequestMapping(value = "/ligne_c/add/{pLigneCId}", method = RequestMethod.GET)
+
+	public String listeLignePaniersBDD(@PathVariable("pLigneCId") int pIdLigneCommande, ModelMap modelDonnees) {
+		//Etape 1 : recupération de la liste des lignes paniers depuis la BDD
+		LigneCommande lc=cService.getLigneCommandeService(pIdLigneCommande);
+		cService.addLigneCommandeService(lc);
+		
+		List<LigneCommande> listeLigneCommandes = cService.getAllLigneCommandeService();
+
+		//Etape 2 : Encapsulation de la liste dans l'objet ModelMap
+		modelDonnees.addAttribute("liste_ligneCommandes", listeLigneCommandes );
+
+		//Etape 3 : Définition du nom logique de la vue
+		String nomVue = "liste_ligneCommandes";
+
+		return nomVue;
+
+		
+	}
 	
 
 	@RequestMapping(value = "/ligne_c/liste", method = RequestMethod.GET)
 
 	public String listeLignePaniersBDD(ModelMap modelDonnees) {
-
-		
-
 		//Etape 1 : recupération de la liste des lignes paniers depuis la BDD
-
 		List<LigneCommande> listeLigneCommandes = cService.getAllLigneCommandeService();
 
-		
-
 		//Etape 2 : Encapsulation de la liste dans l'objet ModelMap
-
 		modelDonnees.addAttribute("liste_ligneCommandes", listeLigneCommandes );
 
-		
-
 		//Etape 3 : Définition du nom logique de la vue
-
 		String nomVue = "liste_ligneCommandes";
-
-
 
 		return nomVue;
 
@@ -57,7 +64,6 @@ public class LigneCommandeController {
 	
 	
 	@RequestMapping(value = { "/ligne_c/delete/{pLigneCId}"}, method = RequestMethod.GET)
-
 	public String deleteLignePanierBDD(@PathVariable("pLigneCId") int aLigneCId,
 
 			ModelMap modelDonnees) {
