@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<!-- spring mvc possede ses propres taglib form -->
+<!-- spring mvc possede ses propres taglib form -->
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,7 +23,7 @@
 <body>
 
 
-<header> <nav class="py-5 bg-dark">
+	<header> <nav class="py-5 bg-dark">
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link"
 			style="color: white; position: absolute; left: 10px"
@@ -46,14 +46,14 @@
 		<h1>Ajout d'un nouveau produit</h1>
 		<!-- formulaire -->
 
-		<form:form modelAttribute="produitCommande" 
-			action="produit/add" method="post">
+		<form:form modelAttribute="produitCommande" action="produit/add"
+			method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td></td>
-					<td><form:hidden path="idProduit"/> </td>
+					<td><form:hidden path="idProduit" /></td>
 				</tr>
-			
+
 				<tr>
 					<td><form:label path="designation">Désignation</form:label></td>
 					<td><form:input path="designation" /></td>
@@ -68,27 +68,30 @@
 					<td><form:label path="prix">Prix</form:label></td>
 					<td><form:input path="prix" /></td>
 				</tr>
-				
+
 				<tr>
 					<td><form:label path="quantite">Quantité</form:label></td>
 					<td><form:input path="quantite" /></td>
 				</tr>
-				
+
 				<tr>
 					<td><form:label path="photo">Photo</form:label></td>
-					<td><form:input path="photo"/></td>
+					<td><input type="file" name="file" required="required"/></td>
 				</tr>
-				
-				
+
+
 				<tr>
 					<td>Categorie</td>
-					<td><form:select  path="idCat" >
-					<form:option value="-" label="-Choisir une categorie-"/>
+					<td>
+					
+					<form:select  path="idCat" required="required">
+					<form:option value="" label="-Choisir une categorie-"/>
 					<form:options items="${ attribut_categories }" itemLabel="nomCategorie" itemValue="idCategorie"/>
 					</form:select>
+					
 					</td>
 				</tr>
-				
+
 
 				<!-- bouton -->
 				<tr>
@@ -110,32 +113,32 @@
 
 
 
-<!-- Footer -->
-		<footer class="py-5 bg-dark">
-		<div class="container" align="center">
-			<p class="m-0 text-center text-white">
-				Copyright &copy; Chouquette & Co. 2019</br> <a
-					href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
-					Administrateur Catégorie</a></br> <a
-					href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil
-					Administrateur Produit</a>
-			</p>
-		</div>
-		</footer>
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+	<div class="container" align="center">
+		<p class="m-0 text-center text-white">
+			Copyright &copy; Chouquette & Co. 2019</br> <a
+				href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
+				Administrateur Catégorie</a></br> <a
+				href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil
+				Administrateur Produit</a>
+		</p>
+	</div>
+	</footer>
 
 
 
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-			crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 
 </body>
 </html>

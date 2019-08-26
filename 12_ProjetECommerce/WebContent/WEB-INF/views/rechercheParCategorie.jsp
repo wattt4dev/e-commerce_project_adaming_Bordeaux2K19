@@ -48,7 +48,7 @@
 				<div class="border border-info rounded bg-light"
 					style="width: 1200px; margin-top: 5px; margin-bottom: 10px;">
 					<img style="height: 150px; width: auto;"
-						src="${pageContext.request.contextPath}/resources/images/${categorie.photo}">
+						src="${categorie.pictureCat}">
 					<h3>${categorie.nomCategorie}</h3>
 
 					<h5>${categorie.description}</h5>
@@ -69,7 +69,7 @@
 										<div class="row">
 											<div class="col" align="center" style="margin-bottom: 5px; margin-top: 5px;">
 												<img style="height: 200px; width: auto;"
-													src="${pageContext.request.contextPath}/resources/images/${produit.photo}">
+													src="${produit.picture}">
 											</div>
 											<div class="col" style="overflow: scroll; margin-right: 15px;">
 												<div class="row" style="margin-top: 5px;">

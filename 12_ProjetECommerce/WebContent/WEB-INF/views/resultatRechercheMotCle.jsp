@@ -61,7 +61,7 @@
 									<div class="col">
 										<div class="row" style="margin-left: 5px;">
 											<img style="margin-top: 5px; margin-bottom: 5px;"
-												src="${pageContext.request.contextPath}/resources/images/${produit.photo}">
+												src="${produit.picture}">
 										</div>
 									</div>
 									<div class="col">

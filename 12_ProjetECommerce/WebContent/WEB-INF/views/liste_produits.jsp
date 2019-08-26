@@ -39,7 +39,7 @@
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link"
 			style="color: white; position: absolute; left: 10px"
-			href="accueilBoutique.jsp">Chouquette & Co. Boutique</a></li>
+			href="${pageContext.request.contextPath}/accueilBoutique">Chouquette & Co. Boutique</a></li>
 
 		<li class="nav-item"><a class="nav-link active" style="color: red;">${attribut_message}</a></li>
 		<li class="nav-item"><a class="nav-link active" style="color: white;"><fmt:formatDate value="${attribut_date}"
@@ -76,6 +76,7 @@
 							<th class="column">Déscription</th>
 							<th class="column">Prix</th>
 							<th class="column">Quantité</th>
+							<th class="column">Photo</th>
 							<th class="column">Actions</th>
 						</tr>
 					</thead>
@@ -87,7 +88,7 @@
 								<td>${produit.description}</td>
 								<td>${produit.prix}</td>
 								<td>${produit.quantite}</td>
-
+								<td><img style="height: 100px; width: auto;" src="${produit.picture}"/></td>
 								<td><a
 									href="${pageContext.request.contextPath}/adminProduit/produit/delete/${produit.idProduit}">Supprimer</a>
 								<a

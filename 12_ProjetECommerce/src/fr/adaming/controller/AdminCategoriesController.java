@@ -1,5 +1,6 @@
 package fr.adaming.controller;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.entity.Categorie;
@@ -99,8 +101,14 @@ public class AdminCategoriesController {
 	}// end ajouterCAtegorieFormulaire
 
 	@RequestMapping(value = "/adminCategorie/categorie/add", method = RequestMethod.POST)
-	public String ajouterCategorieBDD(@ModelAttribute("categorieCommand") Categorie pCategorie, ModelMap modelDonnees) {
+	public String ajouterCategorieBDD(@ModelAttribute("categorieCommand") Categorie pCategorie, ModelMap modelDonnees, MultipartFile file) throws IOException {
 
+		if (!file.isEmpty()) {
+			pCategorie.setPhoto(file.getBytes());
+		}else {
+			pCategorie.setPhoto(new byte[0]);
+		}
+		
 		iacs.ajouterCategorie(pCategorie);
 
 		modelDonnees.addAttribute("attribut_categories", iacs.getAllCategorie());
@@ -127,8 +135,14 @@ public class AdminCategoriesController {
 
 	@RequestMapping(value = "/adminCategorie/categorie/update", method = RequestMethod.POST)
 	public String modifierCategorieBDD(@ModelAttribute("categorieCommandUpdate") Categorie categorieToUpdate,
-			ModelMap modelDonnees) {
+			ModelMap modelDonnees, MultipartFile file) throws IOException {
 
+		if (!file.isEmpty()) {
+			categorieToUpdate.setPhoto(file.getBytes());
+		}else {
+			categorieToUpdate.setPhoto(new byte[0]);
+		}
+		
 		iacs.modifierCategorie(categorieToUpdate);
 
 		modelDonnees.addAttribute("attribut_categories", iacs.getAllCategorie());

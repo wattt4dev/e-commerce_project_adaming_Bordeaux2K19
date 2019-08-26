@@ -9,8 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity(name="categorie")
 @Table(name="categories")
@@ -22,8 +24,11 @@ public class Categorie implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idCategorie;
 	private String nomCategorie;
-	private String photo;
+	@Lob
+	private byte[] photo;
 	private String description;
+	@Transient
+	private String pictureCat;
 	
 	@OneToMany(mappedBy="categorie")
 	private List<Produit> listeProduitsCat = new ArrayList<Produit>();
@@ -43,14 +48,14 @@ public class Categorie implements Serializable {
 	}
 
 
-	public Categorie(String nomCategorie, String photo, String description) {
+	public Categorie(String nomCategorie, byte[] photo, String description) {
 		super();
 		this.nomCategorie = nomCategorie;
 		this.photo = photo;
 		this.description = description;
 	}
 
-	public Categorie(Long idCategorie, String nomCategorie, String photo, String description) {
+	public Categorie(Long idCategorie, String nomCategorie, byte[] photo, String description) {
 		super();
 		this.idCategorie = idCategorie;
 		this.nomCategorie = nomCategorie;
@@ -78,17 +83,38 @@ public class Categorie implements Serializable {
 		this.nomCategorie = nomCategorie;
 	}
 
-	public String getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(String photo) {
+	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
 
 	public String getDescription() {
 		return description;
 	}
+	
+
+	public String getPictureCat() {
+		return pictureCat;
+	}
+
+
+	public void setPictureCat(String pictureCat) {
+		this.pictureCat = pictureCat;
+	}
+
+
+	public List<Produit> getListeProduitsCat() {
+		return listeProduitsCat;
+	}
+
+
+	public void setListeProduitsCat(List<Produit> listeProduitsCat) {
+		this.listeProduitsCat = listeProduitsCat;
+	}
+
 
 	public void setDescription(String description) {
 		this.description = description;

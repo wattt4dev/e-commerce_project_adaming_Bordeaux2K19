@@ -67,7 +67,7 @@
 			<div align="center" class="border border-info rounded" style="height: 800px; width: 450px;">
 				<img class="card-img-top img-fluid"
 					style="height: 300px; width: auto; margin-top: 5px;"
-					src="${pageContext.request.contextPath}/resources/images/${produit.photo}"
+					src="${produit.picture}"
 					alt="">
 				<div class="card-body">
 					<h3 class="card-title">${produit.designation}</h3>

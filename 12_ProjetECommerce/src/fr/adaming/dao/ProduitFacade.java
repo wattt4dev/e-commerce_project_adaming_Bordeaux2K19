@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.apache.commons.codec.binary.Base64;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -44,7 +45,13 @@ public class ProduitFacade extends AbstractFacade<Produit> {
 	@Transactional(readOnly = true)
 	public List<Produit> getAll() {
 
-		return sf.getCurrentSession().createQuery("FROM produit p").getResultList();
+		List<Produit> liste=sf.getCurrentSession().createQuery("FROM produit p").getResultList();
+		
+		for (Produit produit : liste) {
+			produit.setPicture("data:image/png;base64,"+Base64.encodeBase64String(produit.getPhoto()));
+		}
+		
+		return liste;
 
 	}
 
@@ -70,6 +77,10 @@ public class ProduitFacade extends AbstractFacade<Produit> {
 		// 4. exec + recup du resultat
 		List<Produit> liste = (List<Produit>) getByIdQuery.list();
 
+		for (Produit produit : liste) {
+			produit.setPicture("data:image/png;base64,"+Base64.encodeBase64String(produit.getPhoto()));
+		}
+		
 		// 5. renvoi de la personne
 		return liste;
 
@@ -96,6 +107,10 @@ public class ProduitFacade extends AbstractFacade<Produit> {
 
 		// 4. exec + recup du resultat
 		List<Produit> liste = (List<Produit>) getByIdQuery.list();
+		
+		for (Produit produit : liste) {
+			produit.setPicture("data:image/png;base64,"+Base64.encodeBase64String(produit.getPhoto()));
+		}
 
 		// 5. renvoi de la personne
 		return liste;
@@ -118,6 +133,10 @@ public class ProduitFacade extends AbstractFacade<Produit> {
 
 		// 4. exec + recup du resultat
 		List<Produit> liste = (List<Produit>) getByIdQuery.list();
+		
+		for (Produit produit : liste) {
+			produit.setPicture("data:image/png;base64,"+Base64.encodeBase64String(produit.getPhoto()));
+		}
 
 		// 5. renvoi de la personne
 		return liste;

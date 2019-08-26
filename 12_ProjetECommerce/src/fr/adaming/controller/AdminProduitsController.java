@@ -1,5 +1,6 @@
 package fr.adaming.controller;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -84,7 +86,9 @@ public class AdminProduitsController {
 
 	@RequestMapping(value =  "adminProduit/produit/delete/{pProduitId}", method = RequestMethod.GET)
 	public String deleteProduit(@PathVariable("pProduitId") Long aProduitId, ModelMap modeleDonnees) {
-		
+		Produit produit=iapm.findProduitByIdService(aProduitId);
+		produit.setCategorie(null);
+		iapm.updateProduitService(produit);
 		iapm.deleteProduitService((long)aProduitId);
 		
 		List<Produit> listeProduits = iapm.getAllProduitService();
@@ -110,9 +114,10 @@ public class AdminProduitsController {
 		Categorie categorie = new Categorie();
 		List<Categorie> listeCategories = iapm.getAllCategorie();
 		
+		produit.setCategorie(categorie);
 		// 1.2 Association
 		data.put("produitCommande",produit);
-		data.put("categorieCommande",categorie);
+		//data.put("categorieCommande",categorie);
 		data.put("attribut_categories", listeCategories);
 		
 		// 2. nom logique de la vue
@@ -129,11 +134,14 @@ public class AdminProduitsController {
 	//================================================================//
 
 	@RequestMapping(value = "adminProduit/produit/add", method = RequestMethod.POST)
-	public String addProduitBDD(@ModelAttribute("produitCommande") Produit pProduit,ModelMap modeleDonnees) {
+	public String addProduitBDD(@ModelAttribute("produitCommande") Produit pProduit,ModelMap modeleDonnees, MultipartFile file) throws IOException {
 		
-		// 1 - Méthode
-		Long idCat =pProduit.getIdCat();
-
+		if (!file.isEmpty()) {
+			pProduit.setPhoto(file.getBytes());
+		}else {
+			pProduit.setPhoto(new byte[0]);
+		}
+		long idCat=pProduit.getIdCat();	
 
 		iapm.addProduit(pProduit, idCat);
 		
@@ -169,7 +177,13 @@ public class AdminProduitsController {
 	}//end setUpFormulaireUpdate
 	
 	@RequestMapping(value= "/adminProduit/produit/update", method=RequestMethod.POST)
-	public String updateProduitBdd(@ModelAttribute("produitUpCommand") Produit produitToUpdate, ModelMap modelDOnnees) {
+	public String updateProduitBdd(@ModelAttribute("produitUpCommand") Produit produitToUpdate, ModelMap modelDOnnees, MultipartFile file) throws IOException {
+		
+		if (!file.isEmpty()) {
+			produitToUpdate.setPhoto(file.getBytes());
+		}else {
+			produitToUpdate.setPhoto(new byte[0]);
+		}
 		
 		//1. Modif du fonctionnaire das la bdd via le service
 		iapm.updateProduitService(produitToUpdate);

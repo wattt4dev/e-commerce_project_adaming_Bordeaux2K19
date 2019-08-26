@@ -53,7 +53,7 @@
 					<div class="col" align="center">
 						<img class="card-img-top img-fluid"
 							style="height: 300px; width: auto; margin-top: 5px;"
-							src="${pageContext.request.contextPath}/resources/images/${produit.photo}"
+							src="${produit.picture}"
 							alt="photo">
 					</div>
 					<div class="col">

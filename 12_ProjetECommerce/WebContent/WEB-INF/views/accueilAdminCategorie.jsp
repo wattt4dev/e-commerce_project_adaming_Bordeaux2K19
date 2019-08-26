@@ -93,7 +93,7 @@
 							<td><b>${categorie.idCategorie}</b></td>
 							<td>${categorie.nomCategorie}</td>
 							<td>${categorie.description}</td>
-							<td>${categorie.photo}</td>
+							<td><img style="height: 100px; width: auto;" src="${categorie.pictureCat}"/></td>
 							<td><a
 								href="${pageContext.request.contextPath}/adminCategorie/updateCategorie?idCategorie=${categorie.idCategorie}">Modifier</a>
 								<a

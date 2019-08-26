@@ -10,13 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
-import org.springframework.data.annotation.Transient;
 
 @Entity(name = "produit")
 @Table(name = "produits")
@@ -31,8 +32,13 @@ public class Produit implements Serializable {
 	private double prix;
 	private int quantite;
 	private boolean selectionne;
-	private String photo;
+	
+	@Lob
+	private byte[] photo;
 
+	@Transient
+	private String picture;
+	
 	// -----
 	// @Transient
 	private Long idCat;
@@ -52,7 +58,7 @@ public class Produit implements Serializable {
 	}
 
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionne,
-			String photo) {
+			byte[] photo) {
 		super();
 		this.designation = designation;
 		this.description = description;
@@ -63,7 +69,7 @@ public class Produit implements Serializable {
 	}
 
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionne, String photo) {
+			boolean selectionne, byte[] photo) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -72,6 +78,16 @@ public class Produit implements Serializable {
 		this.quantite = quantite;
 		this.selectionne = selectionne;
 		this.photo = photo;
+	}
+
+	public Produit(String designation, String description, double prix, int quantite,
+			boolean selectionne) {
+		super();
+		this.designation = designation;
+		this.description = description;
+		this.prix = prix;
+		this.quantite = quantite;
+		this.selectionne = selectionne;
 	}
 
 	// Getters et setters
@@ -123,11 +139,19 @@ public class Produit implements Serializable {
 		this.selectionne = selectionne;
 	}
 
-	public String getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(String photo) {
+	public String getPicture() {
+		return picture;
+	}
+
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+
+	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
 

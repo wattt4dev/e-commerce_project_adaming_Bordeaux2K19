@@ -43,7 +43,7 @@
 
 		<form:form modelAttribute="produitUpCommand"
 			action="${pageContext.request.contextPath}/adminProduit/produit/update"
-			method="post">
+			method="post" enctype="multipart/form-data">
 			<table>
 				<!-- champ caché pour stocker l'id du fonctionnaire -->
 				<tr>
@@ -73,12 +73,12 @@
 				
 				<tr>
 					<td><form:label path="photo">Photo</form:label></td>
-					<td><form:input path="photo"/></td>
+					<td><input type="file" name="file" required="required"/></td>
 				</tr>
 				
 				<tr>
 					<td>Categorie</td>
-					<td><form:select  path="idCat" >
+					<td><form:select  path="idCat" required="required">
 					<form:option value="" label="-Choisir une categorie-"/>
 					<form:options items="${ attribut_categories }" itemLabel="nomCategorie" itemValue="idCategorie"/>
 					</form:select>

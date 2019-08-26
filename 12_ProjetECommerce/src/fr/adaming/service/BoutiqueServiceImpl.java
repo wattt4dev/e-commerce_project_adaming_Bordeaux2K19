@@ -2,6 +2,7 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -81,7 +82,9 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	}
 
 	public Categorie getCategorieById(Long idCategorie) {
-		return categorieDAO.findById(idCategorie);
+		Categorie categorie=categorieDAO.findById(idCategorie);
+		categorie.setPictureCat("data:image/png;base64,"+Base64.encodeBase64String(categorie.getPhoto()));
+		return categorie;
 	}
 
 	public List<Categorie> getAllCategorie() {
@@ -181,7 +184,9 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 
 	@Override
 	public Produit findProduitByIdService(Long i) {
-		return produitDAO.findById(i);
+		Produit p=produitDAO.findById(i);
+		p.setPicture("data:image/png;base64,"+Base64.encodeBase64String(p.getPhoto()));
+		return p;
 	}
 
 	@Override

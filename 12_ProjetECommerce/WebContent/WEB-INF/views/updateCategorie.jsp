@@ -48,7 +48,7 @@
 		<!-- formulaire -->
 		<div align="center">
 			<form:form modelAttribute="categorieCommandUpdate"
-				action="categorie/update" method="post">
+				action="categorie/update" method="post" enctype="multipart/form-data">
 				<!-- on va associer ce formulaire à notre objet de commande "fonctionnaireCommand" grace à modelAttribute -->
 
 				<table width="100%">
@@ -73,7 +73,7 @@
 					<!--champs salaire -->
 					<tr>
 						<td><form:label path="photo">Photo : </form:label></td>
-						<td><form:input path="photo" /></td>
+						<td><input type="file" name="file" required="required"/></td>
 					</tr>
 
 					<!-- button -->

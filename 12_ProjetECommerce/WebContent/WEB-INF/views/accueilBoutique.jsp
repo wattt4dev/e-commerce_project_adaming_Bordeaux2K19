@@ -185,7 +185,7 @@
 									<a
 										href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><img
 										class="card-img-top"
-										src="${pageContext.request.contextPath}/resources/images/${produit.photo}" style="margin-top: 5px; height: 200px; width: auto;"
+										src="${produit.picture}" style="margin-top: 5px; height: 200px; width: auto;"
 										alt="Card image cap"></a>
 									<div class="card-body" style="text-align: left;">
 										<h5 class="card-title">${produit.designation}</h5>
