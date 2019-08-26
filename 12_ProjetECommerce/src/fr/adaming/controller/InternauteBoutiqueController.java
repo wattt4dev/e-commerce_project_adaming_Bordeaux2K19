@@ -143,7 +143,7 @@ public class InternauteBoutiqueController {
 	}
 	
 	
-	@RequestMapping("/afficherArticle/{produitId}")
+	@RequestMapping(value="/afficherArticle/{produitId}", method=RequestMethod.GET)
 	public ModelAndView getProduit(@PathVariable ("produitId") long idProduit ) {
 		Map<String, Object> modeleDonnees = new HashMap<>();
 		Produit produitRecherche= ib.findProduitByIdService(idProduit);

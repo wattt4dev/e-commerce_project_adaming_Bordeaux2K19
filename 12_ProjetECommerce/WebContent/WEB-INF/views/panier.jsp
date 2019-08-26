@@ -37,7 +37,7 @@
 			style="color: white;"
 			href="${pageContext.request.contextPath}/accueilBoutique">Home</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">Contact Us</a></li>
+			href="contactUs.jsp">Contact Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
@@ -47,7 +47,7 @@
 
 	<div class="row">
 		<div class="col-8">
-			<div class="card mt-4" style="background-color: lightgray">
+			<div class="card mt-4" style="background-color: lightgray; margin-left: 20px;">
 
 				<h1>Votre panier</h1>
 
@@ -101,7 +101,7 @@
 						mes achats </a>
 				</div>
 
-				<div>
+				<div style="display: none;">
 					<a class="list-group-item bg-light"
 						href="${pageContext.request.contextPath}/addPanier/${panier_attribut}">Valider
 						votre commande </a>

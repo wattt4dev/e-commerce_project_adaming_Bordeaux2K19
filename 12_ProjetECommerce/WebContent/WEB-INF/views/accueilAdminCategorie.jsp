@@ -50,7 +50,7 @@
 			style="color: white;" href="http://localhost:8080/12_ProjetECommerce/accueilBoutique">Home</a></li>
 
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">Contact Us</a></li>
+			href="contactUs.jsp">Contact Us</a></li>
 
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="${pageContext.request.contextPath}/aboutUs.jsp">About Us</a></li>

@@ -29,7 +29,7 @@
 			style="color: white;"
 			href="${pageContext.request.contextPath}/accueilBoutique">Home</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">Contact Us</a></li>
+			href="contactUs.jsp">Contact Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
@@ -40,7 +40,7 @@
 
 	<br/>
 	<div class="row">
-		<div class="col-3" id="categories">
+		<div class="col-3" id="categories" style="margin-left: 10px; margin-right: 10px;">
 
 			<h3 class="list-group-item" style="border-radius: 3px;">Catégories</h3>
 			<div class="list-group">
@@ -100,7 +100,7 @@
 			<div class="list-group-item bg-light"
 				style="border-radius: 5px; margin-top: 10px; margin-bottom: 20px; background-image: url('resources/images/panier3.png'); background-position: center; background-size: contain; background-repeat: no-repeat; min-height: 300px;">
 				<div>
-					<a href="${pageContext.request.contextPath}/afficher/panier"
+					<a href="${pageContext.request.contextPath}/panier/getProduits"
 						style="color: black; font-size: 25px;"><b>Mon panier</b></a>
 				</div>
 				<div style="margin-bottom: 15px;">
@@ -121,7 +121,7 @@
 									<td>${ligneCommande.quantite}</td>
 									<td>${ligneCommande.prix}</td>
 									<td><a
-										href="${pageContext.request.contextPath}/delete/panier/${ligneCommande.idLigneCommande}"
+										href="${pageContext.request.contextPath}/panier/suppProduit1/${ligneCommande.idLigneCommande}"
 										style="color: black;">Retirer</a></td>
 								</tr>
 							</c:forEach>
@@ -151,6 +151,7 @@
 						alt="Generic placeholder image">
 						<div class="media-body">
 							<h5 class="mt-0 mb-2 font-weight-bold">Audrey</h5>
+							<h6>Bordeaulaise depuis peu, j'ai 29 ans et j'aime la couture, la patiserie et le dessin.</h6>
 						</div></li>
 					<li class="media my-4"><img class="d-flex mr-3"
 						style="height: auto; width: 80px;"
@@ -158,6 +159,7 @@
 						alt="Generic placeholder image">
 						<div class="media-body">
 							<h5 class="mt-0 mb-2 font-weight-bold">Emma</h5>
+							<h6>Espagnole de 30 ans en quête d'aventure en France, je suis passionée d'énigmes et de puzzles.</h6>
 						</div></li>
 					<li class="media"><img class="d-flex mr-3"
 						style="height: auto; width: 80px;"
@@ -178,8 +180,8 @@
 				<c:forEach items="${listeProduits}" var="produit">
 					<tr>
 						<td>
-							<div class="col-4" style="max-height: 500px;">
-								<div align="center" class="border border-info rounded" style="height: 400px;">
+							<div class="col-4" style="max-height: 1000px;">
+								<div align="center" class="border border-info rounded" style="overflow: scroll; height: 500px; margin-bottom: 10px; margin-right: 10px; margin-left: 10px; margin-top: 10px;">
 									<a
 										href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><img
 										class="card-img-top"
@@ -188,11 +190,11 @@
 									<div class="card-body" style="text-align: left;">
 										<h5 class="card-title">${produit.designation}</h5>
 										<p class="card-text" style="display: none;">${produit.idProduit}</p>
-										<p class="card-text">${produit.description}</p>
+										<p class="card-text" style="">${produit.description}</p>
 										<p class="card-text">${produit.prix}euros</p>
 										<a
 											href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"
-											class="btn btn-primary">Visionner l'article</a>
+											class="btn btn-primary" style="margin-bottom: 5px;">Visionner l'article</a>
 										<a class="btn btn-primary"
 											href="${pageContext.request.contextPath}/panier/addProduit/${produit.idProduit}">Ajouter
 											au panier</a>

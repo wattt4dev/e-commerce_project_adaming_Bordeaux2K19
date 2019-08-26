@@ -27,11 +27,11 @@
 			style="color: white;"
 			href="${pageContext.request.contextPath}/accueilBoutique">Home</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">Contact Us</a></li>
+			href="contactUs.jsp">Contact Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">More</a></li>
+			href="${pageContext.request.contextPath}/more.jsp">More</a></li>
 	</ul>
 	</nav> </header>
 
@@ -41,29 +41,34 @@
 	<div class="row">
 		<div class="col-1"></div>
 		<div class="col-3">
-			<div class="border border-info rounded">
+			<div class="border border-info rounded" style="height: 800px; width: 326px">
 				<img class="rounded"
 					src="${pageContext.request.contextPath}/resources/images/received_691782937970292.jpeg"
 					alt="Card image cap">
 				<div class="card-body">
 					<h5 class="card-title">Audrey Arnould</h5>
-					<p class="card-text">Bio</p>
+					<p class="card-text">Ancienne ingénieure chimiste et aujourd'hui reconvertie 
+					dans l'informatique, j'ai 29 ans et j'adore la courture, la patisserie, le dessin 
+					et la fantasy/science fiction. J'aime aussi la randonnée pédestre et les voyages.</p>
 				</div>
 			</div>
 		</div>
 		<div class="col-3">
-			<div class="border border-info rounded">
+			<div class="border border-info rounded" style="height: 800px; width: 326px">
 				<img class="rounded"
 					src="${pageContext.request.contextPath}/resources/images/68961880_1623864364414427_4938672830838472704_n.jpg"
 					alt="Card image cap">
 				<div class="card-body">
 					<h5 class="card-title">Emma Llor</h5>
-					<p class="card-text">Bio</p>
+					<p class="card-text">Docteur en astrophysique et âgée de 30 ans, je suis passionnée
+					de jeux de logique, énigmes et puzzles. J'ai donc décidé de faire de ma
+					passion mon travail et me reconvertissant dans l'informatique! Quel sera le prochain
+					énigme à resoudre? </p>
 				</div>
 			</div>
 		</div>
 		<div class="col-3">
-			<div class="border border-info rounded">
+			<div class="border border-info rounded" style="height: 800px;width: 326px">
 				<img class="rounded"
 					src="${pageContext.request.contextPath}/resources/images/IMG_20190522_090004.jpg"
 					alt="Card image cap">

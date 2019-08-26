@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Formulaire d'ajout User</title>
-
+<title>Insert title here</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -33,61 +30,52 @@
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="${pageContext.request.contextPath}/panier/getProduits">Panier </a></li>
+			href="${pageContext.request.contextPath}/more.jsp">More</a></li>
 	</ul>
 	</nav> </header>
 
 
 
 
-	<div class="list-group-item bg-light" align="center"
-				style="margin-top: 20px; margin-bottom: 20px; margin-right: 20px; margin-left: 20px; border-radius: 5px;">
-		
-		<h1 style="margin-top: 20px; margin-bottom: 20px;">Ajout d'un
-			nouvel user</h1>
-
-		<!-- formulaire -->
-		<div align="center">
-			<form:form modelAttribute="userCommand" action="user/add"
-				method="post">
-				<!-- on va associer ce formulaire à notre objet de commande "fonctionnaireCommand" grace à modelAttribute -->
-
-				<table width="100%">
-
-					<!--champs nom -->
-					<tr>
-						<td><form:label path="userName">Username : </form:label></td>
-						<td><form:input path="userName" /></td>
-					</tr>
-
-					<!--champs fonction -->
-					<tr>
-						<td><form:label path="password">Password : </form:label></td>
-						<td><form:input path="password" /></td>
-					</tr>
-
-					<!--champs salaire -->
-					<tr>
-						<td><form:label path="actived">Activation : </form:label></td>
-						<td><form:input path="actived" /></td>
-					</tr>
-
-					<!-- button -->
-					<tr>
-						<td colspan="2"><input type="submit" class="btn btn-primary" value="Ajouter un User" /></td>
-					</tr>
-
-				</table>
-
-
-			</form:form>
+	<div class="row" style="vertical-align: middle;">
+		<div class="col-1"></div>
+		<div class="col-3">
+			<div class="border border-info rounded">
+				<div class="card-body">
+					<h5 class="card-title">Adresse</h5>
+					<p class="card-text"> 5 avenue Henri Becquerel, Mérignac</p>
+				</div>
+			</div>
 		</div>
-
-
+		<div class="col-3">
+			<div class="border border-info rounded">
+				<div class="card-body">
+					<h5 class="card-title">Téléphone</h5>
+					<p class="card-text"> 06-06-06-06-06</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="border border-info rounded">
+				<div class="card-body">
+					<h5 class="card-title">Mail</h5>
+					<p class="card-text">
+						lesbrisseursdeverres@chouquette.com
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-1"></div>
 	</div>
 
+
+
+
+
+
+
 	<!-- Footer -->
-	<footer class="py-5 bg-dark">
+	<footer class="py-5 bg-dark" style="position: absolute; bottom: 0px">
 	<div class="container" align="center">
 		<p class="m-0 text-center text-white">
 			Copyright &copy; Chouquette & Co. 2019</br> <a
@@ -98,7 +86,6 @@
 		</p>
 	</div>
 	</footer>
-
 
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -112,5 +99,6 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
+
 </body>
 </html>

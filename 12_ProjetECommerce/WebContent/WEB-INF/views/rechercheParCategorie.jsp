@@ -29,7 +29,7 @@
 			style="color: white;"
 			href="${pageContext.request.contextPath}/accueilBoutique">Home</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">Contact Us</a></li>
+			href="contactUs.jsp">Contact Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="${pageContext.request.contextPath}/aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
@@ -63,25 +63,32 @@
 					<tbody>
 						<c:forEach items="${listeProduitCategorie}" var="produit">
 							<tr>
-								
 								<td>
-									<div class="col">
-										<img style="height: 200px; width: auto;"
-											src="${pageContext.request.contextPath}/resources/images/${produit.photo}">
+									<div class="border border-info rounded"
+										style="border-radius: 3px;width: 1200px; margin-top: 5px; margin-bottom: 5px;">
+										<div class="row">
+											<div class="col" align="center" style="margin-bottom: 5px; margin-top: 5px;">
+												<img style="height: 200px; width: auto;"
+													src="${pageContext.request.contextPath}/resources/images/${produit.photo}">
+											</div>
+											<div class="col" style="overflow: scroll; margin-right: 15px;">
+												<div class="row" style="margin-top: 5px;">
+													<a
+														href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a>
+												</div>
+												<div class="row" style="margin-top: 5px;">
+													<p>${produit.description}</p>
+												</div>
+												<div class="row" style="margin-top: 5px; margin-bottom: 5px;">
+													<a class="btn btn-primary"
+														href="${pageContext.request.contextPath}/panier/addProduit/${produit.idProduit}">Ajouter
+														au panier</a>
+												</div>
+											</div>
+										</div>
 									</div>
 								</td>
-								<td>
-								<div class="col"><a
-									href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a></div>
-									
-									
-								<td><div class="col">${produit.description}</div></td>
-								
-								
-								<td><div class="col"><a
-									href="${pageContext.request.contextPath}/panier/addProduit/${produit.idProduit}">Ajouter
-										au panier</a></div></td>
-								
+
 							</tr>
 						</c:forEach>
 				</table>

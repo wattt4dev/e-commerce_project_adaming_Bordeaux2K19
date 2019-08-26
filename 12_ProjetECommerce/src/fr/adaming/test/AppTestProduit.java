@@ -36,11 +36,8 @@ public class AppTestProduit {
 		// 3.2. invocation du service pour l'ajout
 		//produitService.addProduitService(p1);
 //
-		Produit p1 = new Produit("Harry Potter à l'école des Sorciers", "Le jour de ses onze ans, Harry Potter, un orphelin élevé par un oncle et une tante qui le détestent, voit son existence bouleversée. Un géant nommé Hagrid,vient le chercher pour l'emmener à Poudlard, une école de sorcellerie ! Voler en balai, jeter des sorts, combattre les trolls : Harry se révèle un sorcier doué. Mais quel est le mystère qui l'entoure ? Et qui est l'effroyable V..., le mage dont personne n'ose prononcer le nom ? \r\n" + 
-				"\r\n" + 
-				"Amitié, surprises, dangers, scènes comiques, Harry découvre ses pouvoirs et la vie à Poudlard. Le premier tome des aventures du jeune héros vous ensorcelle aussitôt !\r\n" + 
-				"\r\n" + 
-				"Harry Potter à l'école des sorciers a obtenu le prix Sorcières du roman 1999 et le prix Tam-Tam du livre de jeunesse 1999, catégorie Je Bouquine...", 8.7, 10, true, "hp1.jpg");
+		Produit p1 = new Produit("Harry Potter à l'école des Sorciers", "Le jour de ses onze ans, Harry Potter, un orphelin élevé par un oncle et une tante qui le détestent, voit son existence bouleversée. Un géant nommé Hagrid,vient le chercher pour l'emmener à Poudlard, une école de sorcellerie ! Voler en balai, jeter des sorts, combattre les trolls : Harry se révèle un sorcier doué. Mais quel est le mystère qui l'entoure ? Et qui est l'effroyable V..., le mage dont personne n'ose prononcer le nom ?"
+			, 8.7, 10, true, "hp1.jpg");
 		Produit p2 = new Produit("Harry Potter et la chambre des Secrets", "Une rentrée fracassante en voiture volante, une étrange malédiction qui s'abat sur les élèves, cette deuxième année à l'école des sorciers ne s'annonce pas de tout repos ! Entre les cours de potions magiques, les matches de Quidditch et les combats de mauvais sorts, Harry Potter trouvera-t-il le temps de percer le mystère de la Chambre des Secrets ? Un livre magique pour sorciers confirmés.", 8.7, 10, true, "hp2.jpg");
 		Produit p3 = new Produit("Harry Potter et le prisonier d'Azkaban", "Sirius Black, le dangereux criminel qui s’est échappé de la forteresse d’Azkaban, recherche Harry Potter. C’est donc sous bonne garde que l’apprenti sorcier fait sa troisième rentrée. Au programme : des cours de divination, la fabrication d’une potion de ratatinage, le dressage des hippogriffes… Mais Harry est-il vraiment à l’abri du danger qui le menace ? Un livre époustouflant qui vous emportera dans un tourbillon de surprises et d’émotions !", 8.7, 10, true, "hp3.jpg");
 
@@ -57,6 +54,14 @@ public class AppTestProduit {
 		
 //////		// 3.2. invocation du service pour l'ajout
 		produitService.addProduitService(p1);
+		produitService.addProduitService(p2);
+		produitService.addProduitService(p3);
+		produitService.addProduitService(cd1);
+		produitService.addProduitService(cd2);
+		produitService.addProduitService(cd3);
+		produitService.addProduitService(j1);
+		produitService.addProduitService(j2);
+		produitService.addProduitService(j3);
 		
 		
 		
@@ -170,25 +175,25 @@ public class AppTestProduit {
 		//    Testligne commande et panier
 		//-----------------------------------
 		
-		
-		Produit p = produitService.findProduitByIdService((long)2);
-		System.out.println("produit p " +p);
-		LigneCommande lp=new LigneCommande();
-		lp.setProduit(p);
-		lp.setIdP(p.getIdProduit());
-		lp.setPrix(p.getPrix());
-		lp.setQuantite(1);
+//		
+//		Produit p = produitService.findProduitByIdService((long)2);
+//		System.out.println("produit p " +p);
+//		LigneCommande lp=new LigneCommande();
+//		lp.setProduit(p);
+//		lp.setIdP(p.getIdProduit());
+//		lp.setPrix(p.getPrix());
+//		lp.setQuantite(1);
+////		
+////		
+//		int v=produitService.addLigneCommandeService(lp);
+//		System.out.println(v);
+////		
+//		
+//		LigneCommande lp2=produitService.getLigneCommandeService(1);
+//		lp2.setQuantite(3);
+//		produitService.updateLigneCommandeService(lp2);
 //		
 //		
-		int v=produitService.addLigneCommandeService(lp);
-		System.out.println(v);
-//		
-		
-		LigneCommande lp2=produitService.getLigneCommandeService(1);
-		lp2.setQuantite(3);
-		produitService.updateLigneCommandeService(lp2);
-		
-		
 		
 
 //		

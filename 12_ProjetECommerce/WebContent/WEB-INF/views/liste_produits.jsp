@@ -51,13 +51,13 @@
 			style="color: white;" href="accueilBoutique.jsp">Home</a></li>
 
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">Contact Us</a></li>
+			href="contactUs.jsp">Contact Us</a></li>
 
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">About Us</a></li>
+			href="aboutUs.jsp">About Us</a></li>
 
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">More</a></li>
+			href="more.jsp">More</a></li>
 	</ul>
 	</nav> </header>
 

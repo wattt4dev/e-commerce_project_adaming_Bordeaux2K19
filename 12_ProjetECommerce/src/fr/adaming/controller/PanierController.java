@@ -233,6 +233,26 @@ public class PanierController {
 			return new ModelAndView("panier", data);
 		}
 		
+		@RequestMapping(value="/panier/suppProduit1/{idLigneCommande}", method=RequestMethod.GET)
+		public String deleteProduitAccueilPanier(@PathVariable("idLigneCommande") int idL, ModelMap modeleDonnees) {
+			Map<String, Object> data = new HashMap<>();
+			
+			LigneCommande lc = panierService.getLigneCommandeService(idL);
+			lc.setProduit(null);
+			panierService.updateLigneCommandeService(lc);
+			panierService.deleteLigneCommandeService(idL);
+			
+			List<LigneCommande> panier=panierService.getAllLigneCommandeService();
+			data.put("panier_attribut", panier);
+			double total=0;
+			for (LigneCommande ligne : panier) {
+				total=total+ligne.getPrix();
+			}
+			data.put("total", total);
+		
+			return "redirect:/accueilBoutique";
+		}
+		
 		
 		@RequestMapping(value = "/addPanier/{panier_attribut}", method = RequestMethod.GET)
 

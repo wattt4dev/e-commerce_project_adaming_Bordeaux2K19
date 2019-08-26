@@ -28,11 +28,11 @@
 			style="color: white;"
 			href="${pageContext.request.contextPath}/accueilBoutique">Home</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">Contact Us</a></li>
+			href="contactUs.jsp">Contact Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">More</a></li>
+			href="${pageContext.request.contextPath}/panier/getProduits">Panier</a></li>
 	</ul>
 	</nav> </header>
 
@@ -55,27 +55,33 @@
 				<c:forEach items="${listeProduitMotCle}" var="produit">
 					<tr>
 						<td>
-							<img
-									src="${pageContext.request.contextPath}/resources/images/${produit.photo}">
+							<div class="border border-info rounded"
+								style="margin-right: 10px; margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+								<div class="row">
+									<div class="col">
+										<div class="row" style="margin-left: 5px;">
+											<img style="margin-top: 5px; margin-bottom: 5px;"
+												src="${pageContext.request.contextPath}/resources/images/${produit.photo}">
+										</div>
+									</div>
+									<div class="col">
+										<div class="row" style="margin-top: 5px; margin-bottom: 5px;">
+											<a
+												href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a>
+										</div>
+
+										<div class="row" style=" margin-right: 10px;">${produit.description}</br></br>
+										Prix unitaire : ${produit.prix} euros</div>
+										<div class="row"> Quantité en stock : ${produit.quantite}</div></br>
+										<div class="row">
+											<a class="btn btn-primary"
+											href="${pageContext.request.contextPath}/panier/addProduit/${produit.idProduit}">Ajouter
+											au panier</a>
+										</div>
+									</div>
+								</div>
+							</div>
 						</td>
-					</tr>
-					<tr>
-						<td>Nom : </td>
-						<td><a href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a>
-					</tr>
-					<tr>
-						<td>Description : </td>
-						<td>${produit.description}</td>
-					<tr>
-						<td>Prix unitaire : </td>
-						<td>${produit.prix}</td>
-					</tr>
-					<tr>
-						<td>Quantité en stock : </td>
-						<td>${produit.quantite}</td>
-					</tr>
-					<tr>
-						<td><a href="${pageContext.request.contextPath}/ligneCommande?produitId=${produit.idProduit}">Ajouter au panier</a></td>
 					</tr>
 				</c:forEach>
 			</table>
