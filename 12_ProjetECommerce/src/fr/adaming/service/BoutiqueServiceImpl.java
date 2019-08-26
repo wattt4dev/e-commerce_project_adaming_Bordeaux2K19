@@ -139,8 +139,8 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	}
 
 	@Override
-	public Role getRoleById(int idRole) {
-		return roleDAO.findById((long) idRole);
+	public Role getRoleById(Long idRole) {
+		return roleDAO.findById(idRole);
 	}
 
 	
@@ -369,6 +369,11 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	
 		return cDAO.getAllCommandeDao();
 
+	}
+
+	@Override
+	public List<LigneCommande> getAllLigneService() {
+		return lcDAO.getAllLigneCommandeDao();
 	}
 
 }

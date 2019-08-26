@@ -100,6 +100,12 @@
 		</p>
 	</div>
 	</footer>
+<div>
+<h2>${produit.designation}</h2>
+<h6 style="text-align: right;">${produit.categorie}</h6>
+<br/>
+
+<img src="${pageContext.request.contextPath}/resources/images/${produitPhoto}">
 
 
 	<!-- Bootstrap core JavaScript -->

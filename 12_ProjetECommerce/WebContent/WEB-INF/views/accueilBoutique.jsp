@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -94,51 +95,109 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-3" style="margin-top: 15px; margin-left: 10px; margin-right: 10px; margin-bottom: 15px;">
-			<h3 style="text-align: center; margin-bottom: 15px;"> Les briseurs de verres</h3>
-			<ul class="list-unstyled">
-				<li class="media"><img class="d-flex mr-3"
-					src="https://mdbootstrap.com/img/Photos/Others/avatar-min1.jpg"
-					alt="Generic placeholder image">
-					<div class="media-body">
-						<h5 class="mt-0 mb-2 font-weight-bold">Audrey</h5>
-					</div></li>
-				<li class="media my-4"><img class="d-flex mr-3" style="height: auto; width: 75px;"
-					src="resources/images/68961880_1623864364414427_4938672830838472704_n.jpg"
-					alt="Generic placeholder image">
-					<div class="media-body">
-						<h5 class="mt-0 mb-2 font-weight-bold">Emma</h5>
-					</div></li>
-				<li class="media"><img class="d-flex mr-3" style="height: auto; width: 75px;"
-					src="resources/images/60981712_10217208421936869_7145118030396129280_n.jpg"
-					alt="Generic placeholder image">
-					<div class="media-body">
-						<h5 class="mt-0 mb-2 font-weight-bold">Romain</h5>
-						<h6>J'adore la nature, les voyages et le sport. J'ai 25 ans et je suis originaire de Brive-la-Gaillarde (19).</h6>
-					</div></li>
-			</ul>
+		<div class="col-3" align="center"
+			style="margin-top: 15px; margin-left: 10px; margin-right: 10px; margin-bottom: 15px;">
+			<div class="list-group-item bg-light"
+				style="border-radius: 5px; margin-top: 10px; margin-bottom: 20px; background-image: url('resources/images/panier3.png'); background-position: center; background-size: contain; background-repeat: no-repeat; min-height: 300px;">
+				<div>
+					<a href="${pageContext.request.contextPath}/afficher/panier"
+						style="color: black; font-size: 25px;"><b>Mon panier</b></a>
+				</div>
+				<div style="margin-bottom: 15px;">
+					<table cellspacing="2px" cellpadding="5px">
+						<thead
+							style="text-align: center; vertical-align: middle; font-size: 20px;">
+							<tr>
+								<th scope="col" class="column">Produits</th>
+								<th scope="col" class="column">Quantité</th>
+								<th scope="col" class="column">Prix</th>
+								<th scope="col" class="column">Actions</th>
+							</tr>
+						</thead>
+						<tbody style="text-align: center; vertical-align: middle;">
+							<c:forEach items="${panier_attribut}" var="ligneCommande">
+								<tr>
+									<td>${ligneCommande.produit.designation}</td>
+									<td>${ligneCommande.quantite}</td>
+									<td>${ligneCommande.prix}</td>
+									<td><a
+										href="${pageContext.request.contextPath}/delete/panier/${ligneCommande.idLigneCommande}"
+										style="color: black;">Retirer</a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="list-group-item bg-light"
+				style="margin-top: 20px; margin-bottom: 20px; border-radius: 5px;">
+				<div>
+					<a href="${pageContext.request.contextPath}/advancedresearch">Rechercher
+						un produit</a>
+					<form action="recherche" method="get" style="margin-top: 10px;">
+						<input style="border-radius: 5px;" type="text" value="${mc}"
+							name="mc" /> <input style="border-radius: 5px;" type="submit"
+							value="Rechercher">
+					</form>
+				</div>
+			</div>
+			<div class="list-group-item bg-light" style="border-radius: 5px;">
+				<h3 style="text-align: center; margin-bottom: 15px;">Les
+					briseurs de verres</h3>
+				<ul class="list-unstyled">
+					<li class="media"><img class="d-flex mr-3"
+						style="height: auto; width: 80px;"
+						src="resources/images/received_691782937970292.jpeg"
+						alt="Generic placeholder image">
+						<div class="media-body">
+							<h5 class="mt-0 mb-2 font-weight-bold">Audrey</h5>
+						</div></li>
+					<li class="media my-4"><img class="d-flex mr-3"
+						style="height: auto; width: 80px;"
+						src="resources/images/68961880_1623864364414427_4938672830838472704_n.jpg"
+						alt="Generic placeholder image">
+						<div class="media-body">
+							<h5 class="mt-0 mb-2 font-weight-bold">Emma</h5>
+						</div></li>
+					<li class="media"><img class="d-flex mr-3"
+						style="height: auto; width: 80px;"
+						src="resources/images/IMG_20190522_090004.jpg"
+						alt="Generic placeholder image">
+						<div class="media-body">
+							<h5 class="mt-0 mb-2 font-weight-bold">Romain</h5>
+							<h6>Originaire de Brive-la-Gaillarde (19), j'ai 25 ans et je
+								suis passioné par la nature, les voyages et le sport.</h6>
+						</div></li>
+				</ul>
+			</div>
 		</div>
-		<div class="container">
+		<div class="container" id="listeProduits">
 			<h3 align="center" style="margin-top: 5px; margin-bottom: 5px;">Tous
 				les produits</h3>
 			<div class="row">
 				<c:forEach items="${listeProduits}" var="produit">
 					<tr>
 						<td>
-							<div class="col-4">
-								<div class="card">
+							<div class="col-4" style="max-height: 500px;">
+								<div align="center" class="border border-info rounded" style="height: 400px;">
 									<a
-										href="${pageContext.request.contextPath}/afficherArticle/{produitId}"><img
+										href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><img
 										class="card-img-top"
 										src="${pageContext.request.contextPath}/resources/images/${produit.photo}"
 										alt="Card image cap"></a>
-									<div class="card-body">
+									<div class="card-body" style="text-align: left;">
 										<h5 class="card-title">${produit.designation}</h5>
+										<p class="card-text" style="display: none;">${produit.idProduit}</p>
 										<p class="card-text">${produit.description}</p>
 										<p class="card-text">${produit.prix}euros</p>
 										<a
 											href="${pageContext.request.contextPath}/afficherArticle/?produitId=${produit.idProduit}"
 											class="btn btn-primary">Visionner l'article</a>
+										<p class="card-text">${produit.description}</p>
+										<a class="btn btn-primary"
+											href="${pageContext.request.contextPath}/ligneCommande">Ajouter
+											au panier</a>
+
 									</div>
 								</div>
 							</div>
@@ -147,45 +206,37 @@
 				</c:forEach>
 			</div>
 		</div>
-	</div>
 
-	</br>
-	</br>
-	</br>
+		</br> </br> </br>
 
 
 
 
-	<!-- Footer -->
-	<footer class="py-5 bg-dark">
-	<div class="container" align="center">
-		<p class="m-0 text-center text-white">
-			Copyright &copy; Chouquette & Co. 2019</br> <a
-				href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
-				Administrateur Catégorie</a></br> <a
-				href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil
-				Administrateur Produit</a>
-		</p>
-	</div>
-	</footer>
+		<!-- Footer -->
+		<footer class="py-5 bg-dark">
+		<div class="container" align="center">
+			<p class="m-0 text-center text-white">
+				Copyright &copy; Chouquette & Co. 2019</br> <a
+					href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
+					Administrateur Catégorie</a></br> <a
+					href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil
+					Administrateur Produit</a>
+			</p>
+		</div>
+		</footer>
 
 
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
-
-
-
-
-
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"></script>
 </body>
 </html>

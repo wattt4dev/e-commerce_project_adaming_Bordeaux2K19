@@ -23,17 +23,20 @@
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link"
 			style="color: white; position: absolute; left: 10px"
-			href="accueilBoutique.jsp">Chouquette & Co. Boutique</a></li>
+			href="${pageContext.request.contextPath}/accueilBoutique">Chouquette & Co. Boutique</a></li>
 		<li class="nav-item"><a class="nav-link active"
-			style="color: white;" href="accueilBoutique.jsp">Home</a></li>
+			style="color: white;" href="${pageContext.request.contextPath}/accueilBoutique">Home</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="#">Contact Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="#">About Us</a></li>
+			href="${pageContext.request.contextPath}/aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="${pageContext.request.contextPath}/panier/getProduits">Panier </a> </li>
+
+
 	</ul>
 	</nav> </header>
+
 
 
 	<div class="row" style="border-bottom-color: lightgrey; border: solid;">
@@ -46,12 +49,47 @@
 				src="${pageContext.request.contextPath}/resources/images/${categorie.photo}">
 
 
+
+	<div>
+		<div class="row">
+			<div align="center" class="col">
+
+				<h1>${categorie.nomCategorie}</h1>
+
+				<h3>${categorie.description}</h3>
+				<img style="height: 200px; width: auto;"
+					src="${pageContext.request.contextPath}/resources/images/${categorie.photo}">
+
+
+			</div>
 		</div>
-	</div>
 
-	<div class="row">
-	<div align="center" class="col">
+		<div class="row">
+			<div align="center" class="col">
+				<table>
+					<tbody>
+						<c:forEach items="${listeProduitCategorie}" var="produit">
+							<tr>
+								<td><img style="height: 200px; width: auto;"
+									src="${pageContext.request.contextPath}/resources/images/${produit.photo}">
+								</td>
+							</tr>
+							<tr>
+								<td><a
+									href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a>
+								</td>
+							</tr>
+							<tr>
+								<td>${produit.description}</td>
+							</tr>
+							<tr>
+								<td><a>Ajouter au panier</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 
+				<table>
 
 
 	<table>
@@ -75,6 +113,22 @@
 
 
 	</div>
+
+					<c:forEach items="${listeProduitCategorie}" var="produit">
+						<tr>
+
+							<td><img
+								src="${pageContext.request.contextPath}/resources/images${produit.photo}"></td>
+
+							<td><a
+								href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><b>${produit.designation}</b></a></td>
+							<td>${produit.description}</td>
+							<td><a>Ajouter au panier</a></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</div>
 	</div>
 
 	<!-- Footer -->
@@ -103,12 +157,5 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
-
-
-
-
-
-
-
 </body>
 </html>

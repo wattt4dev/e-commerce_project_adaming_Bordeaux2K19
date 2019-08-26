@@ -62,6 +62,8 @@ public class InternauteBoutiqueController {
 	
 
 
+
+
 	@RequestMapping(value="/accueilBoutique", method=RequestMethod.GET)
 	public ModelAndView accueillirInternaute () {
 		System.out.println("je sus dans la methode accueillir internaute");
@@ -69,6 +71,11 @@ public class InternauteBoutiqueController {
 		//1- définition des données a retourer dans la vue
 		List<Categorie> listeCategorie=ib.getAllCategorie();
 		List<Produit> produits=ib.getAllProduitService();
+		List<LigneCommande> panier=ib.getAllLigneService();
+		double total=0;
+		for (LigneCommande ligne : panier) {
+			total=total+ligne.getPrix();
+		}
 		
 		for (Categorie cat:listeCategorie) {
 			System.out.println(cat);
@@ -78,6 +85,8 @@ public class InternauteBoutiqueController {
 		Map<String, Object> data=new HashMap<>();
 		data.put("listeCategorie", listeCategorie);
 		data.put("listeProduits", produits);
+		data.put("panier_attribut", panier);
+		data.put("total", total);
 		
 		//2- définition de la vue logique 
 		String viewName="accueilBoutique";

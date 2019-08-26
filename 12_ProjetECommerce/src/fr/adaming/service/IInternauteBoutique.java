@@ -25,6 +25,8 @@ public interface IInternauteBoutique {
 	public Categorie getCategorieById(Long idCategorie);
 
 	public List<Categorie> getAllCategorie();
+
+	public List<LigneCommande> getAllLigneService();
 	
 	public int addLigneCommandeService(LigneCommande pLigneCommande) ;
 

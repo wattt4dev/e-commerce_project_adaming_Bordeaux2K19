@@ -245,7 +245,7 @@ public class AdminCategoriesController {
 	@RequestMapping(value = "/adminCategorie/attribuerRole", method = RequestMethod.GET)
 	public ModelAndView attribuerRoleFormulaire(@RequestParam("idRole") long pIdRole) {
 		
-		Role role = iacs.getRoleById((int) pIdRole);
+		Role role = iacs.getRoleById(pIdRole);
 		
 		return new ModelAndView("attribuerRole", "roleAttributeCommand", role);
 	}//end attribuerRole

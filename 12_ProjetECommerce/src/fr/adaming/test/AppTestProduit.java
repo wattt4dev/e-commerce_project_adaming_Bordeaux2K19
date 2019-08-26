@@ -40,11 +40,18 @@ public class AppTestProduit {
 		Produit p2 = new Produit("Harry Potter et la chambre des Secrets", "blabla hp 2", 8.7, 10, true, "hp2.jpg");
 //////		// 3.2. invocation du service pour l'ajout
 		produitService.addProduitService(p1);
-		produitService.addProduitService(p2);
 		
 		
 		
 		// -----------------------------------------------------------------------------------------
+
+
+
+	//	Produit p1 = new Produit("Harry Potter à l'école des Sorciers", "blabla hp 1", 8.7, 10, true, "hp1.jpg");
+	//	Produit p2 = new Produit("Harry Potter et la chambre des Secrets", "blabla hp 2", 8.7, 10, true, "hp2.jpg");
+////		// 3.2. invocation du service pour l'ajout
+	//	produitService.addProduitService(p1);
+	//	produitService.addProduitService(p2);
 
 
 		// 4. Get produit par Id
@@ -73,7 +80,6 @@ public class AppTestProduit {
 		// =======================================//
 
 		// 7. get all produits
-//		 ------------------------------------------------------------------------------------------
 //		// 4. Get produit par Id
 //		// ------------------------------------------------------------------------------------------
 //		//System.out.println(" ");

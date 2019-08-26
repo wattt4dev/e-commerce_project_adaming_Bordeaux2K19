@@ -11,9 +11,9 @@
 <%response.sendRedirect("accueilBoutique"); %>
 
 
+<a href="${pageContext.request.contextPath}/accueil/internaute">Lien </a>
 
 
-		
 	
 </body>
 </html>
