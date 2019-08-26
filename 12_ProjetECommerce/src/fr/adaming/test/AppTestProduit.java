@@ -38,6 +38,19 @@ public class AppTestProduit {
 //
 		Produit p1 = new Produit("Harry Potter à l'école des Sorciers", "blabla hp 1", 8.7, 10, true, "hp1.jpg");
 		Produit p2 = new Produit("Harry Potter et la chambre des Secrets", "blabla hp 2", 8.7, 10, true, "hp2.jpg");
+		Produit p3 = new Produit("Harry Potter et le prisonier d'Azkaban", "blabla hp 3", 8.7, 10, true, "hp3.jpg");
+
+		Produit cd1 = new Produit("The Beatles", "Imagine all the people ",11 , 10, true, "beatles.jpg");
+		Produit cd2 = new Produit("Mago de Oz", "Cuando despiertes un dia y sientas que no puedes mas",12, 10, true, "mago.jpg");
+		Produit cd3 = new Produit("Joaquin Sabina", "blabla hp 2", 10, 10, true, "js.jpg");
+
+		
+		Produit j1 = new Produit("Trivial Pursuit", "Amusant!!!", 20, 10, true, "tp.jpg");
+		Produit j2 = new Produit("UNO", "A l'origine des divorces", 5.2, 10, true, "uno.jpg");
+		Produit j3 = new Produit("TriDomino", "Triplement amusant!", 15, 10, true, "dom.jpg");
+
+		
+		
 //////		// 3.2. invocation du service pour l'ajout
 		produitService.addProduitService(p1);
 		

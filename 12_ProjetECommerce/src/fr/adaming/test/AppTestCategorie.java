@@ -31,12 +31,14 @@ public class AppTestCategorie {
 				//Instanciation d'un objet de type Categorie
 		Categorie categorie = new Categorie("Livres", "La lecture quelle aventure");
 		Categorie categorie2 = new Categorie("Jeux", "Allez!! Juste une partie");
+		Categorie categorie3 = new Categorie("CD", "Allez!! Danse Danse !!!");
+
 		
 				//Ajout de l'objet dans la DataBase
 		categorieService.ajouterCategorie(categorie);
 		categorieService.ajouterCategorie(categorie2);
 
-		categorieService.ajouterCategorie(categorie2);
+		categorieService.ajouterCategorie(categorie3);
 
 //		categorieService.ajouterCategorie(categorie2);
 //		categorieService.ajouterCategorie(categorie2);
