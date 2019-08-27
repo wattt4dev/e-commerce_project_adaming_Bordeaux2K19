@@ -53,10 +53,11 @@
 
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/boutique/*"
-			access="hasAnyRole('ROLE_ADMINCAT','ROLE_ADMINPROD', 'ROLE_ANONYMOUS')" />
+			access="hasAnyRole('ROLE_ADMINCAT','ROLE_ADMINPROD','ROLE_ANONYMOUS','ROLE_CLIENT')" />
 		<security:intercept-url pattern="/adminProduit/*"
 			access="hasAnyRole('ROLE_ADMINPROD','ROLE_ADMINCAT')" />
 		<security:intercept-url pattern="/adminCategorie/*" access="hasRole('ROLE_ADMINCAT')" />
+		<security:intercept-url pattern="/panier/*" access="hasRole('ROLE_ADMINCAT','ROLE_ADMINPROD', 'ROLE_CLIENT')"/>
 			
 		<!-- Configuration de l'authentification par formulaire personnel -->
 		<!-- 

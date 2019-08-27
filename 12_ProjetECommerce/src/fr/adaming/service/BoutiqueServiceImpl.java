@@ -10,6 +10,7 @@ import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import fr.adaming.dao.AbstractFacade;
 import fr.adaming.dao.CategorieFacade;
+import fr.adaming.dao.ClientDAO;
 import fr.adaming.dao.CommandeDAO;
 import fr.adaming.dao.GestionPanierDao;
 import fr.adaming.dao.LigneCommandeDAO;
@@ -49,6 +50,9 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	
 	@Autowired
 	CommandeDAO cDAO;
+	
+	@Autowired
+	ClientDAO clDAO;
 
 	public GestionPanierDao getGpDao() {
 		return gpDao;
@@ -379,6 +383,13 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	@Override
 	public List<LigneCommande> getAllLigneService() {
 		return lcDAO.getAllLigneCommandeDao();
+	}
+
+	//Méthodes Clients
+	
+	@Override
+	public void ajouterClient(Client client) {
+		clDAO.add(client);
 	}
 
 }

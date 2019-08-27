@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.entity.Categorie;
+import fr.adaming.entity.Client;
 import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
 import fr.adaming.service.IAdminCategorieService;
@@ -276,6 +277,32 @@ public class AdminCategoriesController {
 		
 		return "redirect:/adminCategorie/welcomeAdminCategorie";
 	}
+	
+	
+	@RequestMapping(value="addClient", method=RequestMethod.GET)
+	public ModelAndView ajouterClientForm() {
+		
+		Map<String, Object> data = new HashMap<>();
+		
+		Client client = new Client();
+		
+		data.put("clientCommand", client);
+		
+		ModelAndView modelAndView = new ModelAndView("loginClient", data);
+		return modelAndView; 
+	}
+	
+	@RequestMapping(value="addClient/add", method=RequestMethod.POST)
+	public String ajouterClientBDD(@ModelAttribute("clientCommand") Client pClient, ModelMap modelDonnees) {
+		iacs.ajouterClient(pClient);
+		return "redirect:/accueilBoutique";
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 }// end class

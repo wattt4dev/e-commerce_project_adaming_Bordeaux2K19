@@ -29,6 +29,8 @@
 			style="color: white;"
 			href="${pageContext.request.contextPath}/accueilBoutique">Home</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
+			href="login.jsp">Login</a></li>	
+		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="contactUs.jsp">Contact Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
@@ -151,7 +153,7 @@
 						alt="Generic placeholder image">
 						<div class="media-body">
 							<h5 class="mt-0 mb-2 font-weight-bold">Audrey</h5>
-							<h6>Bordeaulaise depuis peu, j'ai 29 ans et j'aime la couture, la patiserie et le dessin.</h6>
+							<h6>Bordelaise depuis peu, j'ai 29 ans et j'aime la couture, la patiserie et le dessin.</h6>
 						</div></li>
 					<li class="media my-4"><img class="d-flex mr-3"
 						style="height: auto; width: 80px;"
@@ -181,7 +183,7 @@
 					<tr>
 						<td>
 							<div class="col-4" style="max-height: 1000px;">
-								<div align="center" class="border border-info rounded" style="overflow: scroll; height: 500px; margin-bottom: 10px; margin-right: 10px; margin-left: 10px; margin-top: 10px;">
+								<div align="center" class="border border-info rounded" style="overflow: auto; height: 500px; margin-bottom: 10px; margin-right: 10px; margin-left: 10px; margin-top: 10px;">
 									<a
 										href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><img
 										class="card-img-top"

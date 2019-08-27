@@ -3,6 +3,7 @@ package fr.adaming.service;
 import java.util.List;
 
 import fr.adaming.entity.Categorie;
+import fr.adaming.entity.Client;
 import fr.adaming.entity.Role;
 import fr.adaming.entity.User;
 
@@ -23,5 +24,8 @@ public interface IAdminCategorieService extends IAdminProduitMetier{
 	public void modifierUser(User user);
 	public List<Role> getAllRole();
 	public Role getRoleById(Long idRole);
+	
+	//Méthodes Client
+	public void ajouterClient(Client client);
 
 }

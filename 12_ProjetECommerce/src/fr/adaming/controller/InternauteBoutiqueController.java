@@ -30,6 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.entity.Categorie;
+import fr.adaming.entity.Client;
 import fr.adaming.entity.GestionPanierEssai;
 import fr.adaming.entity.LigneCommande;
 import fr.adaming.entity.Panier;
