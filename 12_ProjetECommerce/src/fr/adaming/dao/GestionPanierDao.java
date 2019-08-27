@@ -66,8 +66,8 @@ public class GestionPanierDao {
 		
 	
 		@Transactional
-		public Panier getPanierDao(int pIdPanier) {
-			return sf.getCurrentSession().get(Panier.class, pIdPanier);
+		public Panier getPanierDao(int panId) {
+			return sf.getCurrentSession().get(Panier.class, panId);
 
 		}
 

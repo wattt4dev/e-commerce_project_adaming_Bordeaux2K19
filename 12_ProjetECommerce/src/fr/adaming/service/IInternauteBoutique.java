@@ -68,19 +68,13 @@ public interface IInternauteBoutique {
 
 
 	
-	public int addCommandeService(Commande pCommande) ;
-
+	public void addCommandeService(Commande pCommande) ;
 
 	public void updateCommandeService(Commande pCommande) ;
 
+	public void deleteCommandeService(long pIdCommande) ;
 
-	public void deleteCommandeService(int pIdCommande) ;
-
-
-
-	public Commande getCommandeService(int pIdCommande);
-
-
+	public Commande getCommandeService(long pIdCommande);
 
 	public List<Commande> getAllCommandeService() ;
 	

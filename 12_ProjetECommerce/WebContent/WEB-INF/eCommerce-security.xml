@@ -70,6 +70,9 @@
 		 -->
 		
 		<security:form-login login-page="/login.jsp" default-target-url="/adminCategorie/welcomeAdminCategorie" authentication-failure-url="/login.jsp?error=true" login-processing-url="/login" username-parameter="username" password-parameter="password"/>
+		<security:form-login login-page="/login.jsp" default-target-url="/adminProduit/liste_produits" authentication-failure-url="/login.jsp?error=true" login-processing-url="/login" username-parameter="username" password-parameter="password"/>
+		<!-- <security:form-login login-page="/login.jsp" default-target-url="/adminCategorie/welcomeAdminCategorie" authentication-failure-url="/login.jsp?error=true" login-processing-url="/login" username-parameter="username" password-parameter="password"/>
+		 -->
 		<!-- Configuration de la déconnexion de l'utilisateur -->
 			<!-- Url par default est /logout 
 					logout-success-url : url de redirection après déconnexion

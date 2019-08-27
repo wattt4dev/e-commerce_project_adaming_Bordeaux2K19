@@ -30,8 +30,8 @@ public class CommandeDAO {
 	/*___________ Les méthodes ____________*/
 
 	@Transactional
-	public int addCommandeDao(Commande pCommande) {
-		return (int) sf.getCurrentSession().save(pCommande);
+	public void addCommandeDao(Commande pCommande) {
+		sf.getCurrentSession().save(pCommande);
 	}
 	
 
@@ -43,7 +43,7 @@ public class CommandeDAO {
 	
 
 	@Transactional
-	public void deleteCommandeDao(int pIdCommande) {
+	public void deleteCommandeDao(long pIdCommande) {
 		Commande nCommande = sf.getCurrentSession().get(Commande.class, pIdCommande);
 		sf.getCurrentSession().delete(nCommande);
 	}
@@ -58,7 +58,6 @@ public class CommandeDAO {
 
 	@Transactional
 	public List<Commande> getAllCommandeDao() {
-
 		return sf.getCurrentSession().createQuery("FROM commande").getResultList();
 
 	}
