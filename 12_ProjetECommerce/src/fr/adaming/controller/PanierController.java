@@ -251,20 +251,22 @@ public class PanierController {
 		 Commande commande= new Commande();
 		 commande.setListeLigneCommande(listeLC);
 		 commande.setTotal(total);
+		 
+		 for (LigneCommande lc : listeLC) {
+				lc.setCommande(commande);
+				panierService.updateLigneCommandeService(lc);
+			}
 		// commande.setDateCommande(dateCommande);
 		 panierService.addCommandeService(commande);
-		
 		 data.put("commande", commande);
 		
 		 Client client=new Client();
-
 		 data.put("clientCommande", client);
 		
 		
 		 // Etape 2 : création du nom logique vue + renvoi du ModelandView
 
 		String nomVue = "confirmerCommande";
-
 		return new ModelAndView(nomVue, data);
 
 	}

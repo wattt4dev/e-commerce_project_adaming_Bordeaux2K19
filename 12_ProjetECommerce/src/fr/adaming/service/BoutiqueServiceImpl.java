@@ -333,9 +333,8 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	}
 
 
-	public Panier getPanierService(int pIdPanier) {
-
-		return gpDao.getPanierDao(pIdPanier);
+	public Panier getPanierService(int panId) {
+		return gpDao.getPanierDao(panId);
 
 	}
 
@@ -352,32 +351,23 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 
 
 	
-	public int addCommandeService(Commande pCommande) {
-	
-		return cDAO.addCommandeDao(pCommande);
+	public void addCommandeService(Commande pCommande) {
+		 cDAO.addCommandeDao(pCommande);
 
 	}
 
 
 	public void updateCommandeService(Commande pCommande) {
-
 		cDAO.updateCommandeDao(pCommande);	
-
 	}
 
 
-	public void deleteCommandeService(int pIdCommande) {
-
+	public void deleteCommandeService(long pIdCommande) {
 		cDAO.deleteCommandeDao(pIdCommande);
-
-	
 	}
 
 
-
-	public Commande getCommandeService(int pIdCommande) {
-		
-
+	public Commande getCommandeService(long pIdCommande) {
 		return cDAO.getCommandeDao(pIdCommande);
 
 	}
@@ -385,8 +375,6 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 
 
 	public List<Commande> getAllCommandeService() {
-
-	
 		return cDAO.getAllCommandeDao();
 
 	}
@@ -426,5 +414,7 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 		// TODO Auto-generated method stub
 		return clientDao.getAllClientDao();
 	}
+
+
 
 }

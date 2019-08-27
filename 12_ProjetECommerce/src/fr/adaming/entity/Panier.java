@@ -45,8 +45,6 @@ public class Panier {
 	}
 
 
-
-
 	public List<LigneCommande> getListeLC() {
 		return listeLC;
 	}
@@ -56,14 +54,10 @@ public class Panier {
 	}
 
 
-
-
 	@Override
 	public String toString() {
 		return "Panier [id=" + id + ", total=" + total + ", listeLC=" + listeLC + "]";
 	}
-
-
 
 
 	public double getTotal() {
@@ -84,16 +78,6 @@ public class Panier {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
-
-
-
-	
-
-
-
-	
 
 
 }
