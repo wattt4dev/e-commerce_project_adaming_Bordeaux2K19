@@ -14,8 +14,6 @@
 
 <linki rel="stylesheet" href="resources/css/shop-homepage.css"
 	type="text/css">
-
-
 </head>
 <body
 	style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; text-align: left; background-color: #fff;">
@@ -29,20 +27,22 @@
 			style="color: white;"
 			href="${pageContext.request.contextPath}/accueilBoutique">Home</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="login.jsp">Login</a></li>	
+			href="login.jsp">Login</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="contactUs.jsp">Contact Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="aboutUs.jsp">About Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="${pageContext.request.contextPath}/panier/getProduits">Panier </a></li>
+			href="${pageContext.request.contextPath}/panier/getProduits">Panier
+		</a></li>
 	</ul>
 	</nav> </header>
 
 
-	<br/>
+	<br />
 	<div class="row">
-		<div class="col-3" id="categories" style="margin-left: 10px; margin-right: 10px;">
+		<div class="col-3" id="categories"
+			style="margin-left: 10px; margin-right: 10px;">
 
 			<h3 class="list-group-item" style="border-radius: 3px;">Catégories</h3>
 			<div class="list-group">
@@ -153,7 +153,8 @@
 						alt="Generic placeholder image">
 						<div class="media-body">
 							<h5 class="mt-0 mb-2 font-weight-bold">Audrey</h5>
-							<h6>Bordelaise depuis peu, j'ai 29 ans et j'aime la couture, la patiserie et le dessin.</h6>
+							<h6>Bordelaise depuis peu, j'ai 29 ans et j'aime la couture,
+								la patiserie et le dessin.</h6>
 						</div></li>
 					<li class="media my-4"><img class="d-flex mr-3"
 						style="height: auto; width: 80px;"
@@ -161,7 +162,8 @@
 						alt="Generic placeholder image">
 						<div class="media-body">
 							<h5 class="mt-0 mb-2 font-weight-bold">Emma</h5>
-							<h6>Espagnole de 30 ans en quête d'aventure en France, je suis passionée d'énigmes et de puzzles.</h6>
+							<h6>Espagnole de 30 ans en quête d'aventure en France, je
+								suis passionée d'énigmes et de puzzles.</h6>
 						</div></li>
 					<li class="media"><img class="d-flex mr-3"
 						style="height: auto; width: 80px;"
@@ -183,11 +185,12 @@
 					<tr>
 						<td>
 							<div class="col-4" style="max-height: 1000px;">
-								<div align="center" class="border border-info rounded" style="overflow: auto; height: 500px; margin-bottom: 10px; margin-right: 10px; margin-left: 10px; margin-top: 10px;">
+								<div align="center" class="border border-info rounded"
+									style="overflow: auto; height: 500px; margin-bottom: 10px; margin-right: 10px; margin-left: 10px; margin-top: 10px;">
 									<a
 										href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"><img
-										class="card-img-top"
-										src="${produit.picture}" style="margin-top: 5px; height: 200px; width: auto;"
+										class="card-img-top" src="${produit.picture}"
+										style="margin-top: 5px; height: 200px; width: auto;"
 										alt="Card image cap"></a>
 									<div class="card-body" style="text-align: left;">
 										<h5 class="card-title">${produit.designation}</h5>
@@ -196,8 +199,8 @@
 										<p class="card-text">${produit.prix}euros</p>
 										<a
 											href="${pageContext.request.contextPath}/afficherArticle/${produit.idProduit}"
-											class="btn btn-primary" style="margin-bottom: 5px;">Visionner l'article</a>
-										<a class="btn btn-primary"
+											class="btn btn-primary" style="margin-bottom: 5px;">Visionner
+											l'article</a> <a class="btn btn-primary"
 											href="${pageContext.request.contextPath}/panier/addProduit/${produit.idProduit}">Ajouter
 											au panier</a>
 
@@ -211,36 +214,38 @@
 		</div>
 	</div>
 
-		</br> </br> </br>
+	</br>
+	</br>
+	</br>
 
 
 
 
-		<!-- Footer -->
-		<footer class="py-5 bg-dark">
-		<div class="container" align="center">
-			<p class="m-0 text-center text-white">
-				Copyright &copy; Chouquette & Co. 2019</br> <a
-					href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
-					Administrateur Catégorie</a></br> <a
-					href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil
-					Administrateur Produit</a>
-			</p>
-		</div>
-		</footer>
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+	<div class="container" align="center">
+		<p class="m-0 text-center text-white">
+			Copyright &copy; Chouquette & Co. 2019</br> <a
+				href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
+				Administrateur Catégorie</a></br> <a
+				href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil
+				Administrateur Produit</a>
+		</p>
+	</div>
+	</footer>
 
 
 
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-			crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
 </html>

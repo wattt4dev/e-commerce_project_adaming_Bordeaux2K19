@@ -110,7 +110,6 @@
 				<value>fr.adaming.entity.Produit</value>
 				<value>fr.adaming.entity.Role</value>
 				<value>fr.adaming.entity.User</value>
-				<value>fr.adaming.entity.Panier</value>
 			</list>
 
 		</property>

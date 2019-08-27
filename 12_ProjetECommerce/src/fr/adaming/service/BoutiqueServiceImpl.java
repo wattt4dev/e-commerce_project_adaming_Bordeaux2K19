@@ -10,7 +10,9 @@ import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import fr.adaming.dao.AbstractFacade;
 import fr.adaming.dao.CategorieFacade;
-import fr.adaming.dao.ClientDAO;
+
+import fr.adaming.dao.ClientDao;
+
 import fr.adaming.dao.CommandeDAO;
 import fr.adaming.dao.GestionPanierDao;
 import fr.adaming.dao.LigneCommandeDAO;
@@ -51,8 +53,6 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	@Autowired
 	CommandeDAO cDAO;
 	
-	@Autowired
-	ClientDAO clDAO;
 
 	public GestionPanierDao getGpDao() {
 		return gpDao;
@@ -62,10 +62,24 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 		this.gpDao = gpDao;
 	}
 
+	@Autowired
+	private ClientDao clientDao;
+	
+	
+	
+	
 
 	// ====================================================================
 	// ----------------------- Méthode de Catégorie -----------------------
 	// ====================================================================
+
+	public ClientDao getClientDao() {
+		return clientDao;
+	}
+
+	public void setClientDao(ClientDao clientDao) {
+		this.clientDao = clientDao;
+	}
 
 	@Override
 	public void ajouterCategorie(Categorie categorie) {
@@ -386,10 +400,36 @@ public class BoutiqueServiceImpl implements IAdminCategorieService {
 	}
 
 	//Méthodes Clients
-	
+
+		@Override
+	public int addClientService(Client client) {
+		// TODO Auto-generated method stub
+		return clientDao.addClientDao(client);
+	}
+
 	@Override
-	public void ajouterClient(Client client) {
-		clDAO.add(client);
+	public void updateClientService(Client client) {
+		clientDao.updateClientDao(client);
+		
+	}
+
+	@Override
+	public void deleteClientService(int pIdclient) {
+		// TODO Auto-generated method stub
+		clientDao.deleteClientDao(pIdclient);
+		
+	}
+
+	@Override
+	public Client getClientService(int pIdclient) {
+		// TODO Auto-generated method stub
+		return clientDao.getClientDao(pIdclient);
+	}
+
+	@Override
+	public List<Client> getAllClientService() {
+		// TODO Auto-generated method stub
+		return clientDao.getAllClientDao();
 	}
 
 }

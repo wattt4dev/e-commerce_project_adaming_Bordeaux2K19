@@ -32,37 +32,21 @@
 	crossorigin="anonymous">
 
 </head>
-<body>
+<body style="background-color: black; background-repeat: no-repeat; background-position: center; background-size: contain; width: 100%; height: 100%; background-image: url('${pageContext.request.contextPath}/resources/images/pokemon__snorlax___you_shall_not_pass__by_scotlette-d8z2bth.png');">
 
-	<header> <nav class="py-5 bg-dark">
-	<ul class="nav justify-content-end">
-		<li class="nav-item"><a class="nav-link"
-			style="color: white; position: absolute; left: 10px"
-			href="accueilBoutique.jsp">Chouquette & Co. Boutique</a></li>
-		<li class="nav-item"><a class="nav-link active"
-			style="color: white;" href="accueilBoutique.jsp">Home</a></li>
-		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="contactUs.jsp">Contact Us</a></li>
-		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="aboutUs.jsp">About Us</a></li>
-		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="more.jsp">More</a></li>
-	</ul>
-	</nav>
-	</br></header>
 
 
 	<!-- Affichage des erreurs après echec authentification -->
 	<!-- Recupération du paramètre erreur -->
 	<c:if test="${ not empty param.error }">
-		<font> Login error <br /> Reason :
+		<font style="color: red"> Login error <br /> Reason :
 			${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
 		</font>
 	</c:if>
 
 	<!-- Affichage du message de deconnexion-->
 	<c:if test="${not empty param.logout_message}">
-		<font> You have succesfully log out </font>
+		<font style="color: red"> You have succesfully log out </font>
 	</c:if>
 
 	<!-- Construction de l'url d'authentification à la soumission -->
@@ -71,60 +55,102 @@
 
 
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-5 mx-auto">
-				<div id="first">
-					<div class="myform form ">
-						<div class="logo mb-3">
-							<div class="col-md-12 text-center">
-								<h1>Login</h1>
+	<div class="col" align="center">
+		<h2><a href="${pageContext.request.contextPath}/accueilBoutique" style="color: white;">Maison du Hobbit</a></h2>
+	</div>
+	<div class="row">
+
+		<div class="col"
+			style="margin-left: 75px; margin-top: 200px; margin-right: 0px; width: 500px">
+			<div class="row">
+				<div>
+					<div id="first">
+						<div class="myform form" style="color: white;">
+							<div class="logo mb-3">
+								<div class="text-center">
+									<a href="login.jsp"><h1 style="color: white;">Login</h1></a>
+								</div>
 							</div>
+							<form action="${loginUrl}" method="post" name="login">
+								<div class="form-group">
+									<tr>
+										<td>Username</td>
+										<td><input type="text" name="username"
+											class="form-control" placeholder="Username" /></td>
+									</tr>
+								</div>
+								<div class="form-group">
+									<tr>
+										<td>Password</td>
+										<td><input type="password" name="password"
+											class="form-control" placeholder="Password" /></td>
+									</tr>
+								</div>
+
+								<div class="text-center">
+									<button type="submit" class=" btn btn-block btn-primary tx-tfm">Login</button>
+								</div>
+							</form>
 						</div>
-						<form action="${loginUrl}" method="post" name="login">
-							<div class="form-group">
-								<tr>
-									<td>Username</td>
-									<td><input type="text" name="username"
-										class="form-control" placeholder="Username" /></td>
-								</tr>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-2"></div>
+		<div class="col" align="left"
+			style="margin-top: 150px; margin-right: 0px; margin-left:460px; width: 500px">
+			<div class="row">
+				<div>
+					<div id="first">
+						<div class="myform form" style="color: white;">
+							<div class="logo mb-3">
+								<div class="text-center">
+									<h1>
+										<a href="login.jsp" style="color: white;">Register</a>
+									</h1>
+								</div>
 							</div>
-							<div class="form-group">
-								<tr>
-									<td>Password</td>
-									<td><input type="password" name="password"
-										class="form-control" placeholder="Password" /></td>
-								</tr>
-							</div>
-							
-							<div class="col-md-12 text-center ">
-								<button type="submit"
-									class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
-							</div>
-						</form>
+							<form action="${loginUrl}" method="post" name="login">
+											
+								<div class="form-group">
+									<tr>
+										<td>Username</td>
+										<td><input type="text" name="username"
+											class="form-control" placeholder="Username" /></td>
+									</tr>
+								</div>
+								<div class="form-group">
+									<tr>
+										<td>Password</td>
+										<td><input type="password" name="password"
+											class="form-control" placeholder="Password" /></td>
+									</tr>
+								</div>
+								<div class="form-group">
+									<tr>
+										<td>Password Confirmation</td>
+										<td><input type="password" name="password"
+											class="form-control" placeholder="Confirmation password" /></td>
+									</tr>
+								</div>
+								<div class="form-group">
+									<tr>
+										<td>Mail</td>
+										<td><input type="text" name="mail"
+											class="form-control" placeholder="exemple@exemple.com" /></td>
+									</tr>
+								</div>
+								
+								<div class="text-center">
+									<button type="submit" class=" btn btn-block btn-primary tx-tfm">Register</button>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-	</br>
-	<!-- Footer -->
-	<footer class="py-5 bg-dark">
-	<div class="container">
-		<p class="m-0 text-center text-white">
-			Copyright &copy; Chouquette & Co. 2019</br> <a
-				href="${pageContext.request.contextPath}/adminCategorie/welcomeAdminCategorie">Accueil
-				Administrateur Catégorie</a></br> <a
-				href="${pageContext.request.contextPath}/adminProduit/liste_produits">Accueil
-				Administrateur Produit</a>
-		</p>
-	</div>
-	</footer>
-
-
-
 
 	<!-- Script -->
 

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,7 +28,7 @@
 </head>
 <body>
 
-<header> <nav class="py-5 bg-dark">
+	<header> <nav class="py-5 bg-dark">
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link"
 			style="color: white; position: absolute; left: 10px"
@@ -47,7 +48,8 @@
 
 	<div class="row">
 		<div class="col-8">
-			<div class="card mt-4" style="background-color: lightgray; margin-left: 20px;">
+			<div class="card mt-4"
+				style="background-color: lightgray; margin-left: 20px;">
 
 				<h1>Votre panier</h1>
 
@@ -66,8 +68,8 @@
 
 					</tr>
 
-					<c:forEach items="${panier_attribut}" var="ligneCommande">
-						<tr>
+					<c:forEach items="${panier}" var="ligneCommande">
+						<tr >
 
 							<td>${ligneCommande.produit.designation}</td>
 							<td>${ligneCommande.produit.categorie.nomCategorie}</td>
@@ -101,10 +103,10 @@
 						mes achats </a>
 				</div>
 
-				<div style="display: none;">
+				<div>
 					<a class="list-group-item bg-light"
-						href="${pageContext.request.contextPath}/addPanier/${panier_attribut}">Valider
-						votre commande </a>
+						href="${pageContext.request.contextPath}/panier/addCommande/${pan.id}">Valider la commande</a>
+				
 				</div>
 
 
@@ -128,22 +130,22 @@
 		</p>
 	</div>
 	</footer>
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-			crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 
 
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="resources/css/jquery.min.js"></script>
-	<script src="resources/css/bootstrap.bundle.min.js"></script>
+<script src="resources/css/jquery.min.js"></script>
+<script src="resources/css/bootstrap.bundle.min.js"></script>
 </body>
 </html>

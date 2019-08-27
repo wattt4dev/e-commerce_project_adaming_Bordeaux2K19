@@ -25,7 +25,6 @@ public interface IAdminCategorieService extends IAdminProduitMetier{
 	public List<Role> getAllRole();
 	public Role getRoleById(Long idRole);
 	
-	//Méthodes Client
-	public void ajouterClient(Client client);
+	
 
 }

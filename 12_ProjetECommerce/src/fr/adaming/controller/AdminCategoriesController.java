@@ -294,7 +294,7 @@ public class AdminCategoriesController {
 	
 	@RequestMapping(value="addClient/add", method=RequestMethod.POST)
 	public String ajouterClientBDD(@ModelAttribute("clientCommand") Client pClient, ModelMap modelDonnees) {
-		iacs.ajouterClient(pClient);
+		iacs.addClientService(pClient);
 		return "redirect:/accueilBoutique";
 	}
 	
