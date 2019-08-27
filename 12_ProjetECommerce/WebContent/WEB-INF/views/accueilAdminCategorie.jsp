@@ -38,16 +38,20 @@
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link"
 			style="color: white; position: absolute; left: 10px"
-			href="${pageContext.request.contextPath}/accueilBoutique">Chouquette & Co. Boutique</a></li>
+			href="${pageContext.request.contextPath}/accueilBoutique">Chouquette
+				& Co. Boutique</a></li>
 
-		<li class="nav-item"><a class="nav-link active" style="color: red;">${attribut_message}</a></li>
-		<li class="nav-item"><a class="nav-link active" style="color: white;"><fmt:formatDate value="${attribut_date}"
+		<li class="nav-item"><a class="nav-link active"
+			style="color: red;">${attribut_message}</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			style="color: white;"><fmt:formatDate value="${attribut_date}"
 					pattern="dd-MM-yyyy" /> | <fmt:formatDate value="${attribut_date}"
 					type="time" timeStyle="short" /></a></li>
 
 
 		<li class="nav-item"><a class="nav-link active"
-			style="color: white;" href="http://localhost:8080/12_ProjetECommerce/accueilBoutique">Home</a></li>
+			style="color: white;"
+			href="http://localhost:8080/12_ProjetECommerce/accueilBoutique">Home</a></li>
 
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="contactUs.jsp">Contact Us</a></li>
@@ -57,10 +61,14 @@
 
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="${pageContext.request.contextPath}/more.jsp">More</a></li>
+		<li class="nav-item"><a class="nav-link" style="color: white"
+			href="${pageContext.request.contextPath}/logout"><img alt=""
+				style="height: 20px; width: auto;"
+				src="resources/images/disconnect-icon-png-10.png"> </a></li>
 	</ul>
 	</nav> </header>
 
-	
+
 
 
 	<div class="row">
@@ -93,7 +101,8 @@
 							<td><b>${categorie.idCategorie}</b></td>
 							<td>${categorie.nomCategorie}</td>
 							<td>${categorie.description}</td>
-							<td><img style="height: 100px; width: auto;" src="${categorie.pictureCat}"/></td>
+							<td><img style="height: 100px; width: auto;"
+								src="${categorie.pictureCat}" /></td>
 							<td><a
 								href="${pageContext.request.contextPath}/adminCategorie/updateCategorie?idCategorie=${categorie.idCategorie}">Modifier</a>
 								<a

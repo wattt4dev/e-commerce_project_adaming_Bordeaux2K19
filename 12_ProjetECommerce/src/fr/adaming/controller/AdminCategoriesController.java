@@ -277,26 +277,7 @@ public class AdminCategoriesController {
 		
 		return "redirect:/adminCategorie/welcomeAdminCategorie";
 	}
-	
-	
-	@RequestMapping(value="addClient", method=RequestMethod.GET)
-	public ModelAndView ajouterClientForm() {
 		
-		Map<String, Object> data = new HashMap<>();
-		
-		Client client = new Client();
-		
-		data.put("clientCommand", client);
-		
-		ModelAndView modelAndView = new ModelAndView("loginClient", data);
-		return modelAndView; 
-	}
-	
-	@RequestMapping(value="addClient/add", method=RequestMethod.POST)
-	public String ajouterClientBDD(@ModelAttribute("clientCommand") Client pClient, ModelMap modelDonnees) {
-		iacs.addClientService(pClient);
-		return "redirect:/accueilBoutique";
-	}
 	
 	
 	

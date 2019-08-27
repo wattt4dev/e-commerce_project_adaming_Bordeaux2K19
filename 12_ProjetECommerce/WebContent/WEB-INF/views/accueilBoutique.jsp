@@ -12,7 +12,7 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
-<linki rel="stylesheet" href="resources/css/shop-homepage.css"
+<link rel="stylesheet" href="resources/css/shop-homepage.css"
 	type="text/css">
 </head>
 <body
@@ -23,11 +23,16 @@
 			style="color: white; position: absolute; left: 10px"
 			href="${pageContext.request.contextPath}/accueilBoutique">Chouquette
 				& Co. Boutique</a></li>
+				<li class="nav-item">
+					<c:if test="${not empty param.logout_message}">
+						<font style="color: red"> You have succesfully log out </font>
+					</c:if>
+		</li>
 		<li class="nav-item"><a class="nav-link active"
 			style="color: white;"
 			href="${pageContext.request.contextPath}/accueilBoutique">Home</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
-			href="login.jsp">Login</a></li>
+			href="${pageContext.request.contextPath}/client/welcomeClient">Login</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="contactUs.jsp">Contact Us</a></li>
 		<li class="nav-item"><a class="nav-link" style="color: white"
@@ -35,8 +40,14 @@
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="${pageContext.request.contextPath}/panier/getProduits">Panier
 		</a></li>
+		<li class="nav-item"><a class="nav-link" style="color: white"
+			href="${pageContext.request.contextPath}/logout"><img alt="" style="height: 20px; width: auto;" src="resources/images/disconnect-icon-png-10.png">
+		</a></li>
+		
 	</ul>
 	</nav> </header>
+	
+	
 
 
 	<br />

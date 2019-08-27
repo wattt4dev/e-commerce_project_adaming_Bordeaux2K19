@@ -100,6 +100,8 @@ public class AppTestCategorie {
 		categorieService.ajouterUser(user1);
 		User user2 = new User("adminprod", "adminprod", true);
 		categorieService.ajouterUser(user2);
+		User user3 = new User("client", "client", true);
+		categorieService.ajouterUser(user3);
 		
 //			//================================================================================
 //			//========================AttribuerRole via attribuerRole=========================
@@ -107,9 +109,10 @@ public class AppTestCategorie {
 //		
 		Role roleCat = new Role("ROLE_ADMINCAT");
 		Role roleProd = new Role("ROLE_ADMINPROD");
+		Role roleClient = new Role("ROLE_CLIENT");
 		categorieService.attribuerRole(roleCat, (long) 1);
 		categorieService.attribuerRole(roleProd, (long) 2);
-		
+		categorieService.attribuerRole(roleClient, (long) 3); 
 //		
 		
 	}//end main

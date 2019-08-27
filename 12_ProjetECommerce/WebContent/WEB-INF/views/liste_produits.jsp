@@ -58,6 +58,9 @@
 
 		<li class="nav-item"><a class="nav-link" style="color: white"
 			href="more.jsp">More</a></li>
+			<li class="nav-item"><a class="nav-link" style="color: white"
+			href="${pageContext.request.contextPath}/logout"><img alt="" style="height: 20px; width: auto;" src="resources/images/disconnect-icon-png-10.png">
+		</a></li>
 	</ul>
 	</nav> </header>
 
