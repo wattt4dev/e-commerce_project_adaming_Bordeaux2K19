@@ -83,7 +83,25 @@ public interface IInternauteBoutique {
 
 
 	public List<Commande> getAllCommandeService() ;
+	
+	
+	//-----methodes de client
+	
+	public int addClientService(Client client) ;
 
+	public void updateClientService(Client client) ;
+
+	public void deleteClientService(int pIdclient) ;
+
+	public Client getClientService(int pIdclient);
+
+	public List<Client> getAllClientService() ;
+	
+
+	//----- methode enregistrer commande
+	
+	
+	
 	
 
 }

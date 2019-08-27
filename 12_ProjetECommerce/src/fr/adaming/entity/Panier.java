@@ -9,6 +9,7 @@ import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,8 +35,8 @@ public class Panier {
 	
 	
 	//asociation uml
-	@OneToMany(mappedBy="panier")
-	private List<LigneCommande> panier;
+	@OneToMany(mappedBy="panier", fetch=FetchType.EAGER)
+	private List<LigneCommande> listeLC;
 	
 	
 	//constructeurs
@@ -44,20 +45,25 @@ public class Panier {
 	}
 
 
-	public List<LigneCommande> getPanier() {
-		return panier;
+
+
+	public List<LigneCommande> getListeLC() {
+		return listeLC;
+	}
+
+	public void setListeLC(List<LigneCommande> listeLC) {
+		this.listeLC = listeLC;
 	}
 
 
-	public void setPanier(List<LigneCommande> panier) {
-		this.panier = panier;
-	}
 
 
 	@Override
 	public String toString() {
-		return "Panier [panier=" + panier + "]";
+		return "Panier [id=" + id + ", total=" + total + ", listeLC=" + listeLC + "]";
 	}
+
+
 
 
 	public double getTotal() {
@@ -67,6 +73,16 @@ public class Panier {
 
 	public void setTotal(double total) {
 		this.total = total;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

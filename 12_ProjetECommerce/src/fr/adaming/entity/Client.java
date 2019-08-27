@@ -80,6 +80,14 @@ public class Client {
 		this.telephone = telephone;
 	}
 	
+	
+	
+	public List<Commande> getListeCommande() {
+		return listeCommande;
+	}
+	public void setListeCommande(List<Commande> listeCommande) {
+		this.listeCommande = listeCommande;
+	}
 	//To String
 	@Override
 	public String toString() {

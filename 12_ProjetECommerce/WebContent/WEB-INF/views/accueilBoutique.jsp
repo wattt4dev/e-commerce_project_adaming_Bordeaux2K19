@@ -151,7 +151,7 @@
 						alt="Generic placeholder image">
 						<div class="media-body">
 							<h5 class="mt-0 mb-2 font-weight-bold">Audrey</h5>
-							<h6>Bordeaulaise depuis peu, j'ai 29 ans et j'aime la couture, la patiserie et le dessin.</h6>
+							<h6>Bordelaise depuis peu, j'ai 29 ans et j'aime la couture, la patisserie et le dessin.</h6>
 						</div></li>
 					<li class="media my-4"><img class="d-flex mr-3"
 						style="height: auto; width: 80px;"

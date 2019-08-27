@@ -40,56 +40,7 @@
 
 	<br />
 
-	<div class="row">
-
-
-		<div class="col-4">
-			<div class="card mt-4" style="background-color: lightgray">
-
-				<h1>Votre panier</h1>
-
-
-				<table>
-					<tr>
-					</tr>
-					<tr>
-						<th>Article</th>
-						<th>Prix des articles</th>
-						<th>Supprimer du panier</th>
-					</tr>
-
-					<c:forEach items="${panier_attribut}" var="ligneCommande">
-						<tr>
-							<td>${ligneCommande.produit.designation}</td>
-							<td>${ligneCommande.prix}</td>
-						</tr>
-					</c:forEach>
-
-				</table>
-
-			</div>
-
-
-
-			<div class="col-lg-8">
-
-				<div class="card mt-4"></div>
-				<!-- /.card -->
-
-
-				<!-- /.card -->
-
-			</div>
-			<!-- /.col-lg-9 -->
-
-		</div>
-
-		<!-- /.container -->
-
-		<br /> <br /> <br />
-
-
-
+	Formulaire client
 
 
 	</div>
